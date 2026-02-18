@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Code Your Own WordPress Plugin — Preparation</title>
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --color-success: #46b450;
+      --color-warning: #f0b849;
+      --max-width: 720px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--color-text-secondary);
+      font-size: 1.05rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card.recommended {
+      border-color: var(--color-accent);
+      border-width: 2px;
+    }
+
+    .card.recommended::before {
+      content: "Recommended";
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .card.quick::before {
+      content: "Quick option";
+      display: inline-block;
+      background: var(--color-warning);
+      color: var(--color-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    ol, ul {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li { margin-bottom: 0.4rem; }
+
+    .time-estimate {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .check {
+      background: #f0faf0;
+      border-left: 4px solid var(--color-success);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .note {
+      background: #fff8e8;
+      border-left: 4px solid var(--color-warning);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tip {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    th {
+      font-weight: 600;
+      background: var(--color-bg);
+    }
+
+    pre {
+      background: #f5f5f5;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1.2rem;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 1rem 0;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 2px solid var(--color-border);
+      border-radius: 3px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 1rem 0;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #005f8a;
+      text-decoration: none;
+    }
+
+    .stuck {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      header h1 { font-size: 1.5rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Vibe Code Your Own WordPress Plugin</h1>
+    <p>Workshop preparation — get set up before we start</p>
+  </header>
+
+  <p>In this workshop you'll create your own WordPress plugin in 45 minutes using AI. No coding experience needed — but a little preparation makes all the difference.</p>
+
+  <div class="tip">
+    <strong>Short on time?</strong> Jump to <a href="#option-b">Option B: Zero Install</a> — you only need a browser and an AI tool.
+  </div>
+
+  <!-- STEP 1 -->
+  <h2>Step 1: Set up WordPress</h2>
+  <p>You need a working WordPress installation to test plugins on. Choose one of these options:</p>
+
+  <div class="card recommended">
+    <h3 id="option-a">Option A: LocalWP</h3>
+    <p>LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs.</p>
+    <ol>
+      <li>Download LocalWP from <a href="https://localwp.com/" target="_blank" rel="noopener">localwp.com</a></li>
+      <li>Install the program</li>
+      <li>Click <strong>"Create a new site"</strong></li>
+      <li>Choose a name (e.g. "workshop") and click through with the default settings</li>
+      <li>Wait for the site to be created</li>
+      <li>Click <strong>"WP Admin"</strong> to verify your WordPress dashboard opens</li>
+    </ol>
+    <p class="time-estimate">Takes about 10 minutes (including download)</p>
+    <div class="check">
+      <strong>Check:</strong> Can you log in to your WordPress dashboard? Then you're ready.
+    </div>
+  </div>
+
+  <div class="card quick">
+    <h3 id="option-b">Option B: WordPress Playground</h3>
+    <p>No time or no desire to install anything? WordPress Playground runs entirely in your browser.</p>
+    <ol>
+      <li>Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a></li>
+      <li>Wait for WordPress to load (takes a few seconds)</li>
+      <li>You now have a fully working WordPress installation in your browser</li>
+    </ol>
+    <p class="time-estimate">Takes about 30 seconds</p>
+    <div class="note">
+      <strong>Note:</strong> Everything you create disappears when you close the tab (unless you export). Works best in Chrome or Edge.
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <h2>Step 2: Set up an AI tool</h2>
+  <p>You need an AI chatbot that can generate code. Pick one — any will do:</p>
+
+  <table>
+    <thead>
+      <tr><th>Tool</th><th>Account needed?</th><th>Free?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a></td><td>Yes</td><td>Free tier available</td></tr>
+      <tr><td><a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a></td><td>Yes</td><td>Free tier available</td></tr>
+      <tr><td><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a></td><td>No (Microsoft account)</td><td>Free</td></tr>
+      <tr><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></td><td>Yes (Google account)</td><td>Free</td></tr>
+    </tbody>
+  </table>
+
+  <div class="check">
+    <strong>Check:</strong> Can you send a message and get a response? Then you're ready.
+  </div>
+
+  <!-- STEP 3 -->
+  <h2>Step 3: Code editor <span style="font-weight: normal; font-size: 0.85em;">(optional)</span></h2>
+  <p>If you're using LocalWP, it helps to have a code editor. If you're using WordPress Playground, skip this step.</p>
+  <ul>
+    <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> (free) — recommended</li>
+    <li>Or use Notepad / TextEdit — that works too</li>
+  </ul>
+
+  <!-- STEP 4 -->
+  <h2>Step 4: Know the basics</h2>
+  <p>You don't need to know how to code, but it helps to understand this:</p>
+
+  <h3>What is a WordPress plugin?</h3>
+  <p>A plugin is a piece of extra functionality you add to WordPress. Technically, it's a folder with at least one PHP file in it, located in <code>wp-content/plugins/</code>.</p>
+
+  <h3>What does a minimal plugin look like?</h3>
+<pre><code>&lt;?php
+/**
+ * Plugin Name: My Plugin
+ * Description: This is a description.
+ * Version: 1.0.0
+ */
+
+// Here goes the code that does something</code></pre>
+
+  <p>That's it. Those first lines (the "plugin header") tell WordPress this is a plugin. The rest is your code — or in our case: the code that AI writes for you.</p>
+
+  <h3>How do you install a self-made plugin?</h3>
+  <p><strong>With LocalWP:</strong></p>
+  <ol>
+    <li>Open your site's folder → <code>app/public/wp-content/plugins/</code></li>
+    <li>Create a new folder (e.g. <code>my-plugin</code>)</li>
+    <li>Put your PHP file in it</li>
+    <li>Go to WP Admin → Plugins → Activate</li>
+  </ol>
+  <p><strong>With WordPress Playground:</strong></p>
+  <ol>
+    <li>Copy your code</li>
+    <li>Go to WP Admin → Plugins → Plugin Editor (or create a zip and upload it)</li>
+  </ol>
+
+  <!-- PROMPT TEMPLATE -->
+  <h2>Prompt template</h2>
+  <p>This is the template we'll use during the workshop. Feel free to look at it now:</p>
+
+<pre><code>Create a WordPress plugin with the following specifications:
+
+Name: [name of your plugin]
+Function: [describe in 1-2 sentences what the plugin should do]
+Where visible: [on the frontend / in the admin / both]
+Behavior: [describe specifically what should happen]
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a plugin header with name, description and version
+- Prevent direct file access
+- Put all code in a single PHP file
+- Add short comments explaining what each part does</code></pre>
+
+  <div class="tip">
+    <strong>Tip:</strong> The more specific your prompt, the better the result. "Make a plugin that does something with images" yields less than "Make a plugin that automatically adds alt text to images that don't have any yet."
+  </div>
+
+  <!-- DOWNLOAD -->
+  <h2>Starter plugin</h2>
+  <p>Download this minimal starter plugin as a reference. You can install it in WordPress to see how a plugin works:</p>
+  <a href="my-first-plugin.zip" class="download-btn" download>Download starter plugin (.zip)</a>
+
+  <!-- CHECKLIST -->
+  <h2>Checklist</h2>
+  <ul class="checklist">
+    <li>I have a working WordPress environment (LocalWP or Playground)</li>
+    <li>I have an AI tool I can use</li>
+    <li>I optionally have a code editor installed</li>
+    <li>I roughly understand what a WordPress plugin is</li>
+    <li>I've looked at the prompt template</li>
+  </ul>
+
+  <div class="check" style="text-align: center; margin-top: 1.5rem;">
+    <strong>Everything checked? You're ready for the workshop!</strong>
+  </div>
+
+  <div class="stuck">
+    <p><strong>Can't get the preparation done?</strong></p>
+    <p>No stress — come 15 minutes early and we'll help you get set up.</p>
+  </div>
+
+  <footer>
+    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
