@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose your plugin — Workshop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230073aa'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --color-easy: #46b450;
+      --color-medium: #f0b849;
+      --max-width: 720px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+    }
+
+    .plugin-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .plugin-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-easy {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .badge-medium {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .plugin-card .description {
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .prompt-box {
+      background: #f5f5f5;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover { background: #005f8a; }
+    .copy-btn.copied { background: var(--color-easy); }
+
+    .tip {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 0.75rem 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .own-idea {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--color-surface);
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .own-idea h2 { justify-content: center; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      header h1 { font-size: 1.4rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Choose your plugin</h1>
+    <p>Pick one of the ideas below, or come up with your own. Copy the prompt and paste it into your AI tool.</p>
+  </header>
+
+  <div class="tip">
+    <strong>How this works:</strong> Click "Copy" on the prompt you like, paste it into your AI tool, and follow the instructions you get back. If the result isn't right, tell the AI what to fix — that's the iterating part!
+  </div>
+
+  <!-- READING TIME -->
+  <div class="plugin-card">
+    <h2>Reading Time <span class="badge badge-easy">Easy</span></h2>
+    <p class="description">Shows the estimated reading time above each blog post.</p>
+    <div class="prompt-box" id="prompt-1">Create a WordPress plugin with the following specifications:
+
+Name: Reading Time
+Function: Shows the estimated reading time above each blog post.
+Where visible: On the frontend, above the content of each individual post.
+Behavior: Count the number of words in a post, divide by 250 (average reading speed), and show the result as "Estimated reading time: X minutes" above the post content. Round up to the nearest minute. Show a minimum of 1 minute. Only show this on individual blog posts, not on overview or archive pages.
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a plugin header with name, description and version
+- Prevent direct file access
+- Put all code in a single PHP file
+- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-1', this)">Copy</button></div>
+  </div>
+
+  <!-- EXTERNAL LINK ICON -->
+  <div class="plugin-card">
+    <h2>External Link Icon <span class="badge badge-easy">Easy</span></h2>
+    <p class="description">Adds an arrow icon to external links and opens them in a new tab.</p>
+    <div class="prompt-box" id="prompt-2">Create a WordPress plugin with the following specifications:
+
+Name: External Link Icon
+Function: Automatically adds an arrow icon to all external links in posts and pages, and opens them in a new tab.
+Where visible: On the frontend, on all links in the content that point to a different website.
+Behavior: Check every link in the content. If the link points to a different website than my own site, add a small arrow symbol after the link text, make the link open in a new tab, and add a security attribute so the new tab can't access my site. Leave links to my own site and links that point to sections on the same page unchanged.
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a plugin header with name, description and version
+- Prevent direct file access
+- Put all code in a single PHP file
+- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-2', this)">Copy</button></div>
+  </div>
+
+  <!-- MAINTENANCE MODE -->
+  <div class="plugin-card">
+    <h2>Maintenance Mode <span class="badge badge-medium">Medium</span></h2>
+    <p class="description">Shows an "under maintenance" page to visitors while admins can still use the site.</p>
+    <div class="prompt-box" id="prompt-3">Create a WordPress plugin with the following specifications:
+
+Name: Simple Maintenance Mode
+Function: Shows an "under maintenance" page to visitors when I turn it on. I can still see and use my site normally when I'm logged in as an admin.
+Where visible: A settings page in the WordPress admin under Settings, and a maintenance message for visitors.
+Behavior: Add a settings page with a checkbox to turn maintenance mode on or off, and a text field where I can write the message visitors will see. When turned on, visitors see my message and nothing else. The login page should always remain accessible so I don't lock myself out. Show a notice in the admin toolbar so I remember maintenance mode is active.
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a plugin header with name, description and version
+- Prevent direct file access
+- Put all code in a single PHP file
+- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-3', this)">Copy</button></div>
+  </div>
+
+  <!-- CUSTOM LOGIN LOGO -->
+  <div class="plugin-card">
+    <h2>Custom Login Logo <span class="badge badge-medium">Medium</span></h2>
+    <p class="description">Replace the WordPress logo on the login screen with your own image.</p>
+    <div class="prompt-box" id="prompt-4">Create a WordPress plugin with the following specifications:
+
+Name: Custom Login Logo
+Function: Lets me replace the WordPress logo on the login screen with my own image.
+Where visible: A settings page in the WordPress admin under Settings, and my custom logo on the login screen.
+Behavior: Add a settings page where I can choose an image from my media library to use as the login logo. Show a preview of the current logo on the settings page. On the login screen, replace the default WordPress logo with my chosen image. Also make the logo link go to my homepage instead of wordpress.org.
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a plugin header with name, description and version
+- Prevent direct file access
+- Put all code in a single PHP file
+- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-4', this)">Copy</button></div>
+  </div>
+
+  <!-- OWN IDEA -->
+  <div class="own-idea">
+    <h2>Your own idea <span class="badge badge-easy" style="background: #f3e5f5; color: #7b1fa2;">Freestyle</span></h2>
+    <p>Have your own idea? Go for it! Use the template from the <a href="index.html">preparation page</a> and fill in your own details.</p>
+    <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Tip: keep it to one feature. "Does one thing well" beats "does everything badly."</p>
+  </div>
+
+  <footer>
+    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
+  </footer>
+
+</div>
+
+<script>
+function copyPrompt(id, btn) {
+  const box = document.getElementById(id);
+  // Get text content without the button text
+  const text = box.childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

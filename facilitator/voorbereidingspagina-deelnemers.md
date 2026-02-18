@@ -48,15 +48,15 @@ No time or no desire to install anything? WordPress Playground runs entirely in 
 
 You need an AI chatbot that can generate code. Pick one:
 
-| Tool | Account needed? | Free? | Link |
-|------|----------------|-------|------|
-| Le Chat *(Mistral, France)* | Yes | Free tier available | [chat.mistral.ai](https://chat.mistral.ai/) |
-| HuggingChat *(Hugging Face, France)* | No | Free, open source | [huggingface.co/chat](https://huggingface.co/chat/) |
-| ChatGPT | Yes | Free tier available | [chat.openai.com](https://chat.openai.com/) |
-| Claude | Yes | Free tier available | [claude.ai](https://claude.ai/) |
-| Copilot | No (Microsoft account) | Free | [copilot.microsoft.com](https://copilot.microsoft.com/) |
-| Gemini | Yes (Google account) | Free | [gemini.google.com](https://gemini.google.com/) |
-| Confer *(privacy-first, by Signal founder)* | No | Free (20 msg/day) | [confer.to](https://confer.to/) |
+| Tool                                        | Account needed?        | Free?               | Link                                                    |
+| ------------------------------------------- | ---------------------- | ------------------- | ------------------------------------------------------- |
+| Le Chat *(Mistral, France)*                 | Yes                    | Free tier available | [chat.mistral.ai](https://chat.mistral.ai/)             |
+| HuggingChat *(Hugging Face, France)*        | No                     | Free, open source   | [huggingface.co/chat](https://huggingface.co/chat/)     |
+| ChatGPT                                     | Yes                    | Free tier available | [chat.openai.com](https://chat.openai.com/)             |
+| Claude                                      | Yes                    | Free tier available | [claude.ai](https://claude.ai/)                         |
+| Copilot                                     | No (Microsoft account) | Free                | [copilot.microsoft.com](https://copilot.microsoft.com/) |
+| Gemini                                      | Yes (Google account)   | Free                | [gemini.google.com](https://gemini.google.com/)         |
+| Confer *(privacy-first, by Signal founder)* | No                     | Free (20 msg/day)   | [confer.to](https://confer.to/)                         |
 
 **Check:** Can you send a message and get a response? Then you're ready.
 

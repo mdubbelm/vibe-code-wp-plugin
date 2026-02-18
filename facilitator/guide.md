@@ -44,7 +44,7 @@ Communicate this explicitly in the invitation:
 
 - "Does everyone have a working WordPress environment? Raise your hand if you're stuck."
 - Point anyone who's stuck to WordPress Playground as a fallback
-- Share the link to the prompt template (QR code on screen)
+- Remind everyone the preparation page link was shared on the meetup page
 
 ---
 
@@ -88,21 +88,32 @@ Communicate this explicitly in the invitation:
 **What participants do:**
 
 1. **Choose a plugin idea** (2 min)
-   - Offer 3-4 options (see choice card below), or let people choose their own idea
+   - Show the choice card on screen (see below) — just the names and descriptions, **not** the prompts yet
+   - Let people pick one, or come up with their own idea
    - Tip: custom ideas are fine, but keep it simple — "do one thing well"
 
-2. **Write your prompt** (3 min)
-   - Use the prompt template from the preparation page
+2. **Write your own prompt first** (3 min)
+   - Use the prompt template from the preparation page and fill it in yourself
    - Tip for participants: be specific about what you want to see, where it should appear, how it should look
-   - **Note about the template:** The "Technical requirements" section in the prompt template contains terms like "hooks" and "filters". Reassure participants: "You don't need to understand these terms — they're instructions for the AI, not for you. They help the AI produce better WordPress code."
+   - **Note about the template:** The "Technical requirements" section contains terms like "hooks" and "filters". Reassure participants: "You don't need to understand these terms — they're instructions for the AI, not for you. They help the AI produce better WordPress code."
+   - **Do NOT share the example prompts yet** — let them try first
 
-3. **Generate, install, test** (13 min)
+3. **Generate, install, test** (8 min with own prompt)
+   - Copy the AI output to a .php file, install, activate, test
+   - Walk around and help — this is where most people get stuck
+
+4. **Share example prompts** (after ~8 min)
+   - Share the link: `https://mdubbelm.github.io/vibe-code-wp-plugin/prompts.html`
+   - "Stuck, or want to compare? Here are example prompts you can use."
+   - People who are doing fine can keep iterating on their own prompt
+   - People who are stuck can copy an example and catch up
+   - **This link is not on the preparation page** — only share it during the workshop
+
+5. **Continue building + iterate** (5 min)
    - Copy the code to a .php file
    - Put it in wp-content/plugins/ (or upload as zip via admin)
    - Activate and test
    - Doesn't work? Adjust your prompt and try again
-
-4. **Iterate** (2 min)
    - "Ask the AI for an improvement: a settings page, better styling, or a fix for something that doesn't work"
 
 **Your role during Phase 2:**
