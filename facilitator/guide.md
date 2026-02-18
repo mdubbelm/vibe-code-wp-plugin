@@ -54,17 +54,26 @@ Communicate this explicitly in the invitation:
 
 **What you do:**
 
-1. **What is vibe coding?** (2 min)
-   - "You describe in plain language what you want. AI writes the code. You steer."
-   - Mention: this is not learning to code — this is learning to collaborate with AI
-   - Briefly: when is this useful, when is it not?
+1. **What is vibe coding?** (3 min)
+   - "You describe in plain language what you want. AI writes the code. You steer and iterate."
+   - This is not learning to code — this is learning to collaborate with AI
+   - **When it works well:**
+     - Quick prototypes and internal tools
+     - Testing an idea before investing in a developer
+     - Learning how something works by seeing generated code
+     - Small utilities that would otherwise not be worth building
+   - **When it doesn't:**
+     - Production code for sites with real users (security, performance, accessibility need expert review)
+     - Complex features that need to integrate with existing systems
+     - Anything where you can't verify whether the result is correct
+   - The key skill is not coding — it's **describing what you want clearly** and **knowing when to trust the output**
 
-2. **Live demo** (5 min)
+2. **Live demo** (4 min)
    - Open your AI tool (share screen)
-   - Show a prompt, e.g.:
-     > "Create a WordPress plugin called 'Reading Time'. The plugin calculates the estimated reading time of a post (250 words per minute) and displays it above the content as a paragraph with the text 'Estimated reading time: X minutes'. Use the WordPress `the_content` filter."
+   - Show a prompt in plain language — no technical terms:
+     > "Create a WordPress plugin called 'Reading Time'. The plugin should count the words in a blog post, calculate how long it takes to read (assuming 250 words per minute), and show the result above the post as 'Estimated reading time: X minutes'. It should only appear on individual posts, not on overview pages."
    - Copy the output to a file, put it in `wp-content/plugins/`, activate, show the result
-   - **Important:** also show that it's not perfect — e.g. "look, escaping is missing here" or "translations don't work yet"
+   - **Important:** also show that it's not perfect — e.g. "look, it always says 'minutes' even for 1 minute" or "there's no way to change the reading speed"
 
 3. **Summarize** (1 min)
    - The steps: write prompt → generate code → install → test → iterate
@@ -72,7 +81,7 @@ Communicate this explicitly in the invitation:
 
 ---
 
-### Phase 2 — Hands-on (22 min)
+### Phase 2 — Hands-on (20 min)
 
 **Bloom: Apply + Create**
 
@@ -85,8 +94,9 @@ Communicate this explicitly in the invitation:
 2. **Write your prompt** (3 min)
    - Use the prompt template from the preparation page
    - Tip for participants: be specific about what you want to see, where it should appear, how it should look
+   - **Note about the template:** The "Technical requirements" section in the prompt template contains terms like "hooks" and "filters". Reassure participants: "You don't need to understand these terms — they're instructions for the AI, not for you. They help the AI produce better WordPress code."
 
-3. **Generate, install, test** (15 min)
+3. **Generate, install, test** (13 min)
    - Copy the code to a .php file
    - Put it in wp-content/plugins/ (or upload as zip via admin)
    - Activate and test
@@ -115,16 +125,17 @@ Communicate this explicitly in the invitation:
 
 ---
 
-### Phase 3 — Show & Tell + Reflection (13 min)
+### Phase 3 — Show & Tell + Reflection (15 min)
 
 **Bloom: Analyze + Evaluate**
 
-**Show & Tell (6 min):**
-- Ask 3-4 volunteers to share their screen (max 1.5 min per person)
+**Show & Tell (8 min):**
+- Ask 2-3 volunteers to show their result (max 2.5 min per person, including setup time)
+- **Practical:** have them open their site before it's their turn, so they're ready. Or: ask them to screenshot their result and share that instead of live-demoing
 - Have them tell: which idea, which prompt, what was the result?
 - Follow up: "Did you have to adjust your prompt? What did you change?"
 
-**Critical reflection (5 min):**
+**Critical reflection (5 min, or more if time allows):**
 
 Ask these questions to the group:
 
