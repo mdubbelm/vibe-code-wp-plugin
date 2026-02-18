@@ -4,7 +4,7 @@ Workshop materials for a 45-minute hands-on workshop where participants create t
 
 ## For participants
 
-Visit the **[preparation page](https://moniquedubbelman.github.io/vibe-code-wp-plugin/)** to get set up before the workshop.
+Visit the **[preparation page](https://mdubbelm.github.io/vibe-code-wp-plugin/)** to get set up before the workshop.
 
 ## What's in this repo
 
