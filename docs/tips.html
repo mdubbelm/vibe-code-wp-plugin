@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tips & next steps — Workshop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230073aa'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --color-success: #276b35;
+      --color-success-bg: #eaf5ec;
+      --color-warning: #b45309;
+      --color-warning-bg: #fff8e8;
+      --color-danger: #b91c1c;
+      --color-danger-bg: #fef2f2;
+      --max-width: 720px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── Navigation ─────────────────────────────── */
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+      overflow-x: auto;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      flex-shrink: 0;
+    }
+
+    .nav-link:hover { color: var(--color-accent); }
+    .nav-link.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* ── Layout ─────────────────────────────────── */
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.3rem; }
+    header p { color: var(--color-text-secondary); font-size: 1rem; }
+
+    /* ── Sections ───────────────────────────────── */
+
+    section { margin-bottom: 3rem; }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.85rem; }
+    li { margin-bottom: 0.35rem; }
+
+    a { color: var(--color-accent); }
+    a:hover { text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px; }
+
+    code {
+      background: #f0f0f0;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.88em;
+    }
+
+    /* ── Callouts ───────────────────────────────── */
+
+    .tip {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .warning {
+      background: var(--color-warning-bg);
+      border-left: 4px solid var(--color-warning);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── Security table ─────────────────────────── */
+
+    .security-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .security-table th,
+    .security-table td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    .security-table th {
+      font-weight: 600;
+      background: var(--color-bg);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-secondary);
+    }
+
+    .ok { color: var(--color-success); font-weight: 600; }
+    .risk { color: var(--color-warning); font-weight: 600; }
+
+    /* ── Checklist ──────────────────────────────── */
+
+    .checklist { list-style: none; padding-left: 0; }
+
+    .checklist li {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon { flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* ── Two-column comparison ──────────────────── */
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .comparison-col {
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .comparison-header {
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .comparison-header.good { background: var(--color-success-bg); color: var(--color-success); }
+    .comparison-header.caution { background: var(--color-warning-bg); color: var(--color-warning); }
+
+    .comparison-body {
+      padding: 0.75rem 1rem;
+    }
+
+    .comparison-body ul { padding-left: 1.25rem; margin: 0; }
+    .comparison-body li { margin-bottom: 0.3rem; font-size: 0.95rem; }
+
+    /* ── Cards ──────────────────────────────────── */
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .card h3 { margin-top: 0; }
+
+    /* ── Footer ─────────────────────────────────── */
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 0.95rem; }
+      header h1 { font-size: 1.4rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
+      .comparison { grid-template-columns: 1fr; }
+      .security-table { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Workshop pages">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link">Preparation</a>
+    <a href="guide.html" class="nav-link">Guide</a>
+    <a href="ideas.html" class="nav-link">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link">Prompts</a>
+    <a href="tips.html" class="nav-link active" aria-current="page">Tips</a>
+  </div>
+</nav>
+
+<main>
+<div class="container">
+
+  <header>
+    <h1>Tips &amp; next steps</h1>
+    <p>Your plugin works — now what? Here's what to think about before using it for real.</p>
+  </header>
+
+  <!-- ── SECTION 1: READY FOR A REAL SITE? ──────── -->
+  <section aria-labelledby="heading-ready">
+    <h2 id="heading-ready">Is it ready for a real site?</h2>
+
+    <p>Probably not quite yet — and that's fine. A vibe-coded plugin is a great starting point, not a finished product. Here's an honest checklist:</p>
+
+    <ul class="checklist">
+      <li>
+        <span class="check-icon" aria-hidden="true">☐</span>
+        <span><strong>Does it do what you expect?</strong> Test every feature, including edge cases (empty posts, no content, logged-out users).</span>
+      </li>
+      <li>
+        <span class="check-icon" aria-hidden="true">☐</span>
+        <span><strong>Does it activate and deactivate cleanly?</strong> No errors, no leftover data after deactivation.</span>
+      </li>
+      <li>
+        <span class="check-icon" aria-hidden="true">☐</span>
+        <span><strong>Has it passed Plugin Check?</strong> See the section below. This catches most common issues automatically.</span>
+      </li>
+      <li>
+        <span class="check-icon" aria-hidden="true">☐</span>
+        <span><strong>Are you the only user?</strong> A plugin just for your own site has lower risk than one others will use.</span>
+      </li>
+      <li>
+        <span class="check-icon" aria-hidden="true">☐</span>
+        <span><strong>Does it handle user input?</strong> If yes, security review is a must (see below).</span>
+      </li>
+    </ul>
+
+    <div class="tip">
+      <strong>Simple plugins with no user input</strong> (like Reading Time or Copyright Footer) carry very little risk. Plugins with settings pages, forms, or database writes need more scrutiny.
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: SECURITY ────────────────────── -->
+  <section aria-labelledby="heading-security">
+    <h2 id="heading-security">Security — what to look for</h2>
+
+    <p>AI does a reasonable job with some security practices, but misses others. Here's a quick overview:</p>
+
+    <table class="security-table">
+      <thead>
+        <tr>
+          <th scope="col">What</th>
+          <th scope="col">Why it matters</th>
+          <th scope="col">AI usually…</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Direct file access</strong><br><code>if (!defined('ABSPATH')) exit;</code></td>
+          <td>Prevents the PHP file from being run directly in a browser</td>
+          <td class="ok">✓ Gets this right</td>
+        </tr>
+        <tr>
+          <td><strong>Output escaping</strong><br><code>esc_html()</code>, <code>esc_attr()</code>, <code>esc_url()</code></td>
+          <td>Prevents XSS — malicious code being injected into your page output</td>
+          <td class="ok">✓ Usually correct</td>
+        </tr>
+        <tr>
+          <td><strong>Input sanitization</strong><br><code>sanitize_text_field()</code>, <code>absint()</code></td>
+          <td>Cleans user input before storing or using it</td>
+          <td class="risk">⚠ Sometimes missing</td>
+        </tr>
+        <tr>
+          <td><strong>Nonces</strong><br><code>wp_nonce_field()</code> + <code>check_admin_referer()</code></td>
+          <td>Prevents CSRF — someone tricking an admin into unknowingly submitting a form</td>
+          <td class="risk">⚠ Often missing</td>
+        </tr>
+        <tr>
+          <td><strong>Capability checks</strong><br><code>current_user_can('manage_options')</code></td>
+          <td>Ensures only users with the right role can perform admin actions</td>
+          <td class="risk">⚠ Sometimes missing</td>
+        </tr>
+        <tr>
+          <td><strong>Database queries</strong><br><code>$wpdb->prepare()</code></td>
+          <td>Prevents SQL injection when querying the database</td>
+          <td class="risk">⚠ Often incomplete</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning">
+      <strong>If your plugin has a settings page, stores data, or does anything with user input:</strong> ask the AI to check all six items above explicitly. Then run Plugin Check (see below) to verify.
+    </div>
+
+    <p>You can ask your AI tool to audit the security of its own output:</p>
+    <div class="tip">
+      <em>"Review this plugin for WordPress security best practices. Check for: output escaping, input sanitization, nonces on all forms, capability checks on admin actions, and proper use of $wpdb->prepare() for any database queries. Show me what's missing and provide a corrected version."</em>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: PLUGIN CHECK ────────────────── -->
+  <section aria-labelledby="heading-pcp">
+    <h2 id="heading-pcp">Plugin Check</h2>
+
+    <p><strong>Plugin Check</strong> (also called PCP) is a free WordPress plugin that automatically scans your code for common issues — security problems, coding standards violations, and WordPress.org requirements.</p>
+
+    <h3>How to use it</h3>
+    <ol>
+      <li>Install the <a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check plugin</a> from WordPress.org (search "Plugin Check" in WP Admin → Plugins → Add New)</li>
+      <li>Go to <strong>Tools → Plugin Check</strong></li>
+      <li>Select your plugin from the dropdown</li>
+      <li>Click <strong>"Check plugin"</strong></li>
+      <li>Review the results — errors are things to fix, warnings are things to consider</li>
+    </ol>
+
+    <h3>What it checks</h3>
+    <ul>
+      <li>Security issues (missing escaping, sanitization, nonces)</li>
+      <li>Plugin header completeness</li>
+      <li>WordPress coding standards</li>
+      <li>Internationalization (translatable strings)</li>
+      <li>Accessibility of admin interfaces</li>
+      <li>Performance (loading scripts and styles only where needed)</li>
+    </ul>
+
+    <div class="tip">
+      <strong>A useful exercise:</strong> paste the Plugin Check errors back into your AI tool and ask it to fix them. Keep going until PCP reports no errors. This teaches you more about WordPress standards than any tutorial.
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: PUBLISHING ──────────────────── -->
+  <section aria-labelledby="heading-publish">
+    <h2 id="heading-publish">Publishing to WordPress.org</h2>
+
+    <p>Anyone can submit a plugin to the WordPress.org repository — it's free and open source. But should you?</p>
+
+    <div class="comparison">
+      <div class="comparison-col">
+        <div class="comparison-header good">Makes sense if…</div>
+        <div class="comparison-body">
+          <ul>
+            <li>You want others to be able to use it</li>
+            <li>You want to contribute to the WordPress community</li>
+            <li>You're building a commercial plugin (many start here)</li>
+            <li>You want free code review from the WP team</li>
+          </ul>
+        </div>
+      </div>
+      <div class="comparison-col">
+        <div class="comparison-header caution">Probably not worth it if…</div>
+        <div class="comparison-body">
+          <ul>
+            <li>It's just for your own site</li>
+            <li>It's very site-specific (your logo, your settings)</li>
+            <li>It hasn't passed Plugin Check yet</li>
+            <li>You're not ready to maintain it over time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3>What WordPress.org requires</h3>
+    <ul>
+      <li>A unique function prefix (e.g. <code>rt_</code> for "reading-time") — no generic names like <code>get_data()</code></li>
+      <li>A <code>readme.txt</code> in the correct format</li>
+      <li>GPL-compatible license</li>
+      <li>No obfuscated code, no external calls without disclosure</li>
+      <li>Passes the automated and manual code review (can take several weeks)</li>
+    </ul>
+
+    <div class="tip">
+      Not submitting to .org? You can still share your plugin as a zip file — send it to someone, host it on GitHub, or just keep it for yourself.
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: VIBE CODING ─────────────────── -->
+  <section aria-labelledby="heading-vibecoding">
+    <h2 id="heading-vibecoding">What is vibe coding good for?</h2>
+
+    <p>An honest take — because knowing the limits is part of the skill.</p>
+
+    <div class="comparison">
+      <div class="comparison-col">
+        <div class="comparison-header good">Works well for…</div>
+        <div class="comparison-body">
+          <ul>
+            <li>Quick prototypes and internal tools</li>
+            <li>Testing an idea before involving a developer</li>
+            <li>Learning how WordPress plugins work by reading generated code</li>
+            <li>Small utilities that solve your own problem</li>
+            <li>Automating repetitive tasks on your own site</li>
+          </ul>
+        </div>
+      </div>
+      <div class="comparison-col">
+        <div class="comparison-header caution">Be careful with…</div>
+        <div class="comparison-body">
+          <ul>
+            <li>Plugins for sites with real users (security needs expert review)</li>
+            <li>Complex features that interact with existing systems</li>
+            <li>Anything where you can't verify whether the result is correct</li>
+            <li>Assuming "it works" means "it's done"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p>The key skill in vibe coding is not writing code — it's <strong>describing what you want precisely</strong> and <strong>knowing when to trust the output</strong>. That judgment develops with practice.</p>
+  </section>
+
+  <!-- ── SECTION 6: GO FURTHER ──────────────────── -->
+  <section aria-labelledby="heading-further">
+    <h2 id="heading-further">Want to go further?</h2>
+
+    <h3>Improve your plugin</h3>
+    <ul>
+      <li>Ask the AI to add a settings page so you can configure it from WP Admin</li>
+      <li>Ask the AI to make all user-facing text translatable using <code>__()</code> and <code>_e()</code></li>
+      <li>Ask the AI to write unit tests for the plugin</li>
+      <li>Ask the AI to make it comply with WordPress Coding Standards</li>
+      <li>Export the plugin as a zip: <strong>Plugins → [your plugin] → Download</strong> (LocalWP) or create a zip from the folder</li>
+    </ul>
+
+    <h3>Keep learning</h3>
+    <ul>
+      <li><a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly</li>
+      <li><a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automated quality and security scanning</li>
+      <li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/" target="_blank" rel="noopener">WordPress PHP Coding Standards</a> — what "clean WordPress code" looks like</li>
+      <li><a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/" target="_blank" rel="noopener">Inline documentation standards</a> — how to document your code</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
+  </footer>
+
+</div>
+</main>
+
+</body>
+</html>

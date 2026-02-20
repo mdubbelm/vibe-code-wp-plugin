@@ -258,6 +258,7 @@
     }
 
     .site-nav {
+      overflow-x: auto;
       position: sticky;
       top: 0;
       background: var(--color-surface);
@@ -266,6 +267,7 @@
     }
 
     .nav-inner {
+      white-space: nowrap;
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 1.5rem;
@@ -273,6 +275,7 @@
     }
 
     .nav-link {
+      flex-shrink: 0;
       display: block;
       padding: 0.75rem 1rem;
       font-size: 0.9rem;
@@ -310,6 +313,7 @@
     <a href="guide.html" class="nav-link">Guide</a>
     <a href="ideas.html" class="nav-link">Plugin ideas</a>
     <a href="prompts.html" class="nav-link">Prompts</a>
+    <a href="tips.html" class="nav-link">Tips</a>
   </div>
 </nav>
 
