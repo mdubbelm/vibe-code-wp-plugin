@@ -416,7 +416,32 @@
     </div>
   </section>
 
-  <!-- ── SECTION 4: PUBLISHING ──────────────────── -->
+  <!-- ── SECTION 4: ACCESSIBILITY ──────────────────── -->
+  <section aria-labelledby="heading-a11y">
+    <h2 id="heading-a11y">Accessibility — don't forget your users</h2>
+
+    <p>WordPress itself aims for <a href="https://make.wordpress.org/accessibility/handbook/best-practices/wcag/" target="_blank" rel="noopener">WCAG 2.2 Level AA</a>. There are no mandatory accessibility requirements for plugins in the WordPress directory, but you are strongly encouraged to consider accessibility when building your plugin.</p>
+
+    <p>AI-generated code often gets accessibility wrong — it may produce forms without labels, buttons without descriptive text, or colour contrast that fails. Worth checking.</p>
+
+    <h3>Things to check in your plugin's output</h3>
+    <ul>
+      <li>Images have meaningful <code>alt</code> text (or <code>alt=""</code> if decorative)</li>
+      <li>Form inputs have a visible <code>&lt;label&gt;</code></li>
+      <li>Buttons describe what they do ("Save settings", not just "Submit")</li>
+      <li>Colour is not the only way information is conveyed</li>
+      <li>Text contrast is at least 4.5:1 against its background</li>
+      <li>Everything that's clickable is also reachable by keyboard</li>
+    </ul>
+
+    <div class="tip">
+      <strong>Ask your AI tool:</strong> "Review this plugin output for accessibility issues. Check for missing alt text, unlabelled form fields, low contrast, and keyboard inaccessible elements."
+    </div>
+
+    <p>More guidance: <a href="https://wpaccessibility.org/docs/wp-a11y/wp-plugins/" target="_blank" rel="noopener">WordPress Plugin Accessibility — WP Accessibility</a></p>
+  </section>
+
+  <!-- ── SECTION 5: PUBLISHING ──────────────────── -->
   <section aria-labelledby="heading-publish">
     <h2 id="heading-publish">Publishing to WordPress.org</h2>
 
@@ -461,7 +486,7 @@
     </div>
   </section>
 
-  <!-- ── SECTION 5: VIBE CODING ─────────────────── -->
+  <!-- ── SECTION 6: VIBE CODING ─────────────────── -->
   <section aria-labelledby="heading-vibecoding">
     <h2 id="heading-vibecoding">What is vibe coding good for?</h2>
 
@@ -496,7 +521,7 @@
     <p>The key skill in vibe coding is not writing code — it's <strong>describing what you want precisely</strong> and <strong>knowing when to trust the output</strong>. That judgment develops with practice.</p>
   </section>
 
-  <!-- ── SECTION 6: GO FURTHER ──────────────────── -->
+  <!-- ── SECTION 7: GO FURTHER ──────────────────── -->
   <section aria-labelledby="heading-further">
     <h2 id="heading-further">Want to go further?</h2>
 
