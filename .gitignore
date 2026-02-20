@@ -1,6 +1,14 @@
+# OS
 .DS_Store
 *.DS_Store
 
-# Internal documents (not for public repo)
+# Claude Code (internal workflow files)
 CLAUDE.md
+LEARNINGS.md
+.claude/
+SESSION.md
+.session-status.json
+
+# Internal documents
 facilitator/conversatie-vibe-coding-workshop.md
+WP_Workshop_AI_Plugin_Screenshots/
