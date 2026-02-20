@@ -14,11 +14,19 @@
 
 ## Facilitator preparation
 
+### Workshop links
+
+| Page | URL |
+|------|-----|
+| Preparation (share before the workshop) | https://mdubbelm.github.io/vibe-code-wp-plugin/ |
+| Plugin ideas (share during the workshop) | https://mdubbelm.github.io/vibe-code-wp-plugin/ideas.html |
+| Prompts (share during the workshop) | https://mdubbelm.github.io/vibe-code-wp-plugin/prompts.html |
+
 ### Materials checklist
 
 - [ ] Put the preparation page online (see separate document)
 - [ ] Have the starter plugin zip ready (see appendix)
-- [ ] Print or share the example prompts digitally
+- [ ] Share the prompts link during Phase 2 — **not before** (see link above)
 - [ ] Have your own demo plugin ready (Reading Time Estimator)
 - [ ] Test the WordPress Playground fallback link: `https://playground.wordpress.net/`
 - [ ] Check if the wifi can handle the group size
@@ -122,6 +130,9 @@ Communicate this explicitly in the invitation:
   - PHP syntax error → "Paste the error message back into the AI and ask for a fix"
   - Plugin doesn't appear → check filename, check plugin header
   - "It does nothing" → check if plugin is activated, inspect source for output
+  - **Custom Login Logo doesn't work** → This plugin needs a separate JavaScript file for the media uploader — the AI often doesn't include it without being asked. If a participant picks this one, coach them to iterate: "Tell the AI the media uploader button doesn't work and ask it to add the necessary JavaScript." This is actually a good real-world lesson in iteration, but it means the plugin won't work in the first attempt. Steer less experienced participants toward Reading Time or External Link Icon instead.
+  - **Playground + no zip from AI** → Not all AI tools generate a zip. Point these participants to the Plugin Editor path (Plugins → Plugin Editor → overwrite Hello Dolly). It's faster than creating a zip manually.
+  - **Maintenance Mode + Playground** → This combination doesn't work reliably. Playground restricts how plugins intercept requests, so the "offline" page may never show. Steer these participants to LocalWP, or suggest they switch to a different plugin idea.
 - Compliment good prompts, not just working code
 
 **Plugin choice card:**
@@ -130,8 +141,8 @@ Communicate this explicitly in the invitation:
 |--------|-------------|------------|
 | **Reading Time** | Shows estimated reading time above posts | ⭐ Easy |
 | **External Link Icon** | Adds ↗ to external links + target="_blank" | ⭐ Easy |
-| **Maintenance Mode** | Shows an "offline" page to visitors | ⭐⭐ Medium |
-| **Custom Login Logo** | Custom logo on the WP login screen | ⭐⭐ Medium |
+| **Maintenance Mode** | Shows an "offline" page to visitors | ⭐⭐ Medium — LocalWP only |
+| **Custom Login Logo** | Custom logo on the WP login screen | ⭐⭐⭐ Hard — requires iteration |
 | **Your own idea** | You decide! Keep it to one feature. | ❓ Varies |
 
 ---

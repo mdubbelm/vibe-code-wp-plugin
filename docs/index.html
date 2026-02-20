@@ -257,14 +257,60 @@
       font-size: 0.85rem;
     }
 
+    .site-nav {
+      position: sticky;
+      top: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .nav-link.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+      font-weight: 600;
+    }
+
     @media (max-width: 600px) {
       body { font-size: 16px; }
       header h1 { font-size: 1.5rem; }
       .container { padding: 1.5rem 1rem 3rem; }
+      .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
     }
   </style>
 </head>
 <body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link active">Preparation</a>
+    <a href="ideas.html" class="nav-link">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link">Prompts</a>
+  </div>
+</nav>
 
 <div class="container">
 

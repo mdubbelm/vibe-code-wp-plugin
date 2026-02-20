@@ -14,7 +14,7 @@ You need a working WordPress installation where you can test plugins. Choose one
 
 ### Option A: LocalWP (recommended)
 
-LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs.
+LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs. Works on Windows, Mac, and Linux.
 
 1. Download LocalWP from [localwp.com](https://localwp.com/)
 2. Install the program
@@ -67,7 +67,7 @@ You need an AI chatbot that can generate code. Pick one:
 If you're using LocalWP, it helps to have a code editor for editing files. If you're using WordPress Playground, you can skip this step.
 
 - **Visual Studio Code** (free): [code.visualstudio.com](https://code.visualstudio.com/)
-- Or use Notepad / TextEdit — that works too
+- Or use your system's default text editor — Notepad (Windows), TextEdit (Mac), Gedit or similar (Linux) all work fine
 
 ---
 
@@ -97,14 +97,32 @@ That's it. Those first lines (the "plugin header") tell WordPress this is a plug
 ### How do you install a plugin you made yourself?
 
 **With LocalWP:**
-1. Open your site's folder → `app/public/wp-content/plugins/`
-2. Create a new folder (e.g. `my-plugin`)
-3. Put your PHP file in it
-4. Go to WP Admin → Plugins → Activate
+1. In LocalWP, right-click your site and choose **"Open site folder"** — this opens the right folder regardless of your operating system
+2. Navigate to `app/public/wp-content/plugins/`
+3. Create a new folder (e.g. `my-plugin`)
+4. Put your PHP file in it
+5. Go to WP Admin → Plugins → Activate
 
-**With WordPress Playground:**
-1. Copy your code
-2. Go to WP Admin → Plugins → Plugin Editor (or create a zip and upload)
+**With WordPress Playground — option 1: Plugin Editor (no zip needed)**
+1. Copy your generated code
+2. Go to WP Admin → Plugins → Plugin Editor
+3. In the dropdown (top right), select **Hello Dolly**
+4. Replace all the code with your generated code
+5. Click **"Update File"**
+6. Go to WP Admin → Plugins — your plugin now appears with the name from the plugin header
+7. Activate it and test
+
+**With WordPress Playground — option 2: upload a zip**
+1. Save your generated code as a `.php` file — use the same name as your plugin folder (e.g. `reading-time.php`)
+2. Put the file in a folder with the same name (e.g. `reading-time/`)
+3. Zip the folder:
+   - **Mac:** right-click the folder in Finder → "Compress"
+   - **Windows:** right-click → "Send to" → "Compressed (zipped) folder"
+   - **Linux:** right-click → "Compress", or run `zip -r reading-time.zip reading-time/`
+4. Go to WP Admin → Plugins → Add New → Upload Plugin
+5. Upload your zip, activate, and test
+
+**Note:** not all AI tools generate a zip automatically. If yours doesn't, use option 1 (Plugin Editor) — it's faster anyway.
 
 ---
 
@@ -129,6 +147,46 @@ Technical requirements:
 ```
 
 **Tip:** the more specific your prompt, the better the result. "Make a plugin that does something with images" yields less than "Make a plugin that automatically adds alt text to images that don't have any yet."
+
+---
+
+### Want to go further? Extended prompt template
+
+Once your basic plugin works, you can iterate — either by refining your prompt or by asking the AI to improve what it already generated. Here's a more complete prompt that includes authorship, versioning, and styling details from the start:
+
+```
+Create a WordPress plugin with the following specifications:
+
+**Plugin name:** [name of your plugin]
+**Author:** [your name]
+**Author URI:** [your website, or leave blank]
+**Version:** 1.0.0
+**Description:** [one sentence describing what the plugin does]
+
+**Function:** [describe in 1-2 sentences what the plugin should do]
+**Where visible:** [on the frontend / in the admin / both]
+**Behavior:** [describe specifically what should happen]
+
+**Style:** [describe how it should look — e.g. "small gray text, slightly smaller than body text"]
+
+Technical requirements:
+- Follow WordPress best practices (hooks, filters, sanitization)
+- Include a complete plugin header (Plugin Name, Description, Version, Author, Author URI, Text Domain)
+- Prevent direct file access
+- Put all code in a single PHP file
+- Make all user-facing text translatable using __() and _e()
+- Add short comments explaining what each part does
+```
+
+Or ask the AI to improve an existing plugin:
+
+```
+The plugin works. Now improve it:
+1. Add my name "[your name]" and website "[your URL]" to the plugin header
+2. Set the version to 1.0.0
+3. Make all user-facing text translatable using WordPress i18n functions (__() and _e())
+4. Add a readme.txt with a short description and installation instructions
+```
 
 ---
 

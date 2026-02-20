@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plugin ideas — Workshop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230073aa'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --max-width: 720px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+    }
+
+    .tip {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 0.75rem 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tip a {
+      color: var(--color-accent);
+    }
+
+    .category {
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .category h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-secondary);
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .idea-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .idea-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .idea-list li:last-child {
+      border-bottom: none;
+    }
+
+    .idea-name {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .idea-desc {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .badge-easy {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .badge-medium {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .badge-hard {
+      background: #fce4ec;
+      color: #c62828;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .nav-link.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      header h1 { font-size: 1.4rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      .idea-list li { flex-wrap: wrap; }
+      .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link">Preparation</a>
+    <a href="ideas.html" class="nav-link active">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link">Prompts</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header>
+    <h1>Plugin ideas</h1>
+    <p>Not sure what to build? Pick an idea from this list and write your own prompt.</p>
+  </header>
+
+  <div class="tip">
+    Use the <a href="index.html">prompt template from the preparation page</a> to describe your chosen idea. Fill in the name, what it should do, where it should appear, and how it should behave — then paste it into your AI tool.
+  </div>
+
+  <!-- FRONTEND -->
+  <div class="category">
+    <h2>Frontend — visible to visitors</h2>
+  </div>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-name">Last Updated Date</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Shows "Last updated on [date]" above or below a blog post.</span>
+    </li>
+    <li>
+      <span class="idea-name">Copyright Footer</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Adds "© [year] [site name]" to the bottom of every page. The year updates automatically.</span>
+    </li>
+    <li>
+      <span class="idea-name">Author Bio Box</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Shows a short author description with avatar below each post.</span>
+    </li>
+    <li>
+      <span class="idea-name">Simple Cookie Notice</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Shows a "This site uses cookies" banner at the bottom of the page with a dismiss button.</span>
+    </li>
+    <li>
+      <span class="idea-name">Custom 404 Message</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Replaces the standard "Not Found" message with your own text and a link back to the homepage.</span>
+    </li>
+    <li>
+      <span class="idea-name">Reading Progress Bar</span>
+      <span class="badge badge-medium">Medium</span>
+      <span class="idea-desc">Shows a progress bar at the top of the page that fills as you scroll through a post.</span>
+    </li>
+  </ul>
+
+  <!-- ADMIN -->
+  <div class="category">
+    <h2>Admin — visible in the WordPress dashboard</h2>
+  </div>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-name">Admin Footer Text</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Replaces "Thank you for creating with WordPress" at the bottom of every admin page with your own message.</span>
+    </li>
+    <li>
+      <span class="idea-name">Dashboard Welcome Widget</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Adds a custom welcome message or quick-links panel to the WordPress dashboard.</span>
+    </li>
+    <li>
+      <span class="idea-name">Word Count Column</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Adds a "Words" column to the posts overview so you can see the word count of each post at a glance.</span>
+    </li>
+    <li>
+      <span class="idea-name">Login Page Message</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Adds a custom message below the login form — useful for multi-author sites ("Editors only — contact admin for access").</span>
+    </li>
+    <li>
+      <span class="idea-name">Missing Featured Image Warning</span>
+      <span class="badge badge-medium">Medium</span>
+      <span class="idea-desc">Shows a warning when you try to publish a post without a featured image set.</span>
+    </li>
+  </ul>
+
+  <!-- SITE-WIDE -->
+  <div class="category">
+    <h2>Site-wide — behind the scenes</h2>
+  </div>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-name">Disable Emoji</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Removes the WordPress emoji scripts from every page. Makes your site load slightly faster.</span>
+    </li>
+    <li>
+      <span class="idea-name">Remove Generator Tag</span>
+      <span class="badge badge-easy">Easy</span>
+      <span class="idea-desc">Removes the WordPress version number from your page source code. Small privacy and security improvement.</span>
+    </li>
+  </ul>
+
+  <footer>
+    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
