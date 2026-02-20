@@ -6,21 +6,37 @@ Workshop materials for a 45-minute hands-on workshop where participants create t
 
 Visit the **[preparation page](https://mdubbelm.github.io/vibe-code-wp-plugin/)** to get set up before the workshop.
 
+The workshop site has five pages:
+
+| Page | URL |
+|------|-----|
+| Preparation | `/` |
+| Guide | `/guide.html` |
+| Plugin ideas | `/ideas.html` |
+| Prompts | `/prompts.html` |
+| Tips & next steps | `/tips.html` |
+
 ## What's in this repo
 
 ```
 docs/                        → GitHub Pages site (participant-facing)
 ├── index.html               → Preparation page with setup instructions
+├── guide.html               → Step-by-step guide (Playground & LocalWP)
+├── ideas.html               → Plugin ideas list for inspiration
+├── prompts.html             → Ready-to-copy prompts for four plugins
+├── tips.html                → Tips, security info & next steps
+├── img/                     → Screenshots used in the guide
 └── my-first-plugin.zip      → Starter plugin download
 
-facilitator/                 → Facilitator materials
-├── guide.md                 → Facilitator's guide (timeline, Bloom's taxonomy, tips)
+facilitator/                 → Facilitator materials (not public-facing)
+├── guide.md                 → Facilitator's guide (timeline, tips, common problems)
+├── voorbereidingspagina-deelnemers.md → Source for prep page content
 ├── plugins/                 → Reference plugins (what the AI should produce)
 │   ├── demo-reading-time/   → Live demo plugin for Phase 1
 │   ├── reading-time/        → Choice 1: Reading Time (⭐ Easy)
 │   ├── external-link-icon/  → Choice 2: External Link Icon (⭐ Easy)
 │   ├── maintenance-mode/    → Choice 3: Maintenance Mode (⭐⭐ Medium)
-│   └── custom-login-logo/   → Choice 4: Custom Login Logo (⭐⭐ Medium)
+│   └── custom-login-logo/   → Choice 4: Custom Login Logo (⭐⭐⭐ Hard)
 └── prompts/                 → Reference prompts with expected results and pitfalls
 ```
 

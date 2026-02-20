@@ -1,5 +1,6 @@
 .DS_Store
 *.DS_Store
 
-# Internal brainstorm documents
+# Internal documents (not for public repo)
+CLAUDE.md
 facilitator/conversatie-vibe-coding-workshop.md
