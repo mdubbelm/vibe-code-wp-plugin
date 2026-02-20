@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step-by-step guide — Workshop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230073aa'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --color-success: #46b450;
+      --color-success-bg: #f0faf0;
+      --color-warning: #b45309;
+      --color-warning-bg: #fff8e8;
+      --color-playground: #3858e9;
+      --color-playground-light: #eef0fd;
+      --color-localwp: #276b35;
+      --color-localwp-light: #eaf5ec;
+      --max-width: 760px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── Navigation ─────────────────────────────── */
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .nav-link:hover { color: var(--color-accent); }
+    .nav-link.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* ── Layout ─────────────────────────────────── */
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2rem;
+    }
+
+    header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.3rem; }
+    header p { color: var(--color-text-secondary); font-size: 1rem; }
+
+    /* ── Tabs ───────────────────────────────────── */
+
+    [role="tablist"] {
+      display: flex;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 2rem;
+      gap: 0;
+    }
+
+    [role="tab"] {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      background: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.15s;
+    }
+
+    [role="tab"]:hover { color: var(--color-text); }
+
+    [role="tab"]:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: -2px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    [role="tab"][aria-selected="true"] {
+      color: var(--color-text);
+      font-weight: 700;
+      border-bottom-color: var(--color-accent);
+    }
+
+    .tab-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+    }
+
+    #tab-playground .tab-badge { background: var(--color-playground-light); color: var(--color-playground); }
+    #tab-localwp .tab-badge { background: var(--color-localwp-light); color: var(--color-localwp); }
+
+    [role="tabpanel"] { outline: none; }
+
+    /* ── Steps ──────────────────────────────────── */
+
+    .steps { list-style: none; padding: 0; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .step-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    #panel-playground .step-number { background: var(--color-playground); }
+    #panel-localwp .step-number { background: var(--color-localwp); }
+
+    .step-content h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      padding-top: 0.4rem;
+    }
+
+    .step-content p { margin-bottom: 0.75rem; }
+    .step-content p:last-child { margin-bottom: 0; }
+
+    .step-content ol,
+    .step-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-content li { margin-bottom: 0.3rem; }
+
+    /* ── Install variants ───────────────────────── */
+
+    .install-variants { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .variant {
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .variant-header {
+      padding: 0.6rem 1rem;
+      background: var(--color-bg);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .variant-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .variant-tag.alt { background: #fff3e0; color: #7c4200; }
+
+    .variant-body {
+      padding: 0.85rem 1rem;
+    }
+
+    .variant-body ol,
+    .variant-body ul { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .variant-body li { margin-bottom: 0.3rem; }
+    .variant-body p { margin-bottom: 0.5rem; }
+    .variant-body p:last-child { margin-bottom: 0; }
+
+    /* ── Callouts ───────────────────────────────── */
+
+    .tip {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .warning {
+      background: var(--color-warning-bg);
+      border-left: 4px solid var(--color-warning);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .success {
+      background: var(--color-success-bg);
+      border-left: 4px solid var(--color-success);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── Screenshot placeholders ────────────────── */
+
+    .screenshot {
+      background: #f0f4f8;
+      border: 2px dashed #b0bec5;
+      border-radius: 6px;
+      padding: 1.25rem;
+      text-align: center;
+      margin: 0.85rem 0;
+      color: #546e7a;
+      font-size: 0.9rem;
+    }
+
+    /* ── Misc ───────────────────────────────────── */
+
+    code {
+      background: #f0f0f0;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.88em;
+    }
+
+    a { color: var(--color-accent); }
+    a:hover { text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 0.95rem; }
+      header h1 { font-size: 1.4rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
+      [role="tab"] { padding: 0.65rem 0.75rem; font-size: 0.9rem; }
+      .tab-badge { display: none; }
+      .step { grid-template-columns: 2rem 1fr; gap: 0 0.75rem; }
+      .step-number { width: 2rem; height: 2rem; font-size: 0.875rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Workshop pages">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link">Preparation</a>
+    <a href="guide.html" class="nav-link active" aria-current="page">Guide</a>
+    <a href="ideas.html" class="nav-link">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link">Prompts</a>
+  </div>
+</nav>
+
+<main>
+<div class="container">
+
+  <header>
+    <h1>Step-by-step guide</h1>
+    <p>Choose your setup and follow the steps to build and install your plugin.</p>
+  </header>
+
+  <!-- Tab interface -->
+  <div role="tablist" aria-label="Choose your WordPress setup">
+    <button role="tab"
+            id="tab-playground"
+            aria-selected="true"
+            aria-controls="panel-playground"
+            tabindex="0">
+      <span class="tab-badge" aria-hidden="true">Route 1</span>
+      WordPress Playground
+    </button>
+    <button role="tab"
+            id="tab-localwp"
+            aria-selected="false"
+            aria-controls="panel-localwp"
+            tabindex="-1">
+      <span class="tab-badge" aria-hidden="true">Route 2</span>
+      LocalWP
+    </button>
+  </div>
+
+  <!-- ── PANEL: PLAYGROUND ─────────────────────── -->
+  <div role="tabpanel"
+       id="panel-playground"
+       aria-labelledby="tab-playground"
+       tabindex="0">
+
+    <ol class="steps" aria-label="Steps for WordPress Playground">
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">1</div>
+        <div class="step-content">
+          <h3>Open WordPress Playground</h3>
+          <p>Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a> in Chrome or Edge. WordPress loads in a few seconds — you'll see the admin dashboard.</p>
+          <div class="warning"><strong>Important:</strong> everything you create disappears when you close the tab. Keep this tab open until you're done.</div>
+          <div class="screenshot" aria-hidden="true">📸 WordPress Playground — admin dashboard loaded</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">2</div>
+        <div class="step-content">
+          <h3>Choose your plugin idea</h3>
+          <p>Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
+          <div class="tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">3</div>
+        <div class="step-content">
+          <h3>Write your prompt and generate the code</h3>
+          <p>Open your AI tool (ChatGPT, Claude, Le Chat, etc.) in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it.</p>
+          <p>You'll get PHP code back — that's your plugin. Copy all of it.</p>
+          <div class="screenshot" aria-hidden="true">📸 AI tool — PHP code generated in response</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">4</div>
+        <div class="step-content">
+          <h3>Install your plugin</h3>
+          <p>Choose one of the two methods:</p>
+
+          <div class="install-variants">
+
+            <div class="variant">
+              <div class="variant-header">
+                <span class="variant-tag">Easiest</span>
+                Option A — Plugin Editor (no file needed)
+              </div>
+              <div class="variant-body">
+                <ol>
+                  <li>In your WordPress admin, go to <strong>Plugins → Plugin Editor</strong></li>
+                  <li>In the dropdown (top right), select <strong>Hello Dolly</strong></li>
+                  <li>Select all the existing code and delete it</li>
+                  <li>Paste your generated PHP code</li>
+                  <li>Click <strong>"Update File"</strong></li>
+                </ol>
+                <div class="screenshot" aria-hidden="true">📸 Plugin Editor — generated code pasted, Hello Dolly selected in dropdown</div>
+              </div>
+            </div>
+
+            <div class="variant">
+              <div class="variant-header">
+                <span class="variant-tag alt">If available</span>
+                Option B — Upload a zip (if your AI created one)
+              </div>
+              <div class="variant-body">
+                <p>Some AI tools generate a downloadable zip file. If yours did:</p>
+                <ol>
+                  <li>Go to <strong>Plugins → Add New → Upload Plugin</strong></li>
+                  <li>Choose the zip from your downloads folder</li>
+                  <li>Click <strong>"Install Now"</strong></li>
+                </ol>
+                <div class="screenshot" aria-hidden="true">📸 Add New Plugin — upload zip screen</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">5</div>
+        <div class="step-content">
+          <h3>Activate your plugin</h3>
+          <p>Go to <strong>Plugins</strong>. Find your plugin — it shows the name you gave it in the plugin header — and click <strong>"Activate"</strong>.</p>
+          <div class="screenshot" aria-hidden="true">📸 Plugins list — plugin visible with Activate button</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">6</div>
+        <div class="step-content">
+          <h3>Test your plugin</h3>
+          <p>Click <strong>"Visit Site"</strong> at the top of the admin and navigate to a post or page. Does your plugin do what you expected?</p>
+          <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change the styling, add an option, or fix an edge case.</div>
+          <div class="screenshot" aria-hidden="true">📸 Site frontend — plugin output visible on a post</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">7</div>
+        <div class="step-content">
+          <h3>Iterate</h3>
+          <p>Something not working, or want to improve it? Go back to your AI tool and be specific about the problem:</p>
+          <ul>
+            <li><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
+            <li><em>"PHP error: [paste error message]. Can you fix this?"</em></li>
+            <li><em>"It works — can you make the text gray and slightly smaller?"</em></li>
+          </ul>
+          <p>Copy the new code, go back to the Plugin Editor, replace the old code and save again.</p>
+          <div class="tip"><strong>This is the real skill:</strong> not writing code, but knowing how to describe a problem and steer the AI toward a solution.</div>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+
+  <!-- ── PANEL: LOCALWP ────────────────────────── -->
+  <div role="tabpanel"
+       id="panel-localwp"
+       aria-labelledby="tab-localwp"
+       tabindex="0"
+       hidden>
+
+    <ol class="steps" aria-label="Steps for LocalWP">
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">1</div>
+        <div class="step-content">
+          <h3>Start your WordPress site in LocalWP</h3>
+          <p>Open LocalWP. If you haven't created a site yet, click <strong>"Create a new site"</strong> and follow the steps with default settings. Once your site is listed, click <strong>"WP Admin"</strong> to open the dashboard.</p>
+          <div class="screenshot" aria-hidden="true">📸 LocalWP — site running, WP Admin button visible</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">2</div>
+        <div class="step-content">
+          <h3>Choose your plugin idea</h3>
+          <p>Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
+          <div class="tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">3</div>
+        <div class="step-content">
+          <h3>Write your prompt and generate the code</h3>
+          <p>Open your AI tool in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it. You'll get PHP code back — that's your plugin.</p>
+          <div class="tip"><strong>Keep the AI tab open.</strong> You'll come back to it when you iterate.</div>
+          <div class="screenshot" aria-hidden="true">📸 AI tool — PHP code generated in response</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">4</div>
+        <div class="step-content">
+          <h3>Save and install your plugin</h3>
+          <p>Choose the method that suits you best:</p>
+
+          <div class="install-variants">
+
+            <div class="variant">
+              <div class="variant-header">
+                <span class="variant-tag">Simple</span>
+                Option A — Any text editor
+              </div>
+              <div class="variant-body">
+                <ol>
+                  <li>Open Notepad (Windows), TextEdit (Mac), or any plain text editor
+                    <ul>
+                      <li><strong>Mac TextEdit only:</strong> go to Format → Make Plain Text first, or it saves as RTF which won't work as PHP.</li>
+                    </ul>
+                  </li>
+                  <li>Paste your generated PHP code and save the file as <code>plugin-name.php</code> (e.g. <code>reading-time.php</code>)</li>
+                  <li>In LocalWP, right-click your site and choose <strong>"Open site folder"</strong></li>
+                  <li>Navigate to <code>app/public/wp-content/plugins/</code></li>
+                  <li>Create a new folder with the same name as your file (e.g. <code>reading-time</code>)</li>
+                  <li>Move your <code>.php</code> file into that folder</li>
+                </ol>
+                <div class="screenshot" aria-hidden="true">📸 File explorer — plugins folder with new folder containing the PHP file</div>
+              </div>
+            </div>
+
+            <div class="variant">
+              <div class="variant-header">
+                <span class="variant-tag">Recommended</span>
+                Option B — Visual Studio Code
+              </div>
+              <div class="variant-body">
+                <ol>
+                  <li>Open VS Code and create a new file (<strong>File → New File</strong>)</li>
+                  <li>Paste your generated PHP code</li>
+                  <li>Save it directly into a new folder inside the plugins directory — use <strong>"Open site folder"</strong> in LocalWP to find the right path:
+                    <br><code>app/public/wp-content/plugins/plugin-name/plugin-name.php</code>
+                  </li>
+                </ol>
+                <div class="tip">VS Code highlights PHP errors as you type — useful if the AI made a small mistake.</div>
+                <div class="screenshot" aria-hidden="true">📸 VS Code — PHP file open, plugins folder visible in sidebar</div>
+              </div>
+            </div>
+
+            <div class="variant">
+              <div class="variant-header">
+                <span class="variant-tag alt">Alternative</span>
+                Option C — Upload a zip via WP Admin
+              </div>
+              <div class="variant-body">
+                <p>Use this if your AI generated a downloadable zip, or if you'd rather not navigate the file system.</p>
+                <p><strong>If your AI gave you a zip:</strong> go straight to step 4.</p>
+                <p><strong>To create a zip yourself:</strong></p>
+                <ol>
+                  <li>Put your <code>.php</code> file in a folder with the same name</li>
+                  <li>Compress it:
+                    <ul>
+                      <li><strong>Mac:</strong> right-click the folder → "Compress"</li>
+                      <li><strong>Windows:</strong> right-click → "Send to" → "Compressed (zipped) folder"</li>
+                      <li><strong>Linux:</strong> right-click → "Compress" or run <code>zip -r plugin.zip folder/</code></li>
+                    </ul>
+                  </li>
+                </ol>
+                <p><strong>To upload:</strong></p>
+                <ol start="4">
+                  <li>In WP Admin, go to <strong>Plugins → Add New → Upload Plugin</strong></li>
+                  <li>Choose your zip file and click <strong>"Install Now"</strong></li>
+                </ol>
+                <div class="screenshot" aria-hidden="true">📸 WP Admin — Upload Plugin screen with zip selected</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">5</div>
+        <div class="step-content">
+          <h3>Activate your plugin</h3>
+          <p>Go to <strong>Plugins</strong> in WP Admin. Your plugin should appear in the list. Click <strong>"Activate"</strong>.</p>
+          <p>Plugin not appearing? Check that the folder name and PHP filename match, and that the plugin header block (<code>/* Plugin Name: ... */</code>) is at the very top of the file.</p>
+          <div class="screenshot" aria-hidden="true">📸 Plugins list — new plugin visible with Activate button</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">6</div>
+        <div class="step-content">
+          <h3>Test your plugin</h3>
+          <p>Click <strong>"Open site"</strong> in LocalWP, or use <strong>"Visit Site"</strong> in WP Admin. Navigate to a post or page and check if your plugin behaves as expected.</p>
+          <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change styling, add an option, or handle an edge case.</div>
+          <div class="screenshot" aria-hidden="true">📸 Site frontend — plugin output visible on a post</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-number" aria-hidden="true">7</div>
+        <div class="step-content">
+          <h3>Iterate</h3>
+          <p>Something not working? Go back to your AI tool and describe the issue clearly:</p>
+          <ul>
+            <li><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
+            <li><em>"PHP fatal error: [paste]. Can you fix it?"</em></li>
+            <li><em>"Works great — can you add a settings page to change the reading speed?"</em></li>
+          </ul>
+          <p>Copy the new code, open your PHP file in the editor, replace everything, save. Reload the page in WordPress — no reactivation needed.</p>
+          <div class="warning"><strong>White screen?</strong> Don't panic. In the plugins folder, rename your plugin folder (e.g. add <code>-off</code>). WordPress auto-deactivates it and the white screen disappears. Fix the code, then rename it back.</div>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+
+  <footer>
+    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
+  </footer>
+
+</div>
+</main>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+  function activateTab(tab) {
+    tabs.forEach(t => {
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    panels.forEach(p => { p.hidden = true; });
+
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+
+    const panelId = tab.getAttribute('aria-controls');
+    document.getElementById(panelId).hidden = false;
+
+    // Update URL hash for direct linking
+    const route = panelId.replace('panel-', '');
+    history.replaceState(null, '', '#' + route);
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const next = tabs[index + 1] || tabs[0];
+        next.focus();
+        activateTab(next);
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prev = tabs[index - 1] || tabs[tabs.length - 1];
+        prev.focus();
+        activateTab(prev);
+      }
+      if (e.key === 'Home') {
+        e.preventDefault();
+        tabs[0].focus();
+        activateTab(tabs[0]);
+      }
+      if (e.key === 'End') {
+        e.preventDefault();
+        tabs[tabs.length - 1].focus();
+        activateTab(tabs[tabs.length - 1]);
+      }
+    });
+  });
+
+  // Activate tab based on URL hash on load
+  const hash = window.location.hash.replace('#', '');
+  const tabForHash = tabs.find(t => t.getAttribute('aria-controls') === 'panel-' + hash);
+  if (tabForHash) activateTab(tabForHash);
+</script>
+
+</body>
+</html>
