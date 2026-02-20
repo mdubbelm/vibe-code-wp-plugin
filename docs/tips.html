@@ -34,6 +34,23 @@
       font-size: 1rem;
     }
 
+    /* ── Skip link ───────────────────────────────── */
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--color-accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 200;
+      border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus { top: 0; }
+
     /* ── Navigation ─────────────────────────────── */
 
     .site-nav {
@@ -257,6 +274,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav class="site-nav" aria-label="Workshop pages">
   <div class="nav-inner">
     <a href="index.html" class="nav-link">Preparation</a>
@@ -267,7 +286,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main-content">
 <div class="container">
 
   <header>
