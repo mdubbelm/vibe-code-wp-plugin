@@ -317,17 +317,15 @@
       font-size: 0.95rem;
     }
 
-    /* ── Screenshot placeholders ────────────────── */
+    /* ── Screenshots ─────────────────────────────── */
 
-    .screenshot {
-      background: #f0f4f8;
-      border: 2px dashed #b0bec5;
+    .screenshot img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--color-border);
       border-radius: 6px;
-      padding: 1.25rem;
-      text-align: center;
       margin: 0.85rem 0;
-      color: #546e7a;
-      font-size: 0.9rem;
+      display: block;
     }
 
     /* ── Misc ───────────────────────────────────── */
@@ -443,7 +441,7 @@
           <h3>Open WordPress Playground</h3>
           <p>Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a> in Chrome or Edge. WordPress loads in a few seconds — you'll see the admin dashboard.</p>
           <div class="warning"><strong>Important:</strong> everything you create disappears when you close the tab. Keep this tab open until you're done.</div>
-          <div class="screenshot" aria-hidden="true">📸 WordPress Playground — admin dashboard loaded</div>
+          <div class="screenshot"><img src="img/playground-admin.png" alt="WordPress Playground with the WordPress admin dashboard loaded and ready to use"></div>
         </div>
       </li>
 
@@ -462,7 +460,7 @@
           <h3>Write your prompt and generate the code</h3>
           <p>Open your AI tool (ChatGPT, Claude, Le Chat, etc.) in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it.</p>
           <p>You'll get PHP code back — that's your plugin. Copy all of it.</p>
-          <div class="screenshot" aria-hidden="true">📸 AI tool — PHP code generated in response</div>
+          <div class="screenshot"><img src="img/ai-php-output.png" alt="AI tool showing generated PHP plugin code in the response"></div>
         </div>
       </li>
 
@@ -487,7 +485,7 @@
                   <li>Paste your generated PHP code</li>
                   <li>Click <strong>"Update File"</strong></li>
                 </ol>
-                <div class="screenshot" aria-hidden="true">📸 Plugin Editor — generated code pasted, Hello Dolly selected in dropdown</div>
+                <div class="screenshot"><img src="img/plugin-editor.png" alt="WordPress Plugin Editor with generated PHP code pasted, Hello Dolly selected in the dropdown"></div>
               </div>
             </div>
 
@@ -503,7 +501,7 @@
                   <li>Choose the zip from your downloads folder</li>
                   <li>Click <strong>"Install Now"</strong></li>
                 </ol>
-                <div class="screenshot" aria-hidden="true">📸 Add New Plugin — upload zip screen</div>
+                <div class="screenshot"><img src="img/upload-plugin.png" alt="WordPress Add New Plugin screen with the Upload Plugin option visible"></div>
               </div>
             </div>
 
@@ -516,7 +514,7 @@
         <div class="step-content">
           <h3>Activate your plugin</h3>
           <p>Go to <strong>Plugins</strong>. Find your plugin — it shows the name you gave it in the plugin header — and click <strong>"Activate"</strong>.</p>
-          <div class="screenshot" aria-hidden="true">📸 Plugins list — plugin visible with Activate button</div>
+          <div class="screenshot"><img src="img/plugin-list.png" alt="WordPress plugins list showing the newly installed plugin with an Activate button"></div>
         </div>
       </li>
 
@@ -526,7 +524,7 @@
           <h3>Test your plugin</h3>
           <p>Click <strong>"Visit Site"</strong> at the top of the admin and navigate to a post or page. Does your plugin do what you expected?</p>
           <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change the styling, add an option, or fix an edge case.</div>
-          <div class="screenshot" aria-hidden="true">📸 Site frontend — plugin output visible on a post</div>
+          <div class="screenshot"><img src="img/frontend-output.png" alt="WordPress site frontend showing the plugin output on a blog post"></div>
         </div>
       </li>
 
@@ -562,7 +560,7 @@
         <div class="step-content">
           <h3>Start your WordPress site in LocalWP</h3>
           <p>Open LocalWP. If you haven't created a site yet, click <strong>"Create a new site"</strong> and follow the steps with default settings. Once your site is listed, click <strong>"WP Admin"</strong> to open the dashboard.</p>
-          <div class="screenshot" aria-hidden="true">📸 LocalWP — site running, WP Admin button visible</div>
+          <div class="screenshot"><img src="img/localwp.png" alt="LocalWP application showing a running WordPress site with the WP Admin button visible"></div>
         </div>
       </li>
 
@@ -581,7 +579,7 @@
           <h3>Write your prompt and generate the code</h3>
           <p>Open your AI tool in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it. You'll get PHP code back — that's your plugin.</p>
           <div class="tip"><strong>Keep the AI tab open.</strong> You'll come back to it when you iterate.</div>
-          <div class="screenshot" aria-hidden="true">📸 AI tool — PHP code generated in response</div>
+          <div class="screenshot"><img src="img/ai-php-output.png" alt="AI tool showing generated PHP plugin code in the response"></div>
         </div>
       </li>
 
@@ -611,7 +609,7 @@
                   <li>Create a new folder with the same name as your file (e.g. <code>reading-time</code>)</li>
                   <li>Move your <code>.php</code> file into that folder</li>
                 </ol>
-                <div class="screenshot" aria-hidden="true">📸 File explorer — plugins folder with new folder containing the PHP file</div>
+                <div class="screenshot"><img src="img/file-explorer.png" alt="File explorer showing the WordPress plugins folder with a new plugin folder containing the PHP file"></div>
               </div>
             </div>
 
@@ -639,7 +637,7 @@
                   <li>In WP Admin, go to <strong>Plugins → Add New → Upload Plugin</strong></li>
                   <li>Choose your zip file and click <strong>"Install Now"</strong></li>
                 </ol>
-                <div class="screenshot" aria-hidden="true">📸 WP Admin — Upload Plugin screen with zip selected</div>
+                <div class="screenshot"><img src="img/upload-plugin.png" alt="WordPress Add New Plugin screen with the Upload Plugin option visible"></div>
               </div>
             </div>
 
@@ -653,7 +651,7 @@
           <h3>Activate your plugin</h3>
           <p>Go to <strong>Plugins</strong> in WP Admin. Your plugin should appear in the list. Click <strong>"Activate"</strong>.</p>
           <p>Plugin not appearing? Check that the folder name and PHP filename match, and that the plugin header block (<code>/* Plugin Name: ... */</code>) is at the very top of the file.</p>
-          <div class="screenshot" aria-hidden="true">📸 Plugins list — new plugin visible with Activate button</div>
+          <div class="screenshot"><img src="img/plugin-list.png" alt="WordPress plugins list showing the newly installed plugin with an Activate button"></div>
         </div>
       </li>
 
@@ -663,7 +661,7 @@
           <h3>Test your plugin</h3>
           <p>Click <strong>"Open site"</strong> in LocalWP, or use <strong>"Visit Site"</strong> in WP Admin. Navigate to a post or page and check if your plugin behaves as expected.</p>
           <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change styling, add an option, or handle an edge case.</div>
-          <div class="screenshot" aria-hidden="true">📸 Site frontend — plugin output visible on a post</div>
+          <div class="screenshot"><img src="img/frontend-output.png" alt="WordPress site frontend showing the plugin output on a blog post"></div>
         </div>
       </li>
 
