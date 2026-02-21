@@ -143,6 +143,7 @@ const I18N = {
     'guide-pg-s7-li2':    '<em>"PHP error: [paste error message]. Can you fix this?"</em>',
     'guide-pg-s7-li3':    '<em>"It works — can you make the text gray and slightly smaller?"</em>',
     'guide-pg-s7-p2':     'Copy the new code, go back to the Plugin Editor, replace the old code and save again.',
+    'guide-pg-s7-p3':     '<strong>Does your plugin create a database table?</strong> If your updated code includes setup that runs on activation (like creating a database table), WordPress won\'t run that again automatically — it only fires when the plugin is activated. Go to Plugins, deactivate your plugin, then activate it again.',
     'guide-pg-s7-tip':    '<strong>This is the real skill:</strong> not writing code, but knowing how to describe a problem and steer the AI toward a solution.',
 
     'guide-lw-s1-h':      'Start your WordPress site in LocalWP',
@@ -185,6 +186,7 @@ const I18N = {
     'guide-lw-s7-li2':    '<em>"PHP fatal error: [paste]. Can you fix it?"</em>',
     'guide-lw-s7-li3':    '<em>"Works great — can you add a settings page to change the reading speed?"</em>',
     'guide-lw-s7-p2':     'Copy the new code, open your PHP file in the editor, replace everything, save. Reload the page in WordPress — no reactivation needed.',
+    'guide-lw-s7-p3':     '<strong>Does your plugin create a database table?</strong> If your updated code includes setup that runs on activation (like creating a database table), WordPress won\'t run that again automatically — it only fires when the plugin is activated. Go to Plugins, deactivate your plugin, then activate it again.',
     'guide-lw-s7-warn':   '<strong>White screen?</strong> Don\'t panic. In the plugins folder, rename your plugin folder (e.g. add <code>-off</code>). WordPress auto-deactivates it and the white screen disappears. Fix the code, then rename it back.',
 
     /* ── ideas.html ─────────────────────────────────── */
@@ -403,6 +405,7 @@ Technical requirements:
     'tips-further-li3':   'Ask the AI to write unit tests for the plugin',
     'tips-further-li4':   'Ask the AI to make it comply with WordPress Coding Standards',
     'tips-further-li5':   'Export the plugin as a zip: <strong>Plugins → [your plugin] → Download</strong> (LocalWP) or create a zip from the folder',
+    'tips-further-onefile': '<strong>Why does everything go in one file?</strong> For this workshop, all code lives in a single <code>.php</code> file — easy to see, easy to debug, no folder structure to explain. Real-world plugins often split code across multiple files (separate files for settings pages, assets, helper functions). When you\'re ready for that, the <a href="https://developer.wordpress.org/plugins/plugin-basics/best-practices/" target="_blank" rel="noopener">Plugin Best Practices</a> page in the handbook is a good next step.',
     'tips-further-h3-learn': 'Keep learning',
     'tips-further-lnk1':  '<a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly',
     'tips-further-lnk2':  '<a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automated quality and security scanning',
@@ -547,6 +550,7 @@ Technical requirements:
     'guide-pg-s7-li2':    '<em>"PHP-fout: [plak foutmelding]. Kun je dit oplossen?"</em>',
     'guide-pg-s7-li3':    '<em>"Het werkt — kun je de tekst grijs en iets kleiner maken?"</em>',
     'guide-pg-s7-p2':     'Kopieer de nieuwe code, ga terug naar de Plugin Editor, vervang de oude code en sla opnieuw op.',
+    'guide-pg-s7-p3':     '<strong>Maakt je plugin een databasetabel aan?</strong> Als je nieuwe code iets uitvoert bij activatie (zoals het aanmaken van een databasetabel), doet WordPress dat niet automatisch opnieuw — dat gebeurt alleen bij activatie. Ga naar Plugins, deactiveer je plugin en activeer hem daarna opnieuw.',
     'guide-pg-s7-tip':    '<strong>Dit is de echte vaardigheid:</strong> niet code schrijven, maar weten hoe je een probleem beschrijft en de AI naar een oplossing stuurt.',
 
     'guide-lw-s1-h':      'Start je WordPress-site in LocalWP',
@@ -589,6 +593,7 @@ Technical requirements:
     'guide-lw-s7-li2':    '<em>"PHP fatal error: [plak]. Kun je dit oplossen?"</em>',
     'guide-lw-s7-li3':    '<em>"Werkt goed — kun je een instellingenpagina toevoegen om de leessnelheid in te stellen?"</em>',
     'guide-lw-s7-p2':     'Kopieer de nieuwe code, open je PHP-bestand in de editor, vervang alles, sla op. Herlaad de pagina in WordPress — opnieuw activeren is niet nodig.',
+    'guide-lw-s7-p3':     '<strong>Maakt je plugin een databasetabel aan?</strong> Als je nieuwe code iets uitvoert bij activatie (zoals het aanmaken van een databasetabel), doet WordPress dat niet automatisch opnieuw — dat gebeurt alleen bij activatie. Ga naar Plugins, deactiveer je plugin en activeer hem daarna opnieuw.',
     'guide-lw-s7-warn':   '<strong>Wit scherm?</strong> Geen paniek. Ga naar de pluginmap en hernoem je pluginmap (bijv. voeg <code>-uit</code> toe). WordPress deactiveert hem automatisch en het witte scherm verdwijnt. Repareer de code, hernoem daarna terug.',
 
     /* ── ideas.html ─────────────────────────────────── */
@@ -807,6 +812,7 @@ Technische vereisten:
     'tips-further-li3':   'Vraag de AI om unit tests voor de plugin te schrijven',
     'tips-further-li4':   'Vraag de AI om hem te laten voldoen aan de WordPress-codestandaarden',
     'tips-further-li5':   'Exporteer de plugin als zip: <strong>Plugins → [jouw plugin] → Downloaden</strong> (LocalWP) of maak een zip van de map',
+    'tips-further-onefile': '<strong>Waarom staat alles in één bestand?</strong> In deze workshop staat alle code in één <code>.php</code>-bestand — overzichtelijk, makkelijk te debuggen, geen mappenstructuur om uit te leggen. Echte plugins splitsen code vaak op over meerdere bestanden (aparte bestanden voor instellingenpagina\'s, assets, hulpfuncties). Als je daar klaar voor bent, is de pagina <a href="https://developer.wordpress.org/plugins/plugin-basics/best-practices/" target="_blank" rel="noopener">Plugin Best Practices</a> in het handbook een goede volgende stap.',
     'tips-further-h3-learn': 'Verder leren',
     'tips-further-lnk1':  '<a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — de officiële handleiding voor het goed bouwen van plugins',
     'tips-further-lnk2':  '<a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automatische kwaliteits- en beveiligingsscan',
