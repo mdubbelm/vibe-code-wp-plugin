@@ -200,127 +200,140 @@
       .idea-list li { flex-wrap: wrap; }
       .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
     }
+
+    /* ── Language toggle ─────────────────────────────── */
+    .lang-toggle { margin-left: auto; display: flex; align-items: center; gap: 0.25rem; padding: 0.5rem 0 0.5rem 0.5rem; }
+    .lang-btn { padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 600; line-height: 1.4; border: 1px solid var(--color-border); border-radius: 3px; background: none; color: var(--color-text-secondary); cursor: pointer; }
+    .lang-btn.active { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .lang-btn:hover:not(.active) { border-color: var(--color-accent); color: var(--color-accent); }
+    .lang-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to main content</a>
 
-<nav class="site-nav" aria-label="Workshop pages">
+<nav class="site-nav" data-i18n-aria="nav-aria" aria-label="Workshop pages">
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Preparation</a>
-    <a href="guide.html" class="nav-link">Guide</a>
-    <a href="ideas.html" class="nav-link active" aria-current="page">Plugin ideas</a>
-    <a href="prompts.html" class="nav-link">Prompts</a>
-    <a href="tips.html" class="nav-link">Tips</a>
+    <a href="index.html" class="nav-link" data-i18n="nav-preparation">Preparation</a>
+    <a href="guide.html" class="nav-link" data-i18n="nav-guide">Guide</a>
+    <a href="ideas.html" class="nav-link active" aria-current="page" data-i18n="nav-ideas">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link" data-i18n="nav-prompts">Prompts</a>
+    <a href="tips.html" class="nav-link" data-i18n="nav-tips">Tips</a>
+    <div class="lang-toggle" role="group" aria-label="Language / Taal">
+      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="nl" onclick="setLanguage('nl')" aria-pressed="false">NL</button>
+    </div>
   </div>
 </nav>
 
 <div class="container" id="main-content">
 
   <header>
-    <h1>Plugin ideas</h1>
-    <p>Not sure what to build? Pick an idea from this list and write your own prompt.</p>
+    <h1 data-i18n="ideas-h1">Plugin ideas</h1>
+    <p data-i18n="ideas-sub">Not sure what to build? Pick an idea from this list and write your own prompt.</p>
   </header>
 
-  <div class="tip">
+  <div class="tip" data-i18n="ideas-tip">
     Use the <a href="index.html">prompt template from the preparation page</a> to describe your chosen idea. Fill in the name, what it should do, where it should appear, and how it should behave — then paste it into your AI tool.
   </div>
 
   <!-- FRONTEND -->
   <div class="category">
-    <h2>Frontend — visible to visitors</h2>
+    <h2 data-i18n="ideas-cat-frontend">Frontend — visible to visitors</h2>
   </div>
   <ul class="idea-list">
     <li>
-      <span class="idea-name">Last Updated Date</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Shows "Last updated on [date]" above or below a blog post.</span>
+      <span class="idea-name" data-i18n="ideas-f1-name">Last Updated Date</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-f1-desc">Shows "Last updated on [date]" above or below a blog post.</span>
     </li>
     <li>
-      <span class="idea-name">Copyright Footer</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Adds "© [year] [site name]" to the bottom of every page. The year updates automatically.</span>
+      <span class="idea-name" data-i18n="ideas-f2-name">Copyright Footer</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-f2-desc">Adds "© [year] [site name]" to the bottom of every page. The year updates automatically.</span>
     </li>
     <li>
-      <span class="idea-name">Author Bio Box</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Shows a short author description with avatar below each post.</span>
+      <span class="idea-name" data-i18n="ideas-f3-name">Author Bio Box</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-f3-desc">Shows a short author description with avatar below each post.</span>
     </li>
     <li>
-      <span class="idea-name">Simple Cookie Notice</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Shows a "This site uses cookies" banner at the bottom of the page with a dismiss button.</span>
+      <span class="idea-name" data-i18n="ideas-f4-name">Simple Cookie Notice</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-f4-desc">Shows a "This site uses cookies" banner at the bottom of the page with a dismiss button.</span>
     </li>
     <li>
-      <span class="idea-name">Custom 404 Message</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Replaces the standard "Not Found" message with your own text and a link back to the homepage.</span>
+      <span class="idea-name" data-i18n="ideas-f5-name">Custom 404 Message</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-f5-desc">Replaces the standard "Not Found" message with your own text and a link back to the homepage.</span>
     </li>
     <li>
-      <span class="idea-name">Reading Progress Bar</span>
-      <span class="badge badge-medium">Medium</span>
-      <span class="idea-desc">Shows a progress bar at the top of the page that fills as you scroll through a post.</span>
+      <span class="idea-name" data-i18n="ideas-f6-name">Reading Progress Bar</span>
+      <span class="badge badge-medium" data-i18n="ideas-badge-medium">Medium</span>
+      <span class="idea-desc" data-i18n="ideas-f6-desc">Shows a progress bar at the top of the page that fills as you scroll through a post.</span>
     </li>
   </ul>
 
   <!-- ADMIN -->
   <div class="category">
-    <h2>Admin — visible in the WordPress dashboard</h2>
+    <h2 data-i18n="ideas-cat-admin">Admin — visible in the WordPress dashboard</h2>
   </div>
   <ul class="idea-list">
     <li>
-      <span class="idea-name">Admin Footer Text</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Replaces "Thank you for creating with WordPress" at the bottom of every admin page with your own message.</span>
+      <span class="idea-name" data-i18n="ideas-a1-name">Admin Footer Text</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-a1-desc">Replaces "Thank you for creating with WordPress" at the bottom of every admin page with your own message.</span>
     </li>
     <li>
-      <span class="idea-name">Dashboard Welcome Widget</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Adds a custom welcome message or quick-links panel to the WordPress dashboard.</span>
+      <span class="idea-name" data-i18n="ideas-a2-name">Dashboard Welcome Widget</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-a2-desc">Adds a custom welcome message or quick-links panel to the WordPress dashboard.</span>
     </li>
     <li>
-      <span class="idea-name">Word Count Column</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Adds a "Words" column to the posts overview so you can see the word count of each post at a glance.</span>
+      <span class="idea-name" data-i18n="ideas-a3-name">Word Count Column</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-a3-desc">Adds a "Words" column to the posts overview so you can see the word count of each post at a glance.</span>
     </li>
     <li>
-      <span class="idea-name">Login Page Message</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Adds a custom message below the login form — useful for multi-author sites ("Editors only — contact admin for access").</span>
+      <span class="idea-name" data-i18n="ideas-a4-name">Login Page Message</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-a4-desc">Adds a custom message below the login form — useful for multi-author sites ("Editors only — contact admin for access").</span>
     </li>
     <li>
-      <span class="idea-name">Missing Featured Image Warning</span>
-      <span class="badge badge-medium">Medium</span>
-      <span class="idea-desc">Shows a warning when you try to publish a post without a featured image set.</span>
+      <span class="idea-name" data-i18n="ideas-a5-name">Missing Featured Image Warning</span>
+      <span class="badge badge-medium" data-i18n="ideas-badge-medium">Medium</span>
+      <span class="idea-desc" data-i18n="ideas-a5-desc">Shows a warning when you try to publish a post without a featured image set.</span>
     </li>
   </ul>
 
   <!-- SITE-WIDE -->
   <div class="category">
-    <h2>Site-wide — behind the scenes</h2>
+    <h2 data-i18n="ideas-cat-sitewide">Site-wide — behind the scenes</h2>
   </div>
   <ul class="idea-list">
     <li>
-      <span class="idea-name">Disable Emoji</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Removes the WordPress emoji scripts from every page. Makes your site load slightly faster.</span>
+      <span class="idea-name" data-i18n="ideas-s1-name">Disable Emoji</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-s1-desc">Removes the WordPress emoji scripts from every page. Makes your site load slightly faster.</span>
     </li>
     <li>
-      <span class="idea-name">Remove Generator Tag</span>
-      <span class="badge badge-easy">Easy</span>
-      <span class="idea-desc">Removes the WordPress version number from your page source code. Small privacy and security improvement.</span>
+      <span class="idea-name" data-i18n="ideas-s2-name">Remove Generator Tag</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-s2-desc">Removes the WordPress version number from your page source code. Small privacy and security improvement.</span>
     </li>
   </ul>
 
   <footer>
-    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.4rem;"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
-    <p style="margin-top:0.4rem;">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
+    <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
+    <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
   </footer>
 
 </div>
 
+<script src="js/i18n.js"></script>
 </body>
 </html>

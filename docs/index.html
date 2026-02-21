@@ -316,77 +316,115 @@
       .container { padding: 1.5rem 1rem 3rem; }
       .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
     }
+
+    /* ── Language toggle ─────────────────────────────── */
+    .lang-toggle {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+    .lang-btn {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.4;
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      background: none;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+    .lang-btn:hover:not(.active) {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    .lang-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
+
+    /* ── NL CSS content overrides ────────────────────── */
+    body.lang-nl .card.recommended::before { content: "Aanbevolen"; }
+    body.lang-nl .card.quick::before { content: "Snelle optie"; }
   </style>
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to main content</a>
 
-<nav class="site-nav" aria-label="Workshop pages">
+<nav class="site-nav" data-i18n-aria="nav-aria" aria-label="Workshop pages">
   <div class="nav-inner">
-    <a href="index.html" class="nav-link active" aria-current="page">Preparation</a>
-    <a href="guide.html" class="nav-link">Guide</a>
-    <a href="ideas.html" class="nav-link">Plugin ideas</a>
-    <a href="prompts.html" class="nav-link">Prompts</a>
-    <a href="tips.html" class="nav-link">Tips</a>
+    <a href="index.html" class="nav-link active" aria-current="page" data-i18n="nav-preparation">Preparation</a>
+    <a href="guide.html" class="nav-link" data-i18n="nav-guide">Guide</a>
+    <a href="ideas.html" class="nav-link" data-i18n="nav-ideas">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link" data-i18n="nav-prompts">Prompts</a>
+    <a href="tips.html" class="nav-link" data-i18n="nav-tips">Tips</a>
+    <div class="lang-toggle" role="group" aria-label="Language / Taal">
+      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="nl" onclick="setLanguage('nl')" aria-pressed="false">NL</button>
+    </div>
   </div>
 </nav>
 
 <div class="container" id="main-content">
 
   <header>
-    <h1>Vibe Code Your Own WordPress Plugin</h1>
-    <p>Workshop preparation — get set up before we start</p>
+    <h1 data-i18n="index-h1">Vibe Code Your Own WordPress Plugin</h1>
+    <p data-i18n="index-sub">Workshop preparation — get set up before we start</p>
   </header>
 
-  <p>In this workshop you'll create your own WordPress plugin in 45 minutes using AI. No coding experience needed — but a little preparation makes all the difference.</p>
+  <p data-i18n="index-intro">In this workshop you'll create your own WordPress plugin in 45 minutes using AI. No coding experience needed — but a little preparation makes all the difference.</p>
 
-  <div class="tip">
+  <div class="tip" data-i18n="index-tip-time">
     <strong>Short on time?</strong> Jump to <a href="#option-b">Option B: Zero Install</a> — you only need a browser and an AI tool.
   </div>
 
   <!-- STEP 1 -->
-  <h2>Step 1: Set up WordPress</h2>
-  <p>You need a working WordPress installation to test plugins on. Choose one of these options:</p>
+  <h2 data-i18n="index-h2-step1">Step 1: Set up WordPress</h2>
+  <p data-i18n="index-step1-intro">You need a working WordPress installation to test plugins on. Choose one of these options:</p>
 
   <div class="card recommended">
-    <h3 id="option-a">Option A: LocalWP</h3>
-    <p>LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs.</p>
+    <h3 id="option-a" data-i18n="index-h3-localwp">Option A: LocalWP</h3>
+    <p data-i18n="index-localwp-desc">LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs.</p>
     <ol>
-      <li>Download LocalWP from <a href="https://localwp.com/" target="_blank" rel="noopener">localwp.com</a></li>
-      <li>Install the program</li>
-      <li>Click <strong>"Create a new site"</strong></li>
-      <li>Choose a name (e.g. "workshop") and click through with the default settings</li>
-      <li>Wait for the site to be created</li>
-      <li>Click <strong>"WP Admin"</strong> to verify your WordPress dashboard opens</li>
+      <li data-i18n="index-localwp-li1">Download LocalWP from <a href="https://localwp.com/" target="_blank" rel="noopener">localwp.com</a></li>
+      <li data-i18n="index-localwp-li2">Install the program</li>
+      <li data-i18n="index-localwp-li3">Click <strong>"Create a new site"</strong></li>
+      <li data-i18n="index-localwp-li4">Choose a name (e.g. "workshop") and click through with the default settings</li>
+      <li data-i18n="index-localwp-li5">Wait for the site to be created</li>
+      <li data-i18n="index-localwp-li6">Click <strong>"WP Admin"</strong> to verify your WordPress dashboard opens</li>
     </ol>
-    <p class="time-estimate">Takes about 10 minutes (including download)</p>
-    <div class="check">
+    <p class="time-estimate" data-i18n="index-localwp-time">Takes about 10 minutes (including download)</p>
+    <div class="check" data-i18n="index-localwp-check">
       <strong>Check:</strong> Can you log in to your WordPress dashboard? Then you're ready.
     </div>
   </div>
 
   <div class="card quick">
-    <h3 id="option-b">Option B: WordPress Playground</h3>
-    <p>No time or no desire to install anything? WordPress Playground runs entirely in your browser.</p>
+    <h3 id="option-b" data-i18n="index-h3-playground">Option B: WordPress Playground</h3>
+    <p data-i18n="index-pg-desc">No time or no desire to install anything? WordPress Playground runs entirely in your browser.</p>
     <ol>
-      <li>Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a></li>
-      <li>Wait for WordPress to load (takes a few seconds)</li>
-      <li>You now have a fully working WordPress installation in your browser</li>
+      <li data-i18n="index-pg-li1">Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a></li>
+      <li data-i18n="index-pg-li2">Wait for WordPress to load (takes a few seconds)</li>
+      <li data-i18n="index-pg-li3">You now have a fully working WordPress installation in your browser</li>
     </ol>
-    <p class="time-estimate">Takes about 30 seconds</p>
-    <div class="note">
+    <p class="time-estimate" data-i18n="index-pg-time">Takes about 30 seconds</p>
+    <div class="note" data-i18n="index-pg-note">
       <strong>Note:</strong> Everything you create disappears when you close the tab (unless you export). Works best in Chrome or Edge.
     </div>
   </div>
 
   <!-- STEP 2 -->
-  <h2>Step 2: Set up an AI tool</h2>
-  <p>You need an AI chatbot that can generate code. Pick one — any will do:</p>
+  <h2 data-i18n="index-h2-step2">Step 2: Set up an AI tool</h2>
+  <p data-i18n="index-step2-intro">You need an AI chatbot that can generate code. Pick one — any will do:</p>
 
   <table>
     <thead>
-      <tr><th>Tool</th><th>Account needed?</th><th>Free?</th></tr>
+      <tr><th data-i18n="index-table-tool">Tool</th><th data-i18n="index-table-account">Account needed?</th><th data-i18n="index-table-free">Free?</th></tr>
     </thead>
     <tbody>
       <tr><td><a href="https://chat.mistral.ai/" target="_blank" rel="noopener">Le Chat</a> <small>(Mistral, France)</small></td><td>Yes</td><td>Free tier available</td></tr>
@@ -399,26 +437,30 @@
     </tbody>
   </table>
 
-  <div class="check">
+  <div class="check" data-i18n="index-ai-check">
     <strong>Check:</strong> Can you send a message and get a response? Then you're ready.
   </div>
 
+  <div class="tip" data-i18n="index-claudecode">
+    <strong>Want to skip the copy-pasting?</strong> If you get serious about this, consider <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a> — a version of Claude that runs directly in your terminal. No more copying code blocks back and forth; it reads and edits your files directly and keeps full context of everything you've done. <a href="https://modub.nl/blog/vier-uur-met-claude-op-de-server/" target="_blank" rel="noopener">Read about it on modub.nl (in Dutch)</a>.
+  </div>
+
   <!-- STEP 3 -->
-  <h2>Step 3: Code editor <span style="font-weight: normal; font-size: 0.85em;">(optional)</span></h2>
-  <p>If you're using LocalWP, it helps to have a code editor. If you're using WordPress Playground, skip this step.</p>
+  <h2 data-i18n="index-h2-step3">Step 3: Code editor <span style="font-weight: normal; font-size: 0.85em;">(optional)</span></h2>
+  <p data-i18n="index-step3-intro">If you're using LocalWP, it helps to have a code editor. If you're using WordPress Playground, skip this step.</p>
   <ul>
-    <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> (free) — recommended</li>
-    <li>Or use Notepad / TextEdit — that works too</li>
+    <li data-i18n="index-step3-li1"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> (free) — recommended</li>
+    <li data-i18n="index-step3-li2">Or use Notepad / TextEdit — that works too</li>
   </ul>
 
   <!-- STEP 4 -->
-  <h2>Step 4: Know the basics</h2>
-  <p>You don't need to know how to code, but it helps to understand this:</p>
+  <h2 data-i18n="index-h2-step4">Step 4: Know the basics</h2>
+  <p data-i18n="index-step4-intro">You don't need to know how to code, but it helps to understand this:</p>
 
-  <h3>What is a WordPress plugin?</h3>
-  <p>A plugin is a piece of extra functionality you add to WordPress. Technically, it's a folder with at least one PHP file in it, located in <code>wp-content/plugins/</code>.</p>
+  <h3 data-i18n="index-h3-what">What is a WordPress plugin?</h3>
+  <p data-i18n="index-what-desc">A plugin is a piece of extra functionality you add to WordPress. Technically, it's a folder with at least one PHP file in it, located in <code>wp-content/plugins/</code>.</p>
 
-  <h3>What does a minimal plugin look like?</h3>
+  <h3 data-i18n="index-h3-minimal">What does a minimal plugin look like?</h3>
 <pre><code>&lt;?php
 /**
  * Plugin Name: My Plugin
@@ -428,25 +470,25 @@
 
 // Here goes the code that does something</code></pre>
 
-  <p>That's it. Those first lines (the "plugin header") tell WordPress this is a plugin. The rest is your code — or in our case: the code that AI writes for you.</p>
+  <p data-i18n="index-minimal-after">That's it. Those first lines (the "plugin header") tell WordPress this is a plugin. The rest is your code — or in our case: the code that AI writes for you.</p>
 
-  <h3>How do you install a self-made plugin?</h3>
-  <p><strong>With LocalWP:</strong></p>
+  <h3 data-i18n="index-h3-install">How do you install a self-made plugin?</h3>
+  <p data-i18n="index-install-localwp"><strong>With LocalWP:</strong></p>
   <ol>
-    <li>Open your site's folder → <code>app/public/wp-content/plugins/</code></li>
-    <li>Create a new folder (e.g. <code>my-plugin</code>)</li>
-    <li>Put your PHP file in it</li>
-    <li>Go to WP Admin → Plugins → Activate</li>
+    <li data-i18n="index-install-lw-li1">Open your site's folder → <code>app/public/wp-content/plugins/</code></li>
+    <li data-i18n="index-install-lw-li2">Create a new folder (e.g. <code>my-plugin</code>)</li>
+    <li data-i18n="index-install-lw-li3">Put your PHP file in it</li>
+    <li data-i18n="index-install-lw-li4">Go to WP Admin → Plugins → Activate</li>
   </ol>
-  <p><strong>With WordPress Playground:</strong></p>
+  <p data-i18n="index-install-pg"><strong>With WordPress Playground:</strong></p>
   <ol>
-    <li>Copy your code</li>
-    <li>Go to WP Admin → Plugins → Plugin Editor (or create a zip and upload it)</li>
+    <li data-i18n="index-install-pg-li1">Copy your code</li>
+    <li data-i18n="index-install-pg-li2">Go to WP Admin → Plugins → Plugin Editor (or create a zip and upload it)</li>
   </ol>
 
   <!-- PROMPT TEMPLATE -->
-  <h2>Prompt template</h2>
-  <p>This is the template we'll use during the workshop. Feel free to look at it now:</p>
+  <h2 data-i18n="index-h2-prompt">Prompt template</h2>
+  <p data-i18n="index-prompt-intro">This is the template we'll use during the workshop. Feel free to look at it now:</p>
 
 <pre><code>Create a WordPress plugin with the following specifications:
 
@@ -462,39 +504,41 @@ Technical requirements:
 - Put all code in a single PHP file
 - Add short comments explaining what each part does</code></pre>
 
-  <div class="tip">
+  <div class="tip" data-i18n="index-tip-prompt">
     <strong>Tip:</strong> The more specific your prompt, the better the result. "Make a plugin that does something with images" yields less than "Make a plugin that automatically adds alt text to images that don't have any yet."
   </div>
 
   <!-- DOWNLOAD -->
-  <h2>Starter plugin</h2>
-  <p>Download this minimal starter plugin as a reference. You can install it in WordPress to see how a plugin works:</p>
-  <p><a href="my-first-plugin.zip" class="download-btn" download>Download starter plugin (.zip)</a></p>
+  <h2 data-i18n="index-h2-starter">Starter plugin</h2>
+  <p data-i18n="index-starter-desc">Download this minimal starter plugin as a reference. You can install it in WordPress to see how a plugin works:</p>
+  <p><a href="my-first-plugin.zip" class="download-btn" download data-i18n="index-download-btn">Download starter plugin (.zip)</a></p>
 
   <!-- CHECKLIST -->
-  <h2>Checklist</h2>
+  <h2 data-i18n="index-h2-checklist">Checklist</h2>
   <ul class="checklist">
-    <li>I have a working WordPress environment (LocalWP or Playground)</li>
-    <li>I have an AI tool I can use</li>
-    <li>I optionally have a code editor installed</li>
-    <li>I roughly understand what a WordPress plugin is</li>
-    <li>I've looked at the prompt template</li>
+    <li data-i18n="index-cl-li1">I have a working WordPress environment (LocalWP or Playground)</li>
+    <li data-i18n="index-cl-li2">I have an AI tool I can use</li>
+    <li data-i18n="index-cl-li3">I optionally have a code editor installed</li>
+    <li data-i18n="index-cl-li4">I roughly understand what a WordPress plugin is</li>
+    <li data-i18n="index-cl-li5">I've looked at the prompt template</li>
   </ul>
 
-  <div class="check" style="text-align: center; margin-top: 1.5rem;">
+  <div class="check" style="text-align: center; margin-top: 1.5rem;" data-i18n="index-cl-done">
     <strong>Everything checked? You're ready for the workshop!</strong>
   </div>
 
 
 
   <footer>
-    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.4rem;"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
-    <p style="margin-top:0.4rem;">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
+    <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
+    <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
   </footer>
 
 </div>
 
+<script src="js/i18n.js"></script>
 </body>
 </html>

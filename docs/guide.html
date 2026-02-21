@@ -378,19 +378,30 @@
       .step { grid-template-columns: 2rem 1fr; gap: 0 0.75rem; }
       .step-number { width: 2rem; height: 2rem; font-size: 0.875rem; }
     }
+
+    /* ── Language toggle ─────────────────────────────── */
+    .lang-toggle { margin-left: auto; display: flex; align-items: center; gap: 0.25rem; padding: 0.5rem 0 0.5rem 0.5rem; }
+    .lang-btn { padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 600; line-height: 1.4; border: 1px solid var(--color-border); border-radius: 3px; background: none; color: var(--color-text-secondary); cursor: pointer; }
+    .lang-btn.active { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .lang-btn:hover:not(.active) { border-color: var(--color-accent); color: var(--color-accent); }
+    .lang-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to main content</a>
 
-<nav class="site-nav" aria-label="Workshop pages">
+<nav class="site-nav" data-i18n-aria="nav-aria" aria-label="Workshop pages">
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Preparation</a>
-    <a href="guide.html" class="nav-link active" aria-current="page">Guide</a>
-    <a href="ideas.html" class="nav-link">Plugin ideas</a>
-    <a href="prompts.html" class="nav-link">Prompts</a>
-    <a href="tips.html" class="nav-link">Tips</a>
+    <a href="index.html" class="nav-link" data-i18n="nav-preparation">Preparation</a>
+    <a href="guide.html" class="nav-link active" aria-current="page" data-i18n="nav-guide">Guide</a>
+    <a href="ideas.html" class="nav-link" data-i18n="nav-ideas">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link" data-i18n="nav-prompts">Prompts</a>
+    <a href="tips.html" class="nav-link" data-i18n="nav-tips">Tips</a>
+    <div class="lang-toggle" role="group" aria-label="Language / Taal">
+      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="nl" onclick="setLanguage('nl')" aria-pressed="false">NL</button>
+    </div>
   </div>
 </nav>
 
@@ -398,36 +409,36 @@
 <div class="container">
 
   <header>
-    <h1>Step-by-step guide</h1>
-    <p>Choose your setup and follow the steps to build and install your plugin.</p>
+    <h1 data-i18n="guide-title-h1">Step-by-step guide</h1>
+    <p data-i18n="guide-title-sub">Choose your setup and follow the steps to build and install your plugin.</p>
   </header>
 
   <!-- Route comparison -->
   <div class="route-compare" role="region" aria-label="Which route should I choose?">
     <div class="route-compare-col">
-      <div class="route-compare-header playground">WordPress Playground</div>
+      <div class="route-compare-header playground" data-i18n="guide-pg-col-header">WordPress Playground</div>
       <ul>
-        <li>No installation needed</li>
-        <li>Works in any browser (best in Chrome or Edge)</li>
-        <li>Ready in 30 seconds</li>
-        <li>Everything disappears when you close the tab</li>
+        <li data-i18n="guide-pg-col-li1">No installation needed</li>
+        <li data-i18n="guide-pg-col-li2">Works in any browser (best in Chrome or Edge)</li>
+        <li data-i18n="guide-pg-col-li3">Ready in 30 seconds</li>
+        <li data-i18n="guide-pg-col-li4">Everything disappears when you close the tab</li>
       </ul>
-      <p class="route-compare-choose"><strong>Choose this if</strong> you skipped the preparation, don't want to install anything, or just want to try it out quickly.</p>
+      <p class="route-compare-choose" data-i18n="guide-pg-choose"><strong>Choose this if</strong> you skipped the preparation, don't want to install anything, or just want to try it out quickly.</p>
     </div>
     <div class="route-compare-col">
-      <div class="route-compare-header localwp">LocalWP</div>
+      <div class="route-compare-header localwp" data-i18n="guide-lw-col-header">LocalWP</div>
       <ul>
-        <li>WordPress runs locally on your laptop</li>
-        <li>Works on Mac, Windows, and Linux</li>
-        <li>Your files and plugins are saved for real</li>
-        <li>Requires installation (~10 min, see <a href="index.html">preparation page</a>)</li>
+        <li data-i18n="guide-lw-col-li1">WordPress runs locally on your laptop</li>
+        <li data-i18n="guide-lw-col-li2">Works on Mac, Windows, and Linux</li>
+        <li data-i18n="guide-lw-col-li3">Your files and plugins are saved for real</li>
+        <li data-i18n="guide-lw-col-li4">Requires installation (~10 min, see <a href="index.html">preparation page</a>)</li>
       </ul>
-      <p class="route-compare-choose"><strong>Choose this if</strong> you completed the preparation and want to keep your plugin after the workshop.</p>
+      <p class="route-compare-choose" data-i18n="guide-lw-choose"><strong>Choose this if</strong> you completed the preparation and want to keep your plugin after the workshop.</p>
     </div>
   </div>
 
   <!-- Tab interface -->
-  <div role="tablist" aria-label="Choose your WordPress setup">
+  <div role="tablist" data-i18n-aria="guide-tablist-aria" aria-label="Choose your WordPress setup">
     <button role="tab"
             id="tab-playground"
             aria-selected="true"
@@ -457,9 +468,9 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">1</div>
         <div class="step-content">
-          <h3>Open WordPress Playground</h3>
-          <p>Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a> in Chrome or Edge. WordPress loads in a few seconds — you'll see the admin dashboard.</p>
-          <div class="warning"><strong>Important:</strong> everything you create disappears when you close the tab. Keep this tab open until you're done.</div>
+          <h3 data-i18n="guide-pg-s1-h">Open WordPress Playground</h3>
+          <p data-i18n="guide-pg-s1-p1">Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a> in Chrome or Edge. WordPress loads in a few seconds — you'll see the admin dashboard.</p>
+          <div class="warning" data-i18n="guide-pg-s1-warn"><strong>Important:</strong> everything you create disappears when you close the tab. Keep this tab open until you're done.</div>
           <div class="screenshot"><img src="img/playground-admin.png" alt="WordPress Playground with the WordPress admin dashboard loaded and ready to use"></div>
         </div>
       </li>
@@ -467,18 +478,18 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">2</div>
         <div class="step-content">
-          <h3>Choose your plugin idea</h3>
-          <p>Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
-          <div class="tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
+          <h3 data-i18n="guide-pg-s2-h">Choose your plugin idea</h3>
+          <p data-i18n="guide-pg-s2-p1">Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
+          <div class="tip" data-i18n="guide-pg-s2-tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
         </div>
       </li>
 
       <li class="step">
         <div class="step-number" aria-hidden="true">3</div>
         <div class="step-content">
-          <h3>Write your prompt and generate the code</h3>
-          <p>Open your AI tool (ChatGPT, Claude, Le Chat, etc.) in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it.</p>
-          <p>You'll get PHP code back — that's your plugin. Copy all of it.</p>
+          <h3 data-i18n="guide-pg-s3-h">Write your prompt and generate the code</h3>
+          <p data-i18n="guide-pg-s3-p1">Open your AI tool (ChatGPT, Claude, Le Chat, etc.) in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it.</p>
+          <p data-i18n="guide-pg-s3-p2">You'll get PHP code back — that's your plugin. Copy all of it.</p>
           <div class="screenshot"><img src="img/ai-php-output.png" alt="AI tool showing generated PHP plugin code in the response"></div>
         </div>
       </li>
@@ -486,23 +497,23 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">4</div>
         <div class="step-content">
-          <h3>Install your plugin</h3>
-          <p>Choose one of the two methods:</p>
+          <h3 data-i18n="guide-pg-s4-h">Install your plugin</h3>
+          <p data-i18n="guide-pg-s4-p1">Choose one of the two methods:</p>
 
           <div class="install-variants">
 
             <div class="variant">
               <div class="variant-header">
-                <span class="variant-tag">Easiest</span>
-                Option A — Plugin Editor (no file needed)
+                <span class="variant-tag" data-i18n="guide-pg-s4-va-tag">Easiest</span>
+                <span data-i18n="guide-pg-s4-va-h">Option A — Plugin Editor (no file needed)</span>
               </div>
               <div class="variant-body">
                 <ol>
-                  <li>In your WordPress admin, go to <strong>Plugins → Plugin Editor</strong></li>
-                  <li>In the dropdown (top right), select <strong>Hello Dolly</strong></li>
-                  <li>Select all the existing code and delete it</li>
-                  <li>Paste your generated PHP code</li>
-                  <li>Click <strong>"Update File"</strong></li>
+                  <li data-i18n="guide-pg-s4-va-li1">In your WordPress admin, go to <strong>Plugins → Plugin Editor</strong></li>
+                  <li data-i18n="guide-pg-s4-va-li2">In the dropdown (top right), select <strong>Hello Dolly</strong></li>
+                  <li data-i18n="guide-pg-s4-va-li3">Select all the existing code and delete it</li>
+                  <li data-i18n="guide-pg-s4-va-li4">Paste your generated PHP code</li>
+                  <li data-i18n="guide-pg-s4-va-li5">Click <strong>"Update File"</strong></li>
                 </ol>
                 <div class="screenshot"><img src="img/plugin-editor.png" alt="WordPress Plugin Editor with generated PHP code pasted, Hello Dolly selected in the dropdown"></div>
               </div>
@@ -510,15 +521,15 @@
 
             <div class="variant">
               <div class="variant-header">
-                <span class="variant-tag alt">If available</span>
-                Option B — Upload a zip (if your AI created one)
+                <span class="variant-tag alt" data-i18n="guide-pg-s4-vb-tag">If available</span>
+                <span data-i18n="guide-pg-s4-vb-h">Option B — Upload a zip (if your AI created one)</span>
               </div>
               <div class="variant-body">
-                <p>Some AI tools generate a downloadable zip file. If yours did:</p>
+                <p data-i18n="guide-pg-s4-vb-p1">Some AI tools generate a downloadable zip file. If yours did:</p>
                 <ol>
-                  <li>Go to <strong>Plugins → Add New → Upload Plugin</strong></li>
-                  <li>Choose the zip from your downloads folder</li>
-                  <li>Click <strong>"Install Now"</strong></li>
+                  <li data-i18n="guide-pg-s4-vb-li1">Go to <strong>Plugins → Add New → Upload Plugin</strong></li>
+                  <li data-i18n="guide-pg-s4-vb-li2">Choose the zip from your downloads folder</li>
+                  <li data-i18n="guide-pg-s4-vb-li3">Click <strong>"Install Now"</strong></li>
                 </ol>
                 <div class="screenshot"><img src="img/upload-plugin.png" alt="WordPress Add New Plugin screen with the Upload Plugin option visible"></div>
               </div>
@@ -531,8 +542,8 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">5</div>
         <div class="step-content">
-          <h3>Activate your plugin</h3>
-          <p>Go to <strong>Plugins</strong>. Find your plugin — it shows the name you gave it in the plugin header — and click <strong>"Activate"</strong>.</p>
+          <h3 data-i18n="guide-pg-s5-h">Activate your plugin</h3>
+          <p data-i18n="guide-pg-s5-p1">Go to <strong>Plugins</strong>. Find your plugin — it shows the name you gave it in the plugin header — and click <strong>"Activate"</strong>.</p>
           <div class="screenshot"><img src="img/plugin-list.png" alt="WordPress plugins list showing the newly installed plugin with an Activate button"></div>
         </div>
       </li>
@@ -540,9 +551,9 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">6</div>
         <div class="step-content">
-          <h3>Test your plugin</h3>
-          <p>Click <strong>"Visit Site"</strong> at the top of the admin and navigate to a post or page. Does your plugin do what you expected?</p>
-          <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change the styling, add an option, or fix an edge case.</div>
+          <h3 data-i18n="guide-pg-s6-h">Test your plugin</h3>
+          <p data-i18n="guide-pg-s6-p1">Click <strong>"Visit Site"</strong> at the top of the admin and navigate to a post or page. Does your plugin do what you expected?</p>
+          <div class="success" data-i18n="guide-pg-s6-ok"><strong>It works!</strong> Now try to improve it — ask the AI to change the styling, add an option, or fix an edge case.</div>
           <div class="screenshot"><img src="img/frontend-output.png" alt="WordPress site frontend showing the plugin output on a blog post"></div>
         </div>
       </li>
@@ -550,15 +561,15 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">7</div>
         <div class="step-content">
-          <h3>Iterate</h3>
-          <p>Something not working, or want to improve it? Go back to your AI tool and be specific about the problem:</p>
+          <h3 data-i18n="guide-pg-s7-h">Iterate</h3>
+          <p data-i18n="guide-pg-s7-p1">Something not working, or want to improve it? Go back to your AI tool and be specific about the problem:</p>
           <ul>
-            <li><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
-            <li><em>"PHP error: [paste error message]. Can you fix this?"</em></li>
-            <li><em>"It works — can you make the text gray and slightly smaller?"</em></li>
+            <li data-i18n="guide-pg-s7-li1"><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
+            <li data-i18n="guide-pg-s7-li2"><em>"PHP error: [paste error message]. Can you fix this?"</em></li>
+            <li data-i18n="guide-pg-s7-li3"><em>"It works — can you make the text gray and slightly smaller?"</em></li>
           </ul>
-          <p>Copy the new code, go back to the Plugin Editor, replace the old code and save again.</p>
-          <div class="tip"><strong>This is the real skill:</strong> not writing code, but knowing how to describe a problem and steer the AI toward a solution.</div>
+          <p data-i18n="guide-pg-s7-p2">Copy the new code, go back to the Plugin Editor, replace the old code and save again.</p>
+          <div class="tip" data-i18n="guide-pg-s7-tip"><strong>This is the real skill:</strong> not writing code, but knowing how to describe a problem and steer the AI toward a solution.</div>
         </div>
       </li>
 
@@ -577,8 +588,8 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">1</div>
         <div class="step-content">
-          <h3>Start your WordPress site in LocalWP</h3>
-          <p>Open LocalWP. If you haven't created a site yet, click <strong>"Create a new site"</strong> and follow the steps with default settings. Once your site is listed, click <strong>"WP Admin"</strong> to open the dashboard.</p>
+          <h3 data-i18n="guide-lw-s1-h">Start your WordPress site in LocalWP</h3>
+          <p data-i18n="guide-lw-s1-p1">Open LocalWP. If you haven't created a site yet, click <strong>"Create a new site"</strong> and follow the steps with default settings. Once your site is listed, click <strong>"WP Admin"</strong> to open the dashboard.</p>
           <div class="screenshot"><img src="img/localwp.png" alt="LocalWP application showing a running WordPress site with the WP Admin button visible"></div>
         </div>
       </li>
@@ -586,18 +597,18 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">2</div>
         <div class="step-content">
-          <h3>Choose your plugin idea</h3>
-          <p>Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
-          <div class="tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
+          <h3 data-i18n="guide-lw-s2-h">Choose your plugin idea</h3>
+          <p data-i18n="guide-lw-s2-p1">Not sure what to build? Browse the <a href="ideas.html">plugin ideas</a> for inspiration, or pick one from the <a href="prompts.html">prompts page</a> — those prompts are already written for you.</p>
+          <div class="tip" data-i18n="guide-lw-s2-tip"><strong>Keep it simple.</strong> One feature that works beats three features that don't.</div>
         </div>
       </li>
 
       <li class="step">
         <div class="step-number" aria-hidden="true">3</div>
         <div class="step-content">
-          <h3>Write your prompt and generate the code</h3>
-          <p>Open your AI tool in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it. You'll get PHP code back — that's your plugin.</p>
-          <div class="tip"><strong>Keep the AI tab open.</strong> You'll come back to it when you iterate.</div>
+          <h3 data-i18n="guide-lw-s3-h">Write your prompt and generate the code</h3>
+          <p data-i18n="guide-lw-s3-p1">Open your AI tool in a new tab. Use the <a href="index.html">prompt template from the preparation page</a>, fill in your plugin idea, and send it. You'll get PHP code back — that's your plugin.</p>
+          <div class="tip" data-i18n="guide-lw-s3-tip"><strong>Keep the AI tab open.</strong> You'll come back to it when you iterate.</div>
           <div class="screenshot"><img src="img/ai-php-output.png" alt="AI tool showing generated PHP plugin code in the response"></div>
         </div>
       </li>
@@ -605,28 +616,28 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">4</div>
         <div class="step-content">
-          <h3>Save and install your plugin</h3>
-          <p>Choose the method that suits you best:</p>
+          <h3 data-i18n="guide-lw-s4-h">Save and install your plugin</h3>
+          <p data-i18n="guide-lw-s4-p1">Choose the method that suits you best:</p>
 
           <div class="install-variants">
 
             <div class="variant">
               <div class="variant-header">
-                <span class="variant-tag">Recommended</span>
-                Option A — Text editor
+                <span class="variant-tag" data-i18n="guide-lw-s4-va-tag">Recommended</span>
+                <span data-i18n="guide-lw-s4-va-h">Option A — Text editor</span>
               </div>
               <div class="variant-body">
                 <ol>
-                  <li>Open Notepad (Windows), TextEdit (Mac), or any plain text editor
+                  <li data-i18n="guide-lw-s4-va-li1">Open Notepad (Windows), TextEdit (Mac), or any plain text editor
                     <ul>
                       <li><strong>Mac TextEdit only:</strong> go to Format → Make Plain Text first, or it saves as RTF which won't work as PHP.</li>
                     </ul>
                   </li>
-                  <li>Paste your generated PHP code and save the file as <code>plugin-name.php</code> (e.g. <code>reading-time.php</code>)</li>
-                  <li>In LocalWP, right-click your site and choose <strong>"Open site folder"</strong></li>
-                  <li>Navigate to <code>app/public/wp-content/plugins/</code></li>
-                  <li>Create a new folder with the same name as your file (e.g. <code>reading-time</code>)</li>
-                  <li>Move your <code>.php</code> file into that folder</li>
+                  <li data-i18n="guide-lw-s4-va-li2">Paste your generated PHP code and save the file as <code>plugin-name.php</code> (e.g. <code>reading-time.php</code>)</li>
+                  <li data-i18n="guide-lw-s4-va-li3">In LocalWP, right-click your site and choose <strong>"Open site folder"</strong></li>
+                  <li data-i18n="guide-lw-s4-va-li4">Navigate to <code>app/public/wp-content/plugins/</code></li>
+                  <li data-i18n="guide-lw-s4-va-li5">Create a new folder with the same name as your file (e.g. <code>reading-time</code>)</li>
+                  <li data-i18n="guide-lw-s4-va-li6">Move your <code>.php</code> file into that folder</li>
                 </ol>
                 <div class="screenshot"><img src="img/file-explorer.png" alt="File explorer showing the WordPress plugins folder with a new plugin folder containing the PHP file"></div>
               </div>
@@ -634,16 +645,16 @@
 
             <div class="variant">
               <div class="variant-header">
-                <span class="variant-tag alt">Alternative</span>
-                Option B — Upload a zip via WP Admin
+                <span class="variant-tag alt" data-i18n="guide-lw-s4-vb-tag">Alternative</span>
+                <span data-i18n="guide-lw-s4-vb-h">Option B — Upload a zip via WP Admin</span>
               </div>
               <div class="variant-body">
-                <p>Use this if your AI generated a downloadable zip, or if you'd rather not navigate the file system.</p>
-                <p><strong>If your AI gave you a zip:</strong> go straight to step 4.</p>
-                <p><strong>To create a zip yourself:</strong></p>
+                <p data-i18n="guide-lw-s4-vb-p1">Use this if your AI generated a downloadable zip, or if you'd rather not navigate the file system.</p>
+                <p data-i18n="guide-lw-s4-vb-p2"><strong>If your AI gave you a zip:</strong> go straight to step 4.</p>
+                <p data-i18n="guide-lw-s4-vb-p3"><strong>To create a zip yourself:</strong></p>
                 <ol>
-                  <li>Put your <code>.php</code> file in a folder with the same name</li>
-                  <li>Compress it:
+                  <li data-i18n="guide-lw-s4-vb-li1">Put your <code>.php</code> file in a folder with the same name</li>
+                  <li data-i18n="guide-lw-s4-vb-li2">Compress it:
                     <ul>
                       <li><strong>Mac:</strong> right-click the folder → "Compress"</li>
                       <li><strong>Windows:</strong> right-click → "Send to" → "Compressed (zipped) folder"</li>
@@ -651,10 +662,10 @@
                     </ul>
                   </li>
                 </ol>
-                <p><strong>To upload:</strong></p>
+                <p data-i18n="guide-lw-s4-vb-p4"><strong>To upload:</strong></p>
                 <ol start="4">
-                  <li>In WP Admin, go to <strong>Plugins → Add New → Upload Plugin</strong></li>
-                  <li>Choose your zip file and click <strong>"Install Now"</strong></li>
+                  <li data-i18n="guide-lw-s4-vb-li3">In WP Admin, go to <strong>Plugins → Add New → Upload Plugin</strong></li>
+                  <li data-i18n="guide-lw-s4-vb-li4">Choose your zip file and click <strong>"Install Now"</strong></li>
                 </ol>
                 <div class="screenshot"><img src="img/upload-plugin.png" alt="WordPress Add New Plugin screen with the Upload Plugin option visible"></div>
               </div>
@@ -667,9 +678,9 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">5</div>
         <div class="step-content">
-          <h3>Activate your plugin</h3>
-          <p>Go to <strong>Plugins</strong> in WP Admin. Your plugin should appear in the list. Click <strong>"Activate"</strong>.</p>
-          <p>Plugin not appearing? Check that the folder name and PHP filename match, and that the plugin header block (<code>/* Plugin Name: ... */</code>) is at the very top of the file.</p>
+          <h3 data-i18n="guide-lw-s5-h">Activate your plugin</h3>
+          <p data-i18n="guide-lw-s5-p1">Go to <strong>Plugins</strong> in WP Admin. Your plugin should appear in the list. Click <strong>"Activate"</strong>.</p>
+          <p data-i18n="guide-lw-s5-p2">Plugin not appearing? Check that the folder name and PHP filename match, and that the plugin header block (<code>/* Plugin Name: ... */</code>) is at the very top of the file.</p>
           <div class="screenshot"><img src="img/plugin-list.png" alt="WordPress plugins list showing the newly installed plugin with an Activate button"></div>
         </div>
       </li>
@@ -677,9 +688,9 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">6</div>
         <div class="step-content">
-          <h3>Test your plugin</h3>
-          <p>Click <strong>"Open site"</strong> in LocalWP, or use <strong>"Visit Site"</strong> in WP Admin. Navigate to a post or page and check if your plugin behaves as expected.</p>
-          <div class="success"><strong>It works!</strong> Now try to improve it — ask the AI to change styling, add an option, or handle an edge case.</div>
+          <h3 data-i18n="guide-lw-s6-h">Test your plugin</h3>
+          <p data-i18n="guide-lw-s6-p1">Click <strong>"Open site"</strong> in LocalWP, or use <strong>"Visit Site"</strong> in WP Admin. Navigate to a post or page and check if your plugin behaves as expected.</p>
+          <div class="success" data-i18n="guide-lw-s6-ok"><strong>It works!</strong> Now try to improve it — ask the AI to change styling, add an option, or handle an edge case.</div>
           <div class="screenshot"><img src="img/frontend-output.png" alt="WordPress site frontend showing the plugin output on a blog post"></div>
         </div>
       </li>
@@ -687,15 +698,15 @@
       <li class="step">
         <div class="step-number" aria-hidden="true">7</div>
         <div class="step-content">
-          <h3>Iterate</h3>
-          <p>Something not working? Go back to your AI tool and describe the issue clearly:</p>
+          <h3 data-i18n="guide-lw-s7-h">Iterate</h3>
+          <p data-i18n="guide-lw-s7-p1">Something not working? Go back to your AI tool and describe the issue clearly:</p>
           <ul>
-            <li><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
-            <li><em>"PHP fatal error: [paste]. Can you fix it?"</em></li>
-            <li><em>"Works great — can you add a settings page to change the reading speed?"</em></li>
+            <li data-i18n="guide-lw-s7-li1"><em>"The plugin is activated but nothing appears. Here is the code: [paste]"</em></li>
+            <li data-i18n="guide-lw-s7-li2"><em>"PHP fatal error: [paste]. Can you fix it?"</em></li>
+            <li data-i18n="guide-lw-s7-li3"><em>"Works great — can you add a settings page to change the reading speed?"</em></li>
           </ul>
-          <p>Copy the new code, open your PHP file in the editor, replace everything, save. Reload the page in WordPress — no reactivation needed.</p>
-          <div class="warning"><strong>White screen?</strong> Don't panic. In the plugins folder, rename your plugin folder (e.g. add <code>-off</code>). WordPress auto-deactivates it and the white screen disappears. Fix the code, then rename it back.</div>
+          <p data-i18n="guide-lw-s7-p2">Copy the new code, open your PHP file in the editor, replace everything, save. Reload the page in WordPress — no reactivation needed.</p>
+          <div class="warning" data-i18n="guide-lw-s7-warn"><strong>White screen?</strong> Don't panic. In the plugins folder, rename your plugin folder (e.g. add <code>-off</code>). WordPress auto-deactivates it and the white screen disappears. Fix the code, then rename it back.</div>
         </div>
       </li>
 
@@ -703,15 +714,17 @@
   </div>
 
   <footer>
-    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.4rem;"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
-    <p style="margin-top:0.4rem;">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
+    <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
+    <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
   </footer>
 
 </div>
 </main>
 
+<script src="js/i18n.js"></script>
 <script>
   const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
   const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));

@@ -213,30 +213,41 @@
       .container { padding: 1.5rem 1rem 3rem; }
       .nav-link { padding: 0.65rem 0.6rem; font-size: 0.85rem; }
     }
+
+    /* ── Language toggle ─────────────────────────────── */
+    .lang-toggle { margin-left: auto; display: flex; align-items: center; gap: 0.25rem; padding: 0.5rem 0 0.5rem 0.5rem; }
+    .lang-btn { padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 600; line-height: 1.4; border: 1px solid var(--color-border); border-radius: 3px; background: none; color: var(--color-text-secondary); cursor: pointer; }
+    .lang-btn.active { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .lang-btn:hover:not(.active) { border-color: var(--color-accent); color: var(--color-accent); }
+    .lang-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to main content</a>
 
-<nav class="site-nav" aria-label="Workshop pages">
+<nav class="site-nav" data-i18n-aria="nav-aria" aria-label="Workshop pages">
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Preparation</a>
-    <a href="guide.html" class="nav-link">Guide</a>
-    <a href="ideas.html" class="nav-link">Plugin ideas</a>
-    <a href="prompts.html" class="nav-link active" aria-current="page">Prompts</a>
-    <a href="tips.html" class="nav-link">Tips</a>
+    <a href="index.html" class="nav-link" data-i18n="nav-preparation">Preparation</a>
+    <a href="guide.html" class="nav-link" data-i18n="nav-guide">Guide</a>
+    <a href="ideas.html" class="nav-link" data-i18n="nav-ideas">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link active" aria-current="page" data-i18n="nav-prompts">Prompts</a>
+    <a href="tips.html" class="nav-link" data-i18n="nav-tips">Tips</a>
+    <div class="lang-toggle" role="group" aria-label="Language / Taal">
+      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="nl" onclick="setLanguage('nl')" aria-pressed="false">NL</button>
+    </div>
   </div>
 </nav>
 
 <div class="container" id="main-content">
 
   <header>
-    <h1>Choose your plugin</h1>
-    <p>Pick one of the ideas below, or come up with your own. Copy the prompt and paste it into your AI tool.</p>
+    <h1 data-i18n="prompts-h1">Choose your plugin</h1>
+    <p data-i18n="prompts-sub">Pick one of the ideas below, or come up with your own. Copy the prompt and paste it into your AI tool.</p>
   </header>
 
-  <div class="tip">
+  <div class="tip" data-i18n="prompts-tip">
     <strong>How this works:</strong> Click "Copy" on the prompt you like, paste it into your AI tool, and follow the instructions you get back. If the result isn't right, tell the AI what to fix — that's the iterating part!
     <br><br>
     No idea what to build? See the <a href="ideas.html" style="color: var(--color-accent);">plugin ideas list</a> for inspiration.
@@ -244,9 +255,9 @@
 
   <!-- READING TIME -->
   <div class="plugin-card">
-    <h2>Reading Time <span class="badge badge-easy">Easy</span></h2>
-    <p class="description">Shows the estimated reading time above each blog post.</p>
-    <div class="prompt-box" id="prompt-1">Create a WordPress plugin with the following specifications:
+    <h2 data-i18n="prompts-p1-name">Reading Time <span class="badge badge-easy">Easy</span></h2>
+    <p class="description" data-i18n="prompts-p1-desc">Shows the estimated reading time above each blog post.</p>
+    <div class="prompt-box" id="prompt-1"><span data-i18n="prompt-1-text">Create a WordPress plugin with the following specifications:
 
 Name: Reading Time
 Function: Shows the estimated reading time above each blog post.
@@ -258,14 +269,14 @@ Technical requirements:
 - Include a plugin header with name, description and version
 - Prevent direct file access
 - Put all code in a single PHP file
-- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-1', this)">Copy</button></div>
+- Add short comments explaining what each part does</span><button class="copy-btn" onclick="copyPrompt('prompt-1', this)" data-i18n-copy="prompts-copy" data-i18n-copied="prompts-copied">Copy</button></div>
   </div>
 
   <!-- EXTERNAL LINK ICON -->
   <div class="plugin-card">
-    <h2>External Link Icon <span class="badge badge-easy">Easy</span></h2>
-    <p class="description">Adds an arrow icon to external links and opens them in a new tab.</p>
-    <div class="prompt-box" id="prompt-2">Create a WordPress plugin with the following specifications:
+    <h2 data-i18n="prompts-p2-name">External Link Icon <span class="badge badge-easy">Easy</span></h2>
+    <p class="description" data-i18n="prompts-p2-desc">Adds an arrow icon to external links and opens them in a new tab.</p>
+    <div class="prompt-box" id="prompt-2"><span data-i18n="prompt-2-text">Create a WordPress plugin with the following specifications:
 
 Name: External Link Icon
 Function: Automatically adds an arrow icon to all external links in posts and pages, and opens them in a new tab.
@@ -277,14 +288,14 @@ Technical requirements:
 - Include a plugin header with name, description and version
 - Prevent direct file access
 - Put all code in a single PHP file
-- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-2', this)">Copy</button></div>
+- Add short comments explaining what each part does</span><button class="copy-btn" onclick="copyPrompt('prompt-2', this)" data-i18n-copy="prompts-copy" data-i18n-copied="prompts-copied">Copy</button></div>
   </div>
 
   <!-- MAINTENANCE MODE -->
   <div class="plugin-card">
-    <h2>Maintenance Mode <span class="badge badge-medium">Medium</span></h2>
-    <p class="description">Shows an "under maintenance" page to visitors while admins can still use the site.</p>
-    <div class="prompt-box" id="prompt-3">Create a WordPress plugin with the following specifications:
+    <h2 data-i18n="prompts-p3-name">Maintenance Mode <span class="badge badge-medium">Medium</span></h2>
+    <p class="description" data-i18n="prompts-p3-desc">Shows an "under maintenance" page to visitors while admins can still use the site.</p>
+    <div class="prompt-box" id="prompt-3"><span data-i18n="prompt-3-text">Create a WordPress plugin with the following specifications:
 
 Name: Simple Maintenance Mode
 Function: Shows an "under maintenance" page to visitors when I turn it on. I can still see and use my site normally when I'm logged in as an admin.
@@ -296,14 +307,14 @@ Technical requirements:
 - Include a plugin header with name, description and version
 - Prevent direct file access
 - Put all code in a single PHP file
-- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-3', this)">Copy</button></div>
+- Add short comments explaining what each part does</span><button class="copy-btn" onclick="copyPrompt('prompt-3', this)" data-i18n-copy="prompts-copy" data-i18n-copied="prompts-copied">Copy</button></div>
   </div>
 
   <!-- CUSTOM LOGIN LOGO -->
   <div class="plugin-card">
-    <h2>Custom Login Logo <span class="badge badge-medium">Medium</span></h2>
-    <p class="description">Replace the WordPress logo on the login screen with your own image.</p>
-    <div class="prompt-box" id="prompt-4">Create a WordPress plugin with the following specifications:
+    <h2 data-i18n="prompts-p4-name">Custom Login Logo <span class="badge badge-medium">Medium</span></h2>
+    <p class="description" data-i18n="prompts-p4-desc">Replace the WordPress logo on the login screen with your own image.</p>
+    <div class="prompt-box" id="prompt-4"><span data-i18n="prompt-4-text">Create a WordPress plugin with the following specifications:
 
 Name: Custom Login Logo
 Function: Lets me replace the WordPress logo on the login screen with my own image.
@@ -315,35 +326,38 @@ Technical requirements:
 - Include a plugin header with name, description and version
 - Prevent direct file access
 - Put all code in a single PHP file
-- Add short comments explaining what each part does<button class="copy-btn" onclick="copyPrompt('prompt-4', this)">Copy</button></div>
+- Add short comments explaining what each part does</span><button class="copy-btn" onclick="copyPrompt('prompt-4', this)" data-i18n-copy="prompts-copy" data-i18n-copied="prompts-copied">Copy</button></div>
   </div>
 
   <!-- OWN IDEA -->
   <div class="own-idea">
-    <h2>Your own idea <span class="badge badge-easy" style="background: #f3e5f5; color: #7b1fa2;">Freestyle</span></h2>
-    <p>Have your own idea? Go for it! Use the template from the <a href="index.html">preparation page</a> and fill in your own details.</p>
-    <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Tip: keep it to one feature. "Does one thing well" beats "does everything badly."</p>
+    <h2 data-i18n="prompts-own-title">Your own idea <span class="badge badge-easy" style="background: #f3e5f5; color: #7b1fa2;">Freestyle</span></h2>
+    <p data-i18n="prompts-own-p1">Have your own idea? Go for it! Use the template from the <a href="index.html">preparation page</a> and fill in your own details.</p>
+    <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.5rem;" data-i18n="prompts-own-p2">Tip: keep it to one feature. "Does one thing well" beats "does everything badly."</p>
   </div>
 
   <footer>
-    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.4rem;"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
-    <p style="margin-top:0.4rem;">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
+    <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
+    <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
   </footer>
 
 </div>
 
+<script src="js/i18n.js"></script>
 <script>
 function copyPrompt(id, btn) {
-  const box = document.getElementById(id);
-  // Get text content without the button text
-  const text = box.childNodes[0].textContent.trim();
+  const textEl = document.querySelector('#' + id + ' [data-i18n]');
+  const text = textEl ? textEl.textContent.trim() : document.getElementById(id).childNodes[0].textContent.trim();
+  const lang = (typeof localStorage !== 'undefined' && localStorage.getItem('workshopLang')) || 'en';
+  const t = (typeof I18N !== 'undefined' && I18N[lang]) || {};
   navigator.clipboard.writeText(text).then(function() {
-    btn.textContent = 'Copied!';
+    btn.textContent = t['prompts-copied'] || 'Copied!';
     btn.classList.add('copied');
     setTimeout(function() {
-      btn.textContent = 'Copy';
+      btn.textContent = t['prompts-copy'] || 'Copy';
       btn.classList.remove('copied');
     }, 2000);
   });

@@ -270,19 +270,30 @@
       .comparison { grid-template-columns: 1fr; }
       .security-table { font-size: 0.88rem; }
     }
+
+    /* ── Language toggle ─────────────────────────────── */
+    .lang-toggle { margin-left: auto; display: flex; align-items: center; gap: 0.25rem; padding: 0.5rem 0 0.5rem 0.5rem; }
+    .lang-btn { padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: 600; line-height: 1.4; border: 1px solid var(--color-border); border-radius: 3px; background: none; color: var(--color-text-secondary); cursor: pointer; }
+    .lang-btn.active { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .lang-btn:hover:not(.active) { border-color: var(--color-accent); color: var(--color-accent); }
+    .lang-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to main content</a>
 
-<nav class="site-nav" aria-label="Workshop pages">
+<nav class="site-nav" data-i18n-aria="nav-aria" aria-label="Workshop pages">
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Preparation</a>
-    <a href="guide.html" class="nav-link">Guide</a>
-    <a href="ideas.html" class="nav-link">Plugin ideas</a>
-    <a href="prompts.html" class="nav-link">Prompts</a>
-    <a href="tips.html" class="nav-link active" aria-current="page">Tips</a>
+    <a href="index.html" class="nav-link" data-i18n="nav-preparation">Preparation</a>
+    <a href="guide.html" class="nav-link" data-i18n="nav-guide">Guide</a>
+    <a href="ideas.html" class="nav-link" data-i18n="nav-ideas">Plugin ideas</a>
+    <a href="prompts.html" class="nav-link" data-i18n="nav-prompts">Prompts</a>
+    <a href="tips.html" class="nav-link active" aria-current="page" data-i18n="nav-tips">Tips</a>
+    <div class="lang-toggle" role="group" aria-label="Language / Taal">
+      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="nl" onclick="setLanguage('nl')" aria-pressed="false">NL</button>
+    </div>
   </div>
 </nav>
 
@@ -290,268 +301,270 @@
 <div class="container">
 
   <header>
-    <h1>Tips &amp; next steps</h1>
-    <p>Your plugin works — now what? Here's what to think about before using it for real.</p>
+    <h1 data-i18n="tips-h1">Tips &amp; next steps</h1>
+    <p data-i18n="tips-sub">Your plugin works — now what? Here's what to think about before using it for real.</p>
   </header>
 
   <!-- ── SECTION 1: READY FOR A REAL SITE? ──────── -->
   <section aria-labelledby="heading-ready">
-    <h2 id="heading-ready">Is it ready for a real site?</h2>
+    <h2 id="heading-ready" data-i18n="tips-h2-ready">Is it ready for a real site?</h2>
 
-    <p>Probably not quite yet — and that's fine. A vibe-coded plugin is a great starting point, not a finished product. Here's an honest checklist:</p>
+    <p data-i18n="tips-ready-intro">Probably not quite yet — and that's fine. A vibe-coded plugin is a great starting point, not a finished product. Here's an honest checklist:</p>
 
     <ul class="checklist">
       <li>
         <span class="check-icon" aria-hidden="true">☐</span>
-        <span><strong>Does it do what you expect?</strong> Test every feature, including edge cases (empty posts, no content, logged-out users).</span>
+        <span data-i18n="tips-cl1"><strong>Does it do what you expect?</strong> Test every feature, including edge cases (empty posts, no content, logged-out users).</span>
       </li>
       <li>
         <span class="check-icon" aria-hidden="true">☐</span>
-        <span><strong>Does it activate and deactivate cleanly?</strong> No errors, no leftover data after deactivation.</span>
+        <span data-i18n="tips-cl2"><strong>Does it activate and deactivate cleanly?</strong> No errors, no leftover data after deactivation.</span>
       </li>
       <li>
         <span class="check-icon" aria-hidden="true">☐</span>
-        <span><strong>Has it passed Plugin Check?</strong> See the section below. This catches most common issues automatically.</span>
+        <span data-i18n="tips-cl3"><strong>Has it passed Plugin Check?</strong> See the section below. This catches most common issues automatically.</span>
       </li>
       <li>
         <span class="check-icon" aria-hidden="true">☐</span>
-        <span><strong>Are you the only user?</strong> A plugin just for your own site has lower risk than one others will use.</span>
+        <span data-i18n="tips-cl4"><strong>Are you the only user?</strong> A plugin just for your own site has lower risk than one others will use.</span>
       </li>
       <li>
         <span class="check-icon" aria-hidden="true">☐</span>
-        <span><strong>Does it handle user input?</strong> If yes, security review is a must (see below).</span>
+        <span data-i18n="tips-cl5"><strong>Does it handle user input?</strong> If yes, security review is a must (see below).</span>
       </li>
     </ul>
 
-    <div class="tip">
+    <div class="tip" data-i18n="tips-ready-tip">
       <strong>Simple plugins with no user input</strong> (like Reading Time or Copyright Footer) carry very little risk. Plugins with settings pages, forms, or database writes need more scrutiny.
     </div>
   </section>
 
   <!-- ── SECTION 2: SECURITY ────────────────────── -->
   <section aria-labelledby="heading-security">
-    <h2 id="heading-security">Security — what to look for</h2>
+    <h2 id="heading-security" data-i18n="tips-h2-security">Security — what to look for</h2>
 
-    <p>AI does a reasonable job with some security practices, but misses others. Here's a quick overview:</p>
+    <p data-i18n="tips-security-intro">AI does a reasonable job with some security practices, but misses others. Here's a quick overview:</p>
 
     <table class="security-table">
       <thead>
         <tr>
-          <th scope="col">What</th>
-          <th scope="col">Why it matters</th>
-          <th scope="col">AI usually…</th>
+          <th scope="col" data-i18n="tips-sec-th1">What</th>
+          <th scope="col" data-i18n="tips-sec-th2">Why it matters</th>
+          <th scope="col" data-i18n="tips-sec-th3">AI usually…</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Direct file access</strong><br><code>if (!defined('ABSPATH')) exit;</code></td>
-          <td>Prevents the PHP file from being run directly in a browser</td>
-          <td class="ok">✓ Gets this right</td>
+          <td data-i18n="tips-sec-r1-what"><strong>Direct file access</strong><br><code>if (!defined('ABSPATH')) exit;</code></td>
+          <td data-i18n="tips-sec-r1-why">Prevents the PHP file from being run directly in a browser</td>
+          <td class="ok" data-i18n="tips-sec-r1-ai">✓ Gets this right</td>
         </tr>
         <tr>
-          <td><strong>Output escaping</strong><br><code>esc_html()</code>, <code>esc_attr()</code>, <code>esc_url()</code></td>
-          <td>Prevents XSS — malicious code being injected into your page output</td>
-          <td class="ok">✓ Usually correct</td>
+          <td data-i18n="tips-sec-r2-what"><strong>Output escaping</strong><br><code>esc_html()</code>, <code>esc_attr()</code>, <code>esc_url()</code></td>
+          <td data-i18n="tips-sec-r2-why">Prevents XSS — malicious code being injected into your page output</td>
+          <td class="ok" data-i18n="tips-sec-r2-ai">✓ Usually correct</td>
         </tr>
         <tr>
-          <td><strong>Input sanitization</strong><br><code>sanitize_text_field()</code>, <code>absint()</code></td>
-          <td>Cleans user input before storing or using it</td>
-          <td class="risk">⚠ Sometimes missing</td>
+          <td data-i18n="tips-sec-r3-what"><strong>Input sanitization</strong><br><code>sanitize_text_field()</code>, <code>absint()</code></td>
+          <td data-i18n="tips-sec-r3-why">Cleans user input before storing or using it</td>
+          <td class="risk" data-i18n="tips-sec-r3-ai">⚠ Sometimes missing</td>
         </tr>
         <tr>
-          <td><strong>Nonces</strong><br><code>wp_nonce_field()</code> + <code>check_admin_referer()</code></td>
-          <td>Prevents CSRF — someone tricking an admin into unknowingly submitting a form</td>
-          <td class="risk">⚠ Often missing</td>
+          <td data-i18n="tips-sec-r4-what"><strong>Nonces</strong><br><code>wp_nonce_field()</code> + <code>check_admin_referer()</code></td>
+          <td data-i18n="tips-sec-r4-why">Prevents CSRF — someone tricking an admin into unknowingly submitting a form</td>
+          <td class="risk" data-i18n="tips-sec-r4-ai">⚠ Often missing</td>
         </tr>
         <tr>
-          <td><strong>Capability checks</strong><br><code>current_user_can('manage_options')</code></td>
-          <td>Ensures only users with the right role can perform admin actions</td>
-          <td class="risk">⚠ Sometimes missing</td>
+          <td data-i18n="tips-sec-r5-what"><strong>Capability checks</strong><br><code>current_user_can('manage_options')</code></td>
+          <td data-i18n="tips-sec-r5-why">Ensures only users with the right role can perform admin actions</td>
+          <td class="risk" data-i18n="tips-sec-r5-ai">⚠ Sometimes missing</td>
         </tr>
         <tr>
-          <td><strong>Database queries</strong><br><code>$wpdb->prepare()</code></td>
-          <td>Prevents SQL injection when querying the database</td>
-          <td class="risk">⚠ Often incomplete</td>
+          <td data-i18n="tips-sec-r6-what"><strong>Database queries</strong><br><code>$wpdb->prepare()</code></td>
+          <td data-i18n="tips-sec-r6-why">Prevents SQL injection when querying the database</td>
+          <td class="risk" data-i18n="tips-sec-r6-ai">⚠ Often incomplete</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="warning">
+    <div class="warning" data-i18n="tips-security-warn">
       <strong>If your plugin has a settings page, stores data, or does anything with user input:</strong> ask the AI to check all six items above explicitly. Then run Plugin Check (see below) to verify.
     </div>
 
-    <p>You can ask your AI tool to audit the security of its own output:</p>
-    <div class="tip">
+    <p data-i18n="tips-security-p">You can ask your AI tool to audit the security of its own output:</p>
+    <div class="tip" data-i18n="tips-security-tip">
       <em>"Review this plugin for WordPress security best practices. Check for: output escaping, input sanitization, nonces on all forms, capability checks on admin actions, and proper use of $wpdb->prepare() for any database queries. Show me what's missing and provide a corrected version."</em>
     </div>
   </section>
 
   <!-- ── SECTION 3: PLUGIN CHECK ────────────────── -->
   <section aria-labelledby="heading-pcp">
-    <h2 id="heading-pcp">Plugin Check</h2>
+    <h2 id="heading-pcp" data-i18n="tips-h2-pcp">Plugin Check</h2>
 
-    <p><strong>Plugin Check</strong> (also called PCP) is a free WordPress plugin that automatically scans your code for common issues — security problems, coding standards violations, and WordPress.org requirements.</p>
+    <p data-i18n="tips-pcp-p1"><strong>Plugin Check</strong> (also called PCP) is a free WordPress plugin that automatically scans your code for common issues — security problems, coding standards violations, and WordPress.org requirements.</p>
 
-    <h3>How to use it</h3>
+    <h3 data-i18n="tips-pcp-h3-how">How to use it</h3>
     <ol>
-      <li>Install the <a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check plugin</a> from WordPress.org (search "Plugin Check" in WP Admin → Plugins → Add New)</li>
-      <li>Go to <strong>Tools → Plugin Check</strong></li>
-      <li>Select your plugin from the dropdown</li>
-      <li>Click <strong>"Check plugin"</strong></li>
-      <li>Review the results — errors are things to fix, warnings are things to consider</li>
+      <li data-i18n="tips-pcp-li1">Install the <a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check plugin</a> from WordPress.org (search "Plugin Check" in WP Admin → Plugins → Add New)</li>
+      <li data-i18n="tips-pcp-li2">Go to <strong>Tools → Plugin Check</strong></li>
+      <li data-i18n="tips-pcp-li3">Select your plugin from the dropdown</li>
+      <li data-i18n="tips-pcp-li4">Click <strong>"Check plugin"</strong></li>
+      <li data-i18n="tips-pcp-li5">Review the results — errors are things to fix, warnings are things to consider</li>
     </ol>
 
-    <h3>What it checks</h3>
+    <h3 data-i18n="tips-pcp-h3-what">What it checks</h3>
     <ul>
-      <li>Security issues (missing escaping, sanitization, nonces)</li>
-      <li>Plugin header completeness</li>
-      <li>WordPress coding standards</li>
-      <li>Internationalization (translatable strings)</li>
-      <li>Accessibility of admin interfaces</li>
-      <li>Performance (loading scripts and styles only where needed)</li>
+      <li data-i18n="tips-pcp-ch1">Security issues (missing escaping, sanitization, nonces)</li>
+      <li data-i18n="tips-pcp-ch2">Plugin header completeness</li>
+      <li data-i18n="tips-pcp-ch3">WordPress coding standards</li>
+      <li data-i18n="tips-pcp-ch4">Internationalization (translatable strings)</li>
+      <li data-i18n="tips-pcp-ch5">Accessibility of admin interfaces</li>
+      <li data-i18n="tips-pcp-ch6">Performance (loading scripts and styles only where needed)</li>
     </ul>
 
-    <div class="tip">
+    <div class="tip" data-i18n="tips-pcp-tip">
       <strong>A useful exercise:</strong> paste the Plugin Check errors back into your AI tool and ask it to fix them. Keep going until PCP reports no errors. This teaches you more about WordPress standards than any tutorial.
     </div>
   </section>
 
   <!-- ── SECTION 4: ACCESSIBILITY ──────────────────── -->
   <section aria-labelledby="heading-a11y">
-    <h2 id="heading-a11y">Accessibility — don't forget your users</h2>
+    <h2 id="heading-a11y" data-i18n="tips-h2-a11y">Accessibility — don't forget your users</h2>
 
-    <p>WordPress itself aims for <a href="https://make.wordpress.org/accessibility/handbook/best-practices/wcag/" target="_blank" rel="noopener">WCAG 2.2 Level AA</a>. There are no mandatory accessibility requirements for plugins in the WordPress directory, but you are strongly encouraged to consider accessibility when building your plugin.</p>
+    <p data-i18n="tips-a11y-p1">WordPress itself aims for <a href="https://make.wordpress.org/accessibility/handbook/best-practices/wcag/" target="_blank" rel="noopener">WCAG 2.2 Level AA</a>. There are no mandatory accessibility requirements for plugins in the WordPress directory, but you are strongly encouraged to consider accessibility when building your plugin.</p>
 
-    <p>AI-generated code often gets accessibility wrong — it may produce forms without labels, buttons without descriptive text, or colour contrast that fails. Worth checking.</p>
+    <p data-i18n="tips-a11y-p2">AI-generated code often gets accessibility wrong — it may produce forms without labels, buttons without descriptive text, or colour contrast that fails. Worth checking.</p>
 
-    <h3>Things to check in your plugin's output</h3>
+    <h3 data-i18n="tips-a11y-h3">Things to check in your plugin's output</h3>
     <ul>
-      <li>Images have meaningful <code>alt</code> text (or <code>alt=""</code> if decorative)</li>
-      <li>Form inputs have a visible <code>&lt;label&gt;</code></li>
-      <li>Buttons describe what they do ("Save settings", not just "Submit")</li>
-      <li>Colour is not the only way information is conveyed</li>
-      <li>Text contrast is at least 4.5:1 against its background</li>
-      <li>Everything that's clickable is also reachable by keyboard</li>
+      <li data-i18n="tips-a11y-li1">Images have meaningful <code>alt</code> text (or <code>alt=""</code> if decorative)</li>
+      <li data-i18n="tips-a11y-li2">Form inputs have a visible <code>&lt;label&gt;</code></li>
+      <li data-i18n="tips-a11y-li3">Buttons describe what they do ("Save settings", not just "Submit")</li>
+      <li data-i18n="tips-a11y-li4">Colour is not the only way information is conveyed</li>
+      <li data-i18n="tips-a11y-li5">Text contrast is at least 4.5:1 against its background</li>
+      <li data-i18n="tips-a11y-li6">Everything that's clickable is also reachable by keyboard</li>
     </ul>
 
-    <div class="tip">
+    <div class="tip" data-i18n="tips-a11y-tip">
       <strong>Ask your AI tool:</strong> "Review this plugin output for accessibility issues. Check for missing alt text, unlabelled form fields, low contrast, and keyboard inaccessible elements."
     </div>
 
-    <p>More guidance: <a href="https://wpaccessibility.org/docs/wp-a11y/wp-plugins/" target="_blank" rel="noopener">WordPress Plugin Accessibility — WP Accessibility</a></p>
+    <p data-i18n="tips-a11y-more">More guidance: <a href="https://wpaccessibility.org/docs/wp-a11y/wp-plugins/" target="_blank" rel="noopener">WordPress Plugin Accessibility — WP Accessibility</a></p>
   </section>
 
   <!-- ── SECTION 5: PUBLISHING ──────────────────── -->
   <section aria-labelledby="heading-publish">
-    <h2 id="heading-publish">Publishing to WordPress.org</h2>
+    <h2 id="heading-publish" data-i18n="tips-h2-publish">Publishing to WordPress.org</h2>
 
-    <p>Anyone can submit a plugin to the WordPress.org repository — it's free and open source. But should you?</p>
+    <p data-i18n="tips-publish-p1">Anyone can submit a plugin to the WordPress.org repository — it's free and open source. But should you?</p>
 
     <div class="comparison">
       <div class="comparison-col">
-        <div class="comparison-header good">Makes sense if…</div>
+        <div class="comparison-header good" data-i18n="tips-pub-good-h">Makes sense if…</div>
         <div class="comparison-body">
           <ul>
-            <li>You want others to be able to use it</li>
-            <li>You want to contribute to the WordPress community</li>
-            <li>You're building a commercial plugin (many start here)</li>
-            <li>You want free code review from the WP team</li>
+            <li data-i18n="tips-pub-good-li1">You want others to be able to use it</li>
+            <li data-i18n="tips-pub-good-li2">You want to contribute to the WordPress community</li>
+            <li data-i18n="tips-pub-good-li3">You're building a commercial plugin (many start here)</li>
+            <li data-i18n="tips-pub-good-li4">You want free code review from the WP team</li>
           </ul>
         </div>
       </div>
       <div class="comparison-col">
-        <div class="comparison-header caution">Probably not worth it if…</div>
+        <div class="comparison-header caution" data-i18n="tips-pub-not-h">Probably not worth it if…</div>
         <div class="comparison-body">
           <ul>
-            <li>It's just for your own site</li>
-            <li>It's very site-specific (your logo, your settings)</li>
-            <li>It hasn't passed Plugin Check yet</li>
-            <li>You're not ready to maintain it over time</li>
+            <li data-i18n="tips-pub-not-li1">It's just for your own site</li>
+            <li data-i18n="tips-pub-not-li2">It's very site-specific (your logo, your settings)</li>
+            <li data-i18n="tips-pub-not-li3">It hasn't passed Plugin Check yet</li>
+            <li data-i18n="tips-pub-not-li4">You're not ready to maintain it over time</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <h3>What WordPress.org requires</h3>
+    <h3 data-i18n="tips-pub-req-h3">What WordPress.org requires</h3>
     <ul>
-      <li>A unique function prefix (e.g. <code>rt_</code> for "reading-time") — no generic names like <code>get_data()</code></li>
-      <li>A <code>readme.txt</code> in the correct format</li>
-      <li>GPL-compatible license</li>
-      <li>No obfuscated code, no external calls without disclosure</li>
-      <li>Passes the automated and manual code review (can take several weeks)</li>
+      <li data-i18n="tips-pub-req-li1">A unique function prefix (e.g. <code>rt_</code> for "reading-time") — no generic names like <code>get_data()</code></li>
+      <li data-i18n="tips-pub-req-li2">A <code>readme.txt</code> in the correct format</li>
+      <li data-i18n="tips-pub-req-li3">GPL-compatible license</li>
+      <li data-i18n="tips-pub-req-li4">No obfuscated code, no external calls without disclosure</li>
+      <li data-i18n="tips-pub-req-li5">Passes the automated and manual code review (can take several weeks)</li>
     </ul>
 
-    <div class="tip">
+    <div class="tip" data-i18n="tips-pub-tip">
       Not submitting to .org? You can still share your plugin as a zip file — send it to someone, host it on GitHub, or just keep it for yourself.
     </div>
   </section>
 
   <!-- ── SECTION 6: VIBE CODING ─────────────────── -->
   <section aria-labelledby="heading-vibecoding">
-    <h2 id="heading-vibecoding">What is vibe coding good for?</h2>
+    <h2 id="heading-vibecoding" data-i18n="tips-h2-vibe">What is vibe coding good for?</h2>
 
-    <p>An honest take — because knowing the limits is part of the skill.</p>
+    <p data-i18n="tips-vibe-p1">An honest take — because knowing the limits is part of the skill.</p>
 
     <div class="comparison">
       <div class="comparison-col">
-        <div class="comparison-header good">Works well for…</div>
+        <div class="comparison-header good" data-i18n="tips-vibe-good-h">Works well for…</div>
         <div class="comparison-body">
           <ul>
-            <li>Quick prototypes and internal tools</li>
-            <li>Testing an idea before involving a developer</li>
-            <li>Learning how WordPress plugins work by reading generated code</li>
-            <li>Small utilities that solve your own problem</li>
-            <li>Automating repetitive tasks on your own site</li>
+            <li data-i18n="tips-vibe-good-li1">Quick prototypes and internal tools</li>
+            <li data-i18n="tips-vibe-good-li2">Testing an idea before involving a developer</li>
+            <li data-i18n="tips-vibe-good-li3">Learning how WordPress plugins work by reading generated code</li>
+            <li data-i18n="tips-vibe-good-li4">Small utilities that solve your own problem</li>
+            <li data-i18n="tips-vibe-good-li5">Automating repetitive tasks on your own site</li>
           </ul>
         </div>
       </div>
       <div class="comparison-col">
-        <div class="comparison-header caution">Be careful with…</div>
+        <div class="comparison-header caution" data-i18n="tips-vibe-care-h">Be careful with…</div>
         <div class="comparison-body">
           <ul>
-            <li>Plugins for sites with real users (security needs expert review)</li>
-            <li>Complex features that interact with existing systems</li>
-            <li>Anything where you can't verify whether the result is correct</li>
-            <li>Assuming "it works" means "it's done"</li>
+            <li data-i18n="tips-vibe-care-li1">Plugins for sites with real users (security needs expert review)</li>
+            <li data-i18n="tips-vibe-care-li2">Complex features that interact with existing systems</li>
+            <li data-i18n="tips-vibe-care-li3">Anything where you can't verify whether the result is correct</li>
+            <li data-i18n="tips-vibe-care-li4">Assuming "it works" means "it's done"</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <p>The key skill in vibe coding is not writing code — it's <strong>describing what you want precisely</strong> and <strong>knowing when to trust the output</strong>. That judgment develops with practice.</p>
+    <p data-i18n="tips-vibe-p2">The key skill in vibe coding is not writing code — it's <strong>describing what you want precisely</strong> and <strong>knowing when to trust the output</strong>. That judgment develops with practice.</p>
   </section>
 
   <!-- ── SECTION 7: GO FURTHER ──────────────────── -->
   <section aria-labelledby="heading-further">
-    <h2 id="heading-further">Want to go further?</h2>
+    <h2 id="heading-further" data-i18n="tips-h2-further">Want to go further?</h2>
 
-    <h3>Improve your plugin</h3>
+    <h3 data-i18n="tips-further-h3-imp">Improve your plugin</h3>
     <ul>
-      <li>Ask the AI to add a settings page so you can configure it from WP Admin</li>
-      <li>Ask the AI to make all user-facing text translatable using <code>__()</code> and <code>_e()</code></li>
-      <li>Ask the AI to write unit tests for the plugin</li>
-      <li>Ask the AI to make it comply with WordPress Coding Standards</li>
-      <li>Export the plugin as a zip: <strong>Plugins → [your plugin] → Download</strong> (LocalWP) or create a zip from the folder</li>
+      <li data-i18n="tips-further-li1">Ask the AI to add a settings page so you can configure it from WP Admin</li>
+      <li data-i18n="tips-further-li2">Ask the AI to make all user-facing text translatable using <code>__()</code> and <code>_e()</code></li>
+      <li data-i18n="tips-further-li3">Ask the AI to write unit tests for the plugin</li>
+      <li data-i18n="tips-further-li4">Ask the AI to make it comply with WordPress Coding Standards</li>
+      <li data-i18n="tips-further-li5">Export the plugin as a zip: <strong>Plugins → [your plugin] → Download</strong> (LocalWP) or create a zip from the folder</li>
     </ul>
 
-    <h3>Keep learning</h3>
+    <h3 data-i18n="tips-further-h3-learn">Keep learning</h3>
     <ul>
-      <li><a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly</li>
-      <li><a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automated quality and security scanning</li>
-      <li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/" target="_blank" rel="noopener">WordPress PHP Coding Standards</a> — what "clean WordPress code" looks like</li>
-      <li><a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/" target="_blank" rel="noopener">Inline documentation standards</a> — how to document your code</li>
+      <li data-i18n="tips-further-lnk1"><a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly</li>
+      <li data-i18n="tips-further-lnk2"><a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automated quality and security scanning</li>
+      <li data-i18n="tips-further-lnk3"><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/" target="_blank" rel="noopener">WordPress PHP Coding Standards</a> — what "clean WordPress code" looks like</li>
+      <li data-i18n="tips-further-lnk4"><a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/" target="_blank" rel="noopener">Inline documentation standards</a> — how to document your code</li>
     </ul>
   </section>
 
   <footer>
-    <p>Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.4rem;"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
-    <p style="margin-top:0.4rem;">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
+    <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
+    <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
+    <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
   </footer>
 
 </div>
 </main>
 
+<script src="js/i18n.js"></script>
 </body>
 </html>
