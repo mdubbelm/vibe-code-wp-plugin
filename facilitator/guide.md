@@ -180,6 +180,7 @@ Ask these questions to the group:
   - WordPress Plugin Handbook: https://developer.wordpress.org/plugins/
   - Install Plugin Check and run your plugin through it
   - Try to improve your prompt until PCP reports no errors
+- WordPress Agent Skills (official AI instructions for WP development): https://github.com/WordPress/agent-skills
 - "Questions? Reach out via [your info]"
 
 ---
@@ -203,6 +204,7 @@ Ask these questions to the group:
 - "Have the AI write unit tests for your plugin"
 - "Ask the AI to make your plugin comply with WordPress Coding Standards"
 - "Can you export the plugin as a zip and share it with your neighbor?"
+- "Try adding WordPress Agent Skills to your AI tool" — see [github.com/WordPress/agent-skills](https://github.com/WordPress/agent-skills). These are official WordPress instructions that help AI tools generate better, more WordPress-native code. Works with Claude Code, Cursor, GitHub Copilot, and others.
 
 ---
 

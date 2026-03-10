@@ -405,12 +405,15 @@ Technical requirements:
     'tips-further-li3':   'Ask the AI to write unit tests for the plugin',
     'tips-further-li4':   'Ask the AI to make it comply with WordPress Coding Standards',
     'tips-further-li5':   'Export the plugin as a zip: <strong>Plugins → [your plugin] → Download</strong> (LocalWP) or create a zip from the folder',
+    'tips-further-li6':   'Try <a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> — official instructions that help AI tools like Claude Code, Cursor, and GitHub Copilot generate better WordPress code',
     'tips-further-onefile': '<strong>Why does everything go in one file?</strong> For this workshop, all code lives in a single <code>.php</code> file — easy to see, easy to debug, no folder structure to explain. Real-world plugins often split code across multiple files (separate files for settings pages, assets, helper functions). When you\'re ready for that, the <a href="https://developer.wordpress.org/plugins/plugin-basics/best-practices/" target="_blank" rel="noopener">Plugin Best Practices</a> page in the handbook is a good next step.',
     'tips-further-h3-learn': 'Keep learning',
     'tips-further-lnk1':  '<a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly',
     'tips-further-lnk2':  '<a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automated quality and security scanning',
     'tips-further-lnk3':  '<a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/" target="_blank" rel="noopener">WordPress PHP Coding Standards</a> — what "clean WordPress code" looks like',
     'tips-further-lnk4':  '<a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/" target="_blank" rel="noopener">Inline documentation standards</a> — how to document your code',
+    'tips-further-lnk5':  '<a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> — expert-level WordPress knowledge for AI coding assistants (blocks, themes, plugins, best practices)',
+    'tips-further-ai-tip': '<strong>Make your AI smarter about WordPress.</strong> You can give these links directly to your AI tool as reference material. Say: <em>"Use this as documentation when generating WordPress code: [paste URL]"</em>. Tools like Claude Code and Cursor can also load the <a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> automatically — these are curated instruction sets that teach AI tools WordPress best practices for plugins, blocks, themes, and more. The result: code that follows WordPress standards from the start, instead of you having to fix it afterwards.',
   },
 
   nl: {
@@ -812,12 +815,15 @@ Technische vereisten:
     'tips-further-li3':   'Vraag de AI om unit tests voor de plugin te schrijven',
     'tips-further-li4':   'Vraag de AI om hem te laten voldoen aan de WordPress-codestandaarden',
     'tips-further-li5':   'Exporteer de plugin als zip: <strong>Plugins → [jouw plugin] → Downloaden</strong> (LocalWP) of maak een zip van de map',
+    'tips-further-li6':   'Probeer <a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> — officiële instructies die AI-tools als Claude Code, Cursor en GitHub Copilot helpen betere WordPress-code te genereren',
     'tips-further-onefile': '<strong>Waarom staat alles in één bestand?</strong> In deze workshop staat alle code in één <code>.php</code>-bestand — overzichtelijk, makkelijk te debuggen, geen mappenstructuur om uit te leggen. Echte plugins splitsen code vaak op over meerdere bestanden (aparte bestanden voor instellingenpagina\'s, assets, hulpfuncties). Als je daar klaar voor bent, is de pagina <a href="https://developer.wordpress.org/plugins/plugin-basics/best-practices/" target="_blank" rel="noopener">Plugin Best Practices</a> in het handbook een goede volgende stap.',
     'tips-further-h3-learn': 'Verder leren',
     'tips-further-lnk1':  '<a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — de officiële handleiding voor het goed bouwen van plugins',
     'tips-further-lnk2':  '<a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check (PCP)</a> — automatische kwaliteits- en beveiligingsscan',
     'tips-further-lnk3':  '<a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/" target="_blank" rel="noopener">WordPress PHP Coding Standards</a> — hoe "schone WordPress-code" eruitziet',
     'tips-further-lnk4':  '<a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/" target="_blank" rel="noopener">Inline documentatiestandaarden</a> — hoe je je code documenteert',
+    'tips-further-lnk5':  '<a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> — WordPress-kennis op expertniveau voor AI-codeerassistenten (blokken, thema\'s, plugins, best practices)',
+    'tips-further-ai-tip': '<strong>Maak je AI slimmer over WordPress.</strong> Je kunt deze links direct aan je AI-tool geven als referentiemateriaal. Zeg: <em>"Gebruik dit als documentatie bij het genereren van WordPress-code: [plak URL]"</em>. Tools als Claude Code en Cursor kunnen ook de <a href="https://github.com/WordPress/agent-skills" target="_blank" rel="noopener">WordPress Agent Skills</a> automatisch laden — dit zijn samengestelde instructiesets die AI-tools WordPress best practices leren voor plugins, blokken, thema\'s en meer. Het resultaat: code die vanaf het begin aan WordPress-standaarden voldoet, in plaats van dat je het achteraf moet repareren.',
   }
 };
 
