@@ -10,7 +10,7 @@ End-to-end test of the full participant experience. Run this on a machine where 
 
 - [ ] Open https://mdubbelm.github.io/vibe-code-wp-plugin/ in a browser
 - [ ] Page loads correctly, looks good on desktop and mobile
-- [ ] All external links work (LocalWP, WordPress Playground, AI tools, VS Code)
+- [ ] All external links work (LocalWP, WordPress Playground, AI tools, VSCodium)
 - [ ] Starter plugin zip downloads successfully
 - [ ] Prompt template is readable and easy to copy
 - [ ] Checklist makes sense — nothing missing, nothing confusing

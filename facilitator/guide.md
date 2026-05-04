@@ -131,7 +131,7 @@ Communicate this explicitly in the invitation:
   - Plugin doesn't appear → check filename, check plugin header
   - "It does nothing" → check if plugin is activated, inspect source for output
   - **Custom Login Logo doesn't work** → This plugin needs a separate JavaScript file for the media uploader — the AI often doesn't include it without being asked. If a participant picks this one, coach them to iterate: "Tell the AI the media uploader button doesn't work and ask it to add the necessary JavaScript." This is actually a good real-world lesson in iteration, but it means the plugin won't work in the first attempt. Steer less experienced participants toward Reading Time or External Link Icon instead.
-  - **Playground + no zip from AI** → Not all AI tools generate a zip. Point these participants to the Plugin Editor path (Plugins → Plugin Editor → overwrite Hello Dolly). It's faster than creating a zip manually.
+  - **Playground + no zip from AI** → Not all AI tools generate a zip. Point these participants to the Plugin Editor path (Plugins → Plugin Editor → overwrite Hello Dolly). It's faster than creating a zip manually. Note: Playground still preinstalls Hello Dolly. On a fresh LocalWP install (WP 6.5+) Hello Dolly is no longer shipped by default — there, use the starter plugin (`my-first-plugin`) from the dropdown instead.
   - **Maintenance Mode + Playground** → This combination doesn't work reliably. Playground restricts how plugins intercept requests, so the "offline" page may never show. Steer these participants to LocalWP, or suggest they switch to a different plugin idea.
 - Compliment good prompts, not just working code
 
