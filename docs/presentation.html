@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Code Your Own WordPress Plugin: Workshop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230073aa'/><text x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-accent: #0073aa;
+      --color-accent-light: #e8f4fd;
+      --color-border: #e0e0e0;
+      --color-success: #46b450;
+      --color-warning: #f0b849;
+      --color-danger: #d63638;
+    }
+
+    .reveal {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 32px;
+      color: var(--color-text);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal section {
+      padding: 0 2rem;
+    }
+
+    .reveal h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      color: var(--color-text);
+      text-transform: none;
+      margin-bottom: 0.4em;
+      letter-spacing: -0.01em;
+    }
+
+    .reveal h2 {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--color-text);
+      text-transform: none;
+      margin-bottom: 0.6em;
+      letter-spacing: -0.01em;
+    }
+
+    .reveal h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: none;
+      margin-bottom: 0.4em;
+    }
+
+    .reveal p, .reveal li {
+      line-height: 1.5;
+      color: var(--color-text);
+    }
+
+    .reveal ul, .reveal ol {
+      display: block;
+      margin-left: 1.2em;
+    }
+
+    .reveal li {
+      margin-bottom: 0.4em;
+    }
+
+    .reveal .subtitle {
+      color: var(--color-text-secondary);
+      font-size: 0.85em;
+      font-weight: 400;
+    }
+
+    .reveal .tag {
+      display: inline-block;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      font-size: 0.55em;
+      font-weight: 600;
+      padding: 0.3em 0.8em;
+      border-radius: 999px;
+      vertical-align: middle;
+      margin-bottom: 1em;
+      letter-spacing: 0.02em;
+    }
+
+    .reveal .accent { color: var(--color-accent); }
+    .reveal .muted  { color: var(--color-text-secondary); }
+    .reveal .big    { font-size: 1.3em; }
+    .reveal .small  { font-size: 0.75em; }
+
+    .reveal blockquote {
+      background: var(--color-accent-light);
+      border-left: 4px solid var(--color-accent);
+      padding: 1em 1.4em;
+      margin: 1em 0;
+      font-style: normal;
+      font-size: 0.95em;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .reveal code {
+      background: #f4f4f4;
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1em;
+    }
+
+    .col-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.2em 1.4em;
+    }
+
+    .col-card.good   { border-top: 4px solid var(--color-success); }
+    .col-card.bad    { border-top: 4px solid var(--color-danger); }
+
+    .col-card h3 {
+      margin-top: 0;
+      font-size: 0.95em;
+      color: var(--color-text);
+    }
+
+    .col-card.good h3 { color: var(--color-success); }
+    .col-card.bad  h3 { color: var(--color-danger); }
+
+    .col-card ul {
+      margin-left: 1em;
+      font-size: 0.8em;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.2em;
+      font-size: 0.85em;
+    }
+
+    .step {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 0.7em 1.1em;
+      font-weight: 600;
+    }
+
+    .step.active {
+      background: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    .arrow {
+      color: var(--color-text-secondary);
+      font-weight: 700;
+    }
+
+    .reveal .controls {
+      color: var(--color-accent);
+    }
+
+    .reveal .progress {
+      color: var(--color-accent);
+      height: 4px;
+    }
+
+    .reveal .slide-number {
+      background: transparent;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+    }
+
+    body { background: var(--color-bg); }
+
+    .reveal aside.notes { display: none !important; }
+
+    .footer-tip {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 0.6em;
+    }
+
+    .three-col .col-card {
+      padding: 0.9em 1em;
+    }
+
+    .three-col .col-card ul {
+      font-size: 0.68em;
+    }
+
+    .col-card.default { border-top: 4px solid var(--color-accent); }
+    .col-card.optional { border-top: 4px dashed var(--color-border); }
+
+    .reveal table.timetable {
+      border-collapse: collapse;
+      font-size: 0.62em;
+      margin: 0.4em 0 0 0;
+      width: 100%;
+    }
+
+    .reveal table.timetable td {
+      padding: 0.28em 0.7em;
+      border-bottom: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .reveal table.timetable td:first-child {
+      color: var(--color-text-secondary);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .reveal table.timetable td:nth-child(2) {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .reveal table.timetable tr.hands-on td { font-weight: 600; }
+
+    .reveal .prompt-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 6px 6px 0;
+      padding: 0.6em 0.9em;
+      margin: 0.3em 0 0.7em 0;
+      font-size: 0.6em;
+      line-height: 1.45;
+    }
+
+    .reveal .prompt-box .placeholder {
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+
+    .reveal .stamp {
+      font-size: 0.5em;
+      color: var(--color-text-secondary);
+      margin-top: 1em;
+    }
+
+    .reveal strong, .reveal b { font-weight: 700; }
+    .reveal blockquote { box-sizing: border-box; }
+    .reveal ul.numbers { font-size: 0.85em; }
+    .reveal .numbers li { margin-bottom: 0.3em; }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1. Title -->
+    <section>
+      <span class="tag">WordCamp Netherlands 2026 · Workshop</span>
+      <h1>Vibe Code Your Own<br>WordPress Plugin</h1>
+      <p class="subtitle">From idea to working plugin in less than 2 hours, without writing any code.</p>
+      <p class="muted small" style="margin-top:2em;">Monique Dubbelman · www.modub.nl</p>
+      <aside class="notes">
+        Phase 0 (8 min, 10:45). Leave the next slide up while you welcome the room: the TAs walk the rows and do setup triage in the meantime.
+        Ask the room: who has already used an AI tool to generate a piece of code? Show of hands. It helps you pair people later.
+      </aside>
+    </section>
+
+    <!-- 2. Ready check (phase 0) -->
+    <section>
+      <span class="tag">Before we start</span>
+      <h2>You're ready when...</h2>
+      <blockquote>
+        you can see the <strong>Plugins</strong> screen of your own WordPress,<br>
+        and you have an <strong>AI chat</strong> open in another tab.
+      </blockquote>
+      <p style="margin-top:1em;">No WordPress yet? Use Playground. Nothing to install, Plugin Check already in it:</p>
+      <p class="small"><code>playground.wordpress.net/?plugin=plugin-check&amp;url=/wp-admin/plugins.php</code></p>
+      <p class="muted small">Same link on <code>pluginvibes.modub.nl</code></p>
+      <aside class="notes">
+        TAs: anyone who isn't ready goes onto the Playground link. Nobody installs LocalWP during the slot; that eats the whole first round.
+        Late arrivals get the Playground link and the ideas page, nothing else.
+        Keeping work in Playground (new interface, July 2026): the Playgrounds panel lists saved sites and recent autosaves, and a site's Actions menu can save, rename and reopen it. Before the break, ask everyone on Playground to save their site there. Someone closed the tab? TAs open the Playgrounds panel and look under recent autosaves before starting a fresh one. Don't promise an autosave will be there: how long they're kept isn't documented. Code still in the AI chat can always go into a fresh Playground.
+      </aside>
+    </section>
+
+    <!-- 3. About me -->
+    <section>
+      <span class="tag">About me</span>
+      <h2>Hi, I'm Monique</h2>
+      <ul>
+        <li>Worked with WordPress for many years</li>
+        <li>Day job: civil servant</li>
+        <li>Recently started a part-time business of my own again, after a 4-year break</li>
+      </ul>
+      <blockquote style="margin-top:1.5em;">
+        As a friend put it: <strong>my antidote to bureaucracy.</strong>
+      </blockquote>
+      <aside class="notes">
+        Keep this short: 30 to 45 seconds. The point isn't a CV, it's framing why you care about this topic:
+        the "antidote to bureaucracy" line lands well because it signals you value building small, useful things quickly,
+        which is exactly what vibe coding is good for.
+      </aside>
+    </section>
+
+    <!-- 4. Why I'm here -->
+    <section>
+      <span class="tag">Why I'm here</span>
+      <h2>How this workshop happened</h2>
+      <p>It started with a WordPress talk about turning my site into a static site.</p>
+      <p>I'd discovered I could now build my own plugins. The reactions surprised me.</p>
+      <p><strong>May 2026:</strong> the first run of this workshop, 45 minutes, WordPress Meetup Amsterdam.</p>
+      <p class="big accent" style="margin-top:0.6em;">Today: 2 hours, with the step that was missing.</p>
+      <p class="muted small">Checking the result with a real tool, and fixing what it finds.</p>
+      <aside class="notes">
+        The point: this workshop exists because of audience interest, not because you set out to teach plugin development.
+        The 45-minute version had one build round and no time to check the result. The extra time goes to that: Plugin Check after the break, then fixing one thing it finds.
+        If someone asks what's new this year: WordPress 7.0 put an AI Client and Settings → Connectors in core, and Plugin Check (now 2.1.0) can send its findings to that AI for a second opinion. Both come back after the break.
+      </aside>
+    </section>
+
+    <!-- 5. Today -->
+    <section>
+      <span class="tag">Today</span>
+      <h2>The next two hours</h2>
+      <table class="timetable">
+        <tr><td>10:45</td><td>8 min</td><td>Welcome, setup check</td></tr>
+        <tr><td>10:53</td><td>15 min</td><td>What vibe coding is, live demo</td></tr>
+        <tr class="hands-on"><td>11:08</td><td>30 min</td><td>Round 1: build your plugin</td></tr>
+        <tr><td>11:38</td><td>8 min</td><td>Checkpoint: two people share</td></tr>
+        <tr><td>11:46</td><td>10 min</td><td>Break</td></tr>
+        <tr><td>11:56</td><td>8 min</td><td>Let a tool look at it: Plugin Check</td></tr>
+        <tr class="hands-on"><td>12:04</td><td>20 min</td><td>Round 2: check and fix</td></tr>
+        <tr><td>12:24</td><td>15 min</td><td>Honest reflection: would you put this on a real site?</td></tr>
+        <tr><td>12:39</td><td>3 min</td><td>Next steps</td></tr>
+        <tr><td>12:42</td><td>3 min</td><td>Buffer</td></tr>
+      </table>
+      <p class="muted small" style="margin-top:0.8em;">About 50 minutes of it is you building.</p>
+      <aside class="notes">
+        Show this for 20 seconds, don't read it out. If the room started late, the time comes out of Round 2, never out of the reflection.
+        Cut points if you're behind: checkpoint to one share (5 min), Round 2 to 15 min. Reflection never below 12 min.
+      </aside>
+    </section>
+
+    <!-- 6. What is vibe coding -->
+    <section>
+      <h2>What is vibe coding?</h2>
+      <p>You describe in <strong>plain language</strong> what you want.</p>
+      <p>The AI writes the code.</p>
+      <p>You steer, test, and iterate.</p>
+      <blockquote style="margin-top:1.5em;">
+        This is not learning to code. This is learning to <strong>collaborate</strong> with AI.
+      </blockquote>
+      <aside class="notes">
+        Term coined by Andrej Karpathy (early 2025). The trick is not understanding the code, but being able to assess the result.
+        For people without programming experience, this is the most direct way to actually build something that works.
+      </aside>
+    </section>
+
+    <!-- 7. When does it work / not -->
+    <section>
+      <h2>When it works, and when it doesn't</h2>
+      <div class="two-col">
+        <div class="col-card good">
+          <h3>✓ Works well for</h3>
+          <ul>
+            <li>Quick prototypes</li>
+            <li>Internal tools, small utilities</li>
+            <li>Testing an idea before hiring a developer</li>
+            <li>Learning by reading the generated code</li>
+          </ul>
+        </div>
+        <div class="col-card bad">
+          <h3>✗ Doesn't work for</h3>
+          <ul>
+            <li>Production sites with real users</li>
+            <li>Complex integrations</li>
+            <li>Anything where you can't verify the result</li>
+            <li>"Done without review"</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:1em;"><strong>Today: demo content only.</strong> No client code, no real data in the AI chat.</p>
+      <aside class="notes">
+        Being honest about the limits is part of the skill. A vibe-coded plugin is a starting point, not a finished product.
+        Demo content only: some free AI tiers use what you send to improve their products. Check the terms of the tool you use before you paste anything real into it.
+      </aside>
+    </section>
+
+    <!-- 8. The real skill -->
+    <section>
+      <h2>The real skill</h2>
+      <p class="muted">Not:</p>
+      <p class="big" style="text-decoration: line-through; color: var(--color-text-secondary);">Writing code</p>
+      <p class="muted" style="margin-top:1em;">But:</p>
+      <p class="big accent">Describing clearly what you want</p>
+      <p class="big accent">Judging what you get back</p>
+      <aside class="notes">
+        This is the core message. The effort isn't in learning syntax. It's in:
+        1) enough detail in your prompt: what should it do, where, how does it behave
+        2) reading the output critically: does it work, is it safe, do I understand what it's doing
+        Today the second half gets its own tool and its own round.
+      </aside>
+    </section>
+
+    <!-- 9. Demo -->
+    <section>
+      <span class="tag">Demo</span>
+      <h2>Reading Time plugin</h2>
+      <p>I'll show you how to build, in a few minutes, a plugin that estimates how long a blog post takes to read.</p>
+      <ul style="margin-top:1.5em;">
+        <li>Write the prompt</li>
+        <li>Copy the code into a file</li>
+        <li>Activate the plugin in WordPress</li>
+        <li>See the result</li>
+        <li><strong>And spot what's still off</strong></li>
+      </ul>
+      <aside class="notes">
+        8 minutes. Switch to the AI tool. Paste the Reading Time prompt (facilitator/prompts/prompt-reading-time.md).
+        Show that it works AND show a flaw, e.g. "1 minutes" instead of "1 minute", or that you can't change the reading speed.
+        Say out loud: "It works. That doesn't mean it's good. After the break we'll let a tool look at code like this."
+        Keep this plugin on your demo site: in our test run it had zero Security findings, the contrast for the walkthrough.
+        Next slide: the loop and the ideas page (2 min).
+      </aside>
+    </section>
+
+    <!-- 10. The process (after the demo) -->
+    <section>
+      <h2>The process</h2>
+      <div class="step-row">
+        <div class="step">Prompt</div>
+        <span class="arrow">→</span>
+        <div class="step">Generate</div>
+        <span class="arrow">→</span>
+        <div class="step">Install</div>
+        <span class="arrow">→</span>
+        <div class="step">Test</div>
+        <span class="arrow">→</span>
+        <div class="step active">Iterate</div>
+      </div>
+      <p class="muted small" style="text-align:center; margin-top:2em;">
+        The first attempt rarely works. <strong>Iterating isn't failing, it's the work.</strong>
+      </p>
+      <p class="muted small" style="text-align:center;">After the break we add one more step: <strong>Check</strong>.</p>
+      <aside class="notes">
+        2 min, together with the ideas page (pluginvibes.modub.nl/ideas.html). Pick an idea, or bring your own: one feature only.
+        Most important sentence of the whole workshop: iterating IS the work. A first attempt that doesn't work is normal.
+        The trick: paste the error back into the AI and ask for a fix.
+      </aside>
+    </section>
+
+    <!-- 11. Round 1 -->
+    <section>
+      <span class="tag">Round 1</span>
+      <h2>Your turn</h2>
+      <ol>
+        <li>Open <code>pluginvibes.modub.nl</code></li>
+        <li>Pick a plugin idea (or invent your own, one feature only)</li>
+        <li>Write your prompt: use the template</li>
+        <li>Generate, install, test</li>
+        <li>Doesn't work? Paste the error back into the AI</li>
+      </ol>
+      <p class="muted" style="margin-top:1.5em;">Half an hour. We'll walk around. Raise your hand if you get stuck.</p>
+      <p class="big accent" style="margin-top:1em; text-align:center;">Have fun 🎛️</p>
+      <aside class="notes">
+        11:08 to 11:38. Only the ideas page now; the prompts page goes up at 11:23 (next slide), not before.
+        The template's "Technical requirements" part mentions hooks and filters: "You don't need to understand those words. They're instructions for the AI, not for you."
+        TAs push stuck people to Reading Time. Compliment good prompts, not just working code.
+      </aside>
+    </section>
+
+    <!-- 12. Prompts page, 15 minutes into round 1 -->
+    <section>
+      <span class="tag">Round 1, halfway</span>
+      <h2>Stuck, or want to compare?</h2>
+      <p>Example prompts for all four ideas:</p>
+      <p class="big"><code>pluginvibes.modub.nl/prompts.html</code></p>
+      <ul style="margin-top:1em;">
+        <li>Doing fine with your own prompt? Keep going.</li>
+        <li>Got an error message? Paste the exact text back into the AI.</li>
+        <li>It works? Ask the AI for one improvement.</li>
+      </ul>
+      <aside class="notes">
+        Put this up at 11:23, 15 minutes into Round 1. Leave it on screen until the checkpoint.
+      </aside>
+    </section>
+
+    <!-- 13. Checkpoint -->
+    <section>
+      <span class="tag">Checkpoint</span>
+      <h2>What came out?</h2>
+      <ul>
+        <li>Which idea, which prompt, what came out?</li>
+        <li>Where did you get stuck, and how did you get unstuck?</li>
+        <li>Did you change your prompt? What did you change?</li>
+      </ul>
+      <p class="muted small" style="margin-top:1.5em;">2 people share. Then: <strong>Break: 10 minutes.</strong></p>
+      <aside class="notes">
+        8 minutes. Two volunteers, about 3 minutes each including setup. Ask them to open their result before it's their turn, or share a screenshot.
+        Then name the two or three problems you saw at most tables. If everyone hit the same wall, that's a real lesson, not a failure.
+        Announce: "After the break we're going to let a tool look at what you built."
+      </aside>
+    </section>
+
+    <!-- 14. Break -->
+    <section>
+      <span class="tag">Break</span>
+      <h2>Break: 10 minutes</h2>
+      <p>Keep building if you like.</p>
+      <p>Plugin doesn't activate yet? Grab a TA now, so you have something to check after the break.</p>
+      <p>On Playground? <strong>Save your site</strong> in the Playgrounds panel first.</p>
+      <p class="big accent" style="margin-top:1em;">Next: we let a tool look at what you built.</p>
+      <aside class="notes">
+        11:46 to 11:56. Start the walkthrough on time; it is short and visual, and it's about their code next.
+        Remind Playground users to save their site (Playgrounds panel) before they walk off.
+        Check on your demo site (LocalWP, AI connector set up under Settings → Connectors): Plugin Check's Categories already set to Security only, the bad example activated, the backup recording of run 2 open in a second window.
+        The backup recording does not exist yet (14 Oct). It comes from your testplan Test 9 dry run. No recording and no dry run by 12 Nov: skip the live AI run, see the notes on the "Run 2" slide.
+      </aside>
+    </section>
+
+    <!-- 15. Plugin Check walkthrough, run 1 -->
+    <section>
+      <span class="tag">Plugin Check</span>
+      <h2>Let a tool look at it</h2>
+      <ol>
+        <li><strong>Tools → Plugin Check</strong>, choose your plugin.<br>
+          <span class="muted small">Not under Tools? Plugins → Add Plugin → search "Plugin Check" → install, activate.</span></li>
+        <li>Categories: <strong>untick Plugin Repo</strong>, tick <strong>Security</strong> only.</li>
+        <li>Click <strong>Check it!</strong></li>
+        <li>Pick <strong>one Error</strong>. The technical name is in the <strong>Code</strong> column.</li>
+      </ol>
+      <blockquote style="margin-top:1em;">
+        <strong>Plugin Repo = directory paperwork</strong> (readme.txt, License line, prefixes).<br>
+        It says nothing about whether your site is safe.
+      </blockquote>
+      <aside class="notes">
+        Run 1, about 3 min, on "BAD EXAMPLE Login Logo" (facilitator/plugins/bad-example/). Full script and the result table are in guide.md.
+        Contrast first: "I ran my Reading Time demo through this already: zero Security findings. Now a plugin that looks just as harmless."
+        Expect "Checks complete. 5 errors and 2 warnings found." (totals from the scripted run, Plugin Check 2.1.0 on WordPress 7.1.3, 14 Oct; the sentence is Plugin Check's own template). Confirm it on your LocalWP demo site in the dry run, and time it: ___ s. Leave both Types (Error, Warning) ticked.
+        Run the whole walkthrough on that LocalWP site, not Playground: run 2 needs your AI connector, and a connector in Playground is untested (testplan Test 10).
+        The results come as four tables, each headed "FILE: login-logo.php": one table per check, same file. Say so, or people think they're looking at four files.
+        Translate one Error (about 2 min): line 34, "Logo saved:" prints back exactly what was typed. Same mistake on lines 20 and 46. Paste that row into the explain prompt once. Don't fix it.
+        If the live run fails: backup recording, don't debug on stage.
+      </aside>
+    </section>
+
+    <!-- 16. Plugin Check walkthrough, run 2 with AI -->
+    <section>
+      <span class="tag">Plugin Check + AI</span>
+      <h2>Run 2: paperwork back on, AI on</h2>
+      <p class="small">Tick <strong>Plugin Repo</strong> again. Tick <strong>Enable AI Analysis</strong>. <strong>Check it!</strong></p>
+      <ul class="small" style="margin-top:0.6em;">
+        <li>New in the Code column: <code>NonceVerification</code>, <code>ValidatedSanitizedInput</code>. A form without a nonce, input that isn't cleaned. Security only doesn't show these.</li>
+        <li>Under a code: <strong>✨ AI: Valid issue</strong> or <strong>✨ AI: Potential false positive</strong>.</li>
+      </ul>
+      <blockquote style="margin-top:0.6em;">
+        The total at the top only counts what the AI kept.<br>
+        Lower is the AI's opinion, not a fix. Open <strong>Possible false positives</strong> at the bottom. Read it yourself.
+      </blockquote>
+      <p class="stamp">Deliberately bad Login Logo example. Plugin Check 2.1.0, WordPress 7.1.3.</p>
+      <aside class="notes">
+        About 3 min, on your LocalWP demo site with the AI connector.
+        BEFORE 12 NOV, testplan Test 9 (needs your API key; nobody else can do it). Write down what you actually saw, then trim these notes to it:
+        Summary line: "Checks complete. ___ errors and ___ warnings found. AI detected ___ possible false positives." / N in "Possible false positives (N)": ___ / Security rows (lines 20, 34, 46, 38) among them: ___ / AI run time: ___ s / Provider and model: ___ / Backup recording file: ___
+        Still blank on the day? Don't run the AI live. Untick Enable AI Analysis, run with Plugin Repo only, point at the new warnings, and say: "Plugin Check can also send these rows to an AI for a second opinion. I'm not showing that live, because I only show you results I've checked first." Then go to Round 2.
+        What the screen does with AI on (read from the Plugin Check 2.1.0 source code, not yet seen on screen): the total in the summary only counts rows the AI did not call a false positive. After it come "AI detected N possible false positives" (only when N is above 0), token counts, and "Model:" with provider and model. No "Model:" at the end of the summary means the AI didn't run: no connector, or the call failed. Plugin Check doesn't warn you; you just get the plain results.
+        Sanity check: without AI this run gives 8 errors and 13 warnings, 21 rows (scripted run, 14 Oct). 21 minus the total on screen should equal N. If it doesn't, run it again.
+        Talk while it runs: "Got a form or a settings page? Run it like this once, look for NonceVerification and ValidatedSanitizedInput, and skip the readme and License lines." If the AI folded some of those away, they're in the collapsed section.
+        For questions, not for the slide: only findings below the severity threshold go to the AI (errors 7, warnings 6, on a 1 to 10 scale; Settings → Plugin Check). On this plugin that is 19 of the 21 rows, every security finding (severity 5 and 6). Only the readme.txt and License errors (severity 9) skip it. Severity measures how strict the directory review is, not how dangerous something is on your site. (Source: Plugin Check 2.1.0 code and docs/ai-features.md, severities from the scripted run. The screen never shows severity or the 19.)
+        Open the section. If the AI folded a Security row away: read its reasoning out loud, ask "Do you agree?". If not: "This time it agreed. But notice what it was allowed to judge: all of them." Use the line that matches your dry run, and be ready for the other one: the same input can get a different answer.
+        What gets sent to your AI provider: the flagged line plus up to 10 lines before and after it, and the file name.
+        AI run takes more than a minute or fails? Play the backup recording and move on.
+      </aside>
+    </section>
+
+    <!-- 17. Round 2 -->
+    <section>
+      <span class="tag">Round 2</span>
+      <h2>Check and fix</h2>
+      <div class="three-col">
+        <div class="col-card default">
+          <h3>Check (default)</h3>
+          <ul>
+            <li><strong>Run Plugin Check and fix what it flags</strong></li>
+            <li>Untick Plugin Repo, tick only Security. Pick one Error.</li>
+            <li>Explain prompt, then fix prompt. Re-install, re-run.</li>
+            <li>Zero findings? Form or settings page: run again with Plugin Repo ticked. No form: self-review prompt.</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h3>Wider</h3>
+          <ul>
+            <li>Plugin didn't work, or you're done?</li>
+            <li>Same prompt in a second AI tool. Compare the two.</li>
+            <li>Or try a second idea.</li>
+          </ul>
+        </div>
+        <div class="col-card optional">
+          <h3>AI inside WordPress</h3>
+          <ul>
+            <li>Optional. Only with your own API key and LocalWP.</li>
+            <li>Connect it in Settings → Connectors. Build a tiny admin-only plugin on the WordPress 7.0 AI Client.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:0.8em;">20 minutes. Prompts: <code>pluginvibes.modub.nl/prompts.html</code></p>
+      <aside class="notes">
+        12:04 to 12:24. Default is Check. TAs check the ticked Categories first when someone asks for help.
+        Zero Security findings is likely for Reading Time and External Link Icon. With Plugin Repo ticked, look for Security, NonceVerification or ValidatedSanitizedInput in the Code column; skip readme, License and prefix lines.
+        Third track is on, but only for people who already have an API key and LocalWP (plan decision 3). Nobody gets a key from you: the Plugin Check AI review stays a demo on your screen (decision 2). Brief for that track: an admin-only box on the post edit screen that suggests three titles, using wp_ai_client_prompt(). Three checks for TAs: a current_user_can( 'edit_posts' ) check, a WP_Error handled, no visitor input sent to the AI.
+        Questions while you walk around: Which categories did you tick? Did the number go down? Did a new one appear? Did the AI say it fixed something that's still flagged? Do you understand the fix, or are you trusting it?
+      </aside>
+    </section>
+
+    <!-- 18. Round 2 prompts -->
+    <section>
+      <span class="tag">Round 2</span>
+      <h2>The fix loop</h2>
+      <p class="small"><strong>1. Explain</strong></p>
+      <div class="prompt-box">
+        Plugin Check gave me this result for a WordPress plugin I made with an AI. (...) Explain in plain language what the problem is, who could trigger it, and whether it is a real risk on a small website. Don't fix anything yet.<br>
+        <span class="placeholder">[paste the Plugin Check row]</span> <span class="placeholder">[paste your full plugin code]</span>
+      </div>
+      <p class="small"><strong>2. Fix</strong></p>
+      <div class="prompt-box">
+        Fix only this issue in the plugin code below. Change as little as possible. (...) Don't add phpcs:ignore comments or anything else that hides the warning instead of fixing it. (...)<br>
+        <span class="placeholder">[paste the Plugin Check row]</span> <span class="placeholder">[paste your full plugin code]</span>
+      </div>
+      <p class="small"><strong>3. Re-install, re-run.</strong> Did the number go down? Did a new one appear? Is the "fixed" one still flagged?</p>
+      <p class="muted small">Shortened. Copy the full prompts from <code>pluginvibes.modub.nl/prompts.html</code></p>
+      <aside class="notes">
+        Shortened on purpose: the full, tested wording is on the prompts page (Round 2 section) and in facilitator/prompts/prompt-round-2.md. People copy from there, not from the slide. The self-review prompt for the zero-findings branch is on the prompts page too.
+        After two tries that don't clear a finding: note it and move on. It's material for the reflection.
+      </aside>
+    </section>
+
+    <!-- 19. Reflection 1 -->
+    <section>
+      <span class="tag">Reflection 1 / 4</span>
+      <h2>What did Plugin Check find?</h2>
+      <ul>
+        <li>Security only: zero? 1 to 5? More?</li>
+        <li>Who fixed a Security finding? Who ended up fixing paperwork?</li>
+        <li>Did fixing one error create another?</li>
+      </ul>
+      <p class="big accent" style="margin-top:1em;">Zero findings doesn't mean safe.</p>
+      <p class="muted small">Plugin Check reads code patterns. It can't see "1 minutes", or a maintenance mode that locks you out.</p>
+      <aside class="notes">
+        12:24, 4 min. The reflection is the protected block: never below 12 minutes in total.
+        And zero doesn't mean "works" either: the bad example's Remove logo link says "Logo removed", but the field still shows the old URL until you reload. Optional: show it in ten seconds.
+      </aside>
+    </section>
+
+    <!-- 20. Reflection 2 -->
+    <section>
+      <span class="tag">Reflection 2 / 4</span>
+      <h2>Would you put this on a real site?</h2>
+      <ul>
+        <li>Who can trigger this code: visitors, editors, or only you?</li>
+        <li>What does it do with text someone else typed?</li>
+        <li>What happens when it breaks: a wrong number, a white screen, or locked out of wp-admin?</li>
+        <li>Who updates it next year when WordPress changes?</li>
+      </ul>
+      <aside class="notes">
+        5 min. Let people answer for their own plugin. The questions matter more than the answers.
+      </aside>
+    </section>
+
+    <!-- 21. Reflection 3a -->
+    <section>
+      <span class="tag">Reflection 3 / 4</span>
+      <h2>AI checking AI</h2>
+      <ul>
+        <li>Keeping the most serious findings away from the AI is a good idea.</li>
+        <li>But on the bad example, the paperwork skipped the AI, and the AI got to judge every security finding.</li>
+        <li>Open the collapsed section. Read it yourself.</li>
+      </ul>
+      <blockquote style="margin-top:1em;">
+        "In web application security 99% is not good enough."<br>
+        <span class="muted small">Simon Willison, annotated slides, PyCon US 2025 workshop</span>
+      </blockquote>
+      <aside class="notes">
+        About 1.5 min. The second bullet comes from Plugin Check's thresholds and the severities in the scripted run, not from an AI run: it holds whatever the AI said.
+        What you say next depends on what the AI did (in your dry run, and live if you ran it). It folded a security finding away: put that screen, or that moment of the backup recording, back up now. It didn't: "It agreed this time. It was still the one deciding." You skipped the live AI run: say only what the bullets say.
+        Then to the room, only if they saw an AI run: "Who would have believed the lower number without opening that section?"
+        You can lower the thresholds under Settings → Plugin Check.
+        Source: simonwillison.net/2025/May/15/building-on-llms/
+      </aside>
+    </section>
+
+    <!-- 22. Reflection 3b -->
+    <section>
+      <span class="tag">Reflection 3 / 4</span>
+      <h2>A thought experiment</h2>
+      <p>Your plugin sends new comments to an AI to summarise them.</p>
+      <p>A visitor writes a comment with instructions for that AI in it.</p>
+      <p class="big accent" style="margin-top:0.8em;">What stops the AI from following them?</p>
+      <p class="muted small" style="margin-top:1em;">This is called <strong>prompt injection</strong>. In 2025 Willison's assessment was that there is still no reliable way to guarantee the AI won't follow them. Keep text from strangers away from AI features that can do things.</p>
+      <aside class="notes">
+        About 1.5 min. Ask the question, wait for answers, then show the last line.
+      </aside>
+    </section>
+
+    <!-- 23. Reflection 4 -->
+    <section>
+      <span class="tag">Reflection 4 / 4</span>
+      <h2>When to hire a developer</h2>
+      <ul>
+        <li>It handles payments, personal data, logins or file uploads</li>
+        <li>Other people will use it, or it runs on a client's site</li>
+        <li>It stores things in the database or has a form</li>
+        <li>Plugin Check still shows errors after two rounds of "fix this", and you can't tell whether they're real</li>
+        <li>You can't explain in one sentence what each part does</li>
+      </ul>
+      <p class="accent" style="margin-top:1em;">A vibe-coded plugin is a very good brief for a developer. Bring it, together with your prompt.</p>
+      <aside class="notes">
+        3 min.
+      </aside>
+    </section>
+
+    <!-- 24. Closing -->
+    <section>
+      <span class="tag">Wrap up</span>
+      <h2>The real learning starts after the workshop</h2>
+      <ul>
+        <li>Next steps: <code>pluginvibes.modub.nl/tips.html</code></li>
+        <li>Plugin Check, security basics, the Plugin Handbook, and more</li>
+        <li>Feedback: <code>pluginvibes@modub.nl</code></li>
+      </ul>
+      <p class="big accent" style="margin-top:1.5em;">Thank you!</p>
+      <aside class="notes">
+        12:39, 3 min. Mention WordPress Agent Skills (github.com/WordPress/agent-skills) for people who move on to coding agents.
+        Thank the room and the TAs. Delete the bad example from your demo site afterwards.
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    transition: 'slide',
+    plugins: [ RevealNotes ]
+  });
+</script>
+
+</body>
+</html>
