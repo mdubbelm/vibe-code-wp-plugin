@@ -752,6 +752,15 @@
       <li data-i18n="tips-further-editor-li2"><strong>No longer recommended:</strong> Void (archived in June 2026) and Continue (its README says the repository is read-only and no longer actively maintained). Unmaintained AI tools don't get security fixes, so check when a tool was last updated before you install it.</li>
     </ul>
 
+    <h3 data-i18n="tips-further-h3-local">Run the AI on your own computer</h3>
+    <p data-i18n="tips-further-local-p1">Don't want your code to go to an AI company at all? With <a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> you can run a model on your own laptop. This was tested in October 2026 with the Reading Time and Custom Login Logo prompts from this site: three tries each, first answer only, on a MacBook with an M4 chip and 24 GB of memory.</p>
+    <ul>
+      <li data-i18n="tips-further-local-li1"><strong>Mistral 7B</strong> (<code>mistral</code>, 4.4 GB download): 0 of 6 plugins worked. They showed nothing, crashed, or made the post text disappear.</li>
+      <li data-i18n="tips-further-local-li2"><strong>Qwen2.5-Coder 14B</strong> (<code>qwen2.5-coder:14b</code>, 9 GB): 5 of 6 worked.</li>
+      <li data-i18n="tips-further-local-li3"><strong>gpt-oss 20B</strong> (<code>gpt-oss:20b</code>, 13 GB): 6 of 6 worked. Each answer took up to 2.5 minutes, and the model only just fits in 24 GB of memory.</li>
+    </ul>
+    <p data-i18n="tips-further-local-p2"><strong>What this means:</strong> a small model is not good enough for plugins. A larger one can be, but you need a recent computer with plenty of memory (16 GB is too little for gpt-oss 20B), a big download, and patience. An earlier run gave lower scores, so treat these numbers as a snapshot. Local or not, always run Plugin Check.</p>
+
     <h3 data-i18n="tips-further-h3-learn">Keep learning</h3>
     <ul>
       <li data-i18n="tips-further-lnk1"><a href="https://developer.wordpress.org/plugins/" target="_blank" rel="noopener">WordPress Plugin Handbook</a> — the official guide to building plugins properly</li>
