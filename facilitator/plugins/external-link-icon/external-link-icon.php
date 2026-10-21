@@ -3,6 +3,8 @@
  * Plugin Name: External Link Icon
  * Description: Automatically adds an icon (↗) to external links and opens them in a new tab.
  * Version: 1.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Workshop Participant
  * Text Domain: external-link-icon
  * License: GPL-2.0-or-later
@@ -36,7 +38,10 @@ function eli_add_external_link_icons( $content ) {
 	foreach ( $links as $link ) {
 		$href = $link->getAttribute( 'href' );
 
-		if ( empty( $href ) || str_starts_with( $href, '#' ) || str_starts_with( $href, '/' ) ) {
+		// Skip anchors (#top) and relative links (/about). A link that starts
+		// with // (//example.org) is not relative: it points to another site.
+		if ( empty( $href ) || str_starts_with( $href, '#' )
+			|| ( str_starts_with( $href, '/' ) && ! str_starts_with( $href, '//' ) ) ) {
 			continue;
 		}
 
@@ -45,7 +50,12 @@ function eli_add_external_link_icons( $content ) {
 		if ( $link_host && $link_host !== $site_url ) {
 			// External link found
 			$link->setAttribute( 'target', '_blank' );
-			$link->setAttribute( 'rel', 'noopener noreferrer' );
+
+			// Add noopener and noreferrer, but keep values that were already
+			// there (such as nofollow or sponsored).
+			$rel = preg_split( '/\s+/', trim( $link->getAttribute( 'rel' ) ), -1, PREG_SPLIT_NO_EMPTY );
+			$rel = array_unique( array_merge( $rel, array( 'noopener', 'noreferrer' ) ) );
+			$link->setAttribute( 'rel', implode( ' ', $rel ) );
 
 			// Add icon if not already present
 			$text = $link->textContent;

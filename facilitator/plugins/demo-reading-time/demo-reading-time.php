@@ -3,6 +3,8 @@
  * Plugin Name: Reading Time
  * Description: Displays the estimated reading time above each post.
  * Version: 1.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Workshop Demo
  * Text Domain: demo-reading-time
  * License: GPL-2.0-or-later
