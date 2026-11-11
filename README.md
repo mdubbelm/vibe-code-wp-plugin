@@ -48,7 +48,7 @@ facilitator/                 → Facilitator materials (not public-facing)
 
 | | |
 |---|---|
-| **Duration** | 115 min, including an 8-minute break |
+| **Duration** | 115 min (10:35 to 12:30), including a 10-minute break |
 | **Audience** | WordPress users, no coding experience needed. 15–30 people, 1–2 teaching assistants |
 | **What they'll do** | Write a prompt, let AI generate a plugin, install and test it, run Plugin Check's Security checks, fix one finding (or find out why "zero findings" isn't the same as safe), reflect |
 | **Tools needed** | Laptop, WordPress (Playground in the browser, or LocalWP), any AI chatbot |
@@ -57,10 +57,10 @@ facilitator/                 → Facilitator materials (not public-facing)
 
 | Phase | Time | Bloom |
 |---|---|---|
-| 0. Welcome and setup triage | 8 min | |
-| 1. Intro and live demo | 15 min | Remember + Understand |
-| 2. Hands-on: Round 1 build (30), checkpoint (8), break (8), Plugin Check walkthrough (8), Round 2 check and fix (20) | 74 min | Apply + Create, then Analyze |
-| 3. Honest reflection and closing | 18 min | Analyze + Evaluate |
+| 0. Welcome, who's here, setup (Playground or LocalWP from USB stick) | 15 min | |
+| 1. Intro and live demo | 10 min | Remember + Understand |
+| 2. Hands-on: Round 1 build and share (35), break (10), Plugin Check demo and check and fix (25) | 70 min | Apply + Create, then Analyze |
+| 3. Honest reflection and next steps | 20 min | Analyze + Evaluate |
 
 Details: [`facilitator/guide.md`](facilitator/guide.md).
 

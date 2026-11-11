@@ -6,7 +6,7 @@ This is the 115-minute version, as given at WordCamp Netherlands on 12 November 
 
 | | |
 |---|---|
-| **Duration** | 115 minutes (10:35 to 12:30), including an 8-minute break |
+| **Duration** | 115 minutes (10:35 to 12:30), including a 10-minute break |
 | **Audience** | WordPress users, no coding experience required. 15–30 participants. |
 | **Team** | Facilitator plus 1–2 teaching assistants (TAs) |
 | **Learning outcomes** | Participants can have an AI tool generate a simple WP plugin, install and test it, run it through Plugin Check, get one finding fixed, and explain when this approach is fine and when they need a developer |
@@ -52,37 +52,34 @@ Only if the room is free before 10:35. Communicate it in the WCNL attendee infor
 
 ## Timeline (115 minutes)
 
-The slot moved to 10:35 and 115 minutes (WCNL schedule, checked 11 Nov). Compared to the 120-minute plan: the break is 8 minutes instead of 10, and there is no buffer.
+The slot is 10:35 to 12:30 (WCNL schedule, checked 11 Nov). On 11 Nov the schedule was loosened to six blocks: more time to get set up (USB sticks with LocalWP, see the new "Who's here?" slide), the checkpoint folded into the end of Round 1, and your Plugin Check demo and Round 2 as one block.
 
 | Clock | Min | Block |
 |---|---|---|
-| 10:35 | 8 | Phase 0: welcome, check-in, setup triage |
-| 10:43 | 15 | Phase 1: intro and live demo |
-| 10:58 | 30 | Phase 2: Round 1, build |
-| 11:28 | 8 | Checkpoint |
-| 11:36 | 8 | Break |
-| 11:44 | 8 | Plugin Check walkthrough |
-| 11:52 | 20 | Round 2: check and fix |
-| 12:12 | 15 | Phase 3: honest reflection |
-| 12:27 | 3 | Closing (ends 12:30) |
+| 10:35 | 15 | Welcome: who's here, ideas, never on a live site, Playground or LocalWP (USB sticks), setup |
+| 10:50 | 10 | What vibe coding is, short live demo |
+| 11:00 | 35 | Round 1: build. Last 5 minutes (11:30): one or two people share |
+| 11:35 | 10 | Break (anyone still installing LocalWP carries on) |
+| 11:45 | 25 | Plugin Check: your demo (about 8 min), then check and fix (about 17 min) |
+| 12:10 | 20 | Honest reflection and next steps (ends 12:30) |
 
-**If you're running behind:** shrink the checkpoint to one share (5 min) and Round 2 to 15 minutes. Never cut the reflection below 12 minutes.
+**If you're running behind:** skip the sharing at the end of Round 1 and keep your Plugin Check demo to 5 minutes. Never cut the reflection below 12 minutes.
 
 ---
 
-### Phase 0: Welcome, check-in, setup triage (8 min)
+### Phase 0: Welcome, who's here, setup (15 min)
 
 **Goal:** everyone has a working WordPress and an AI chat open.
 
 - While you welcome the room and say who you are, the TAs walk the rows.
 - The ready check, on screen: **"You're ready when you can see the Plugins screen of your own WordPress and you have an AI chat open in another tab."**
-- Anyone not ready gets the Playground link. Nobody installs LocalWP during the slot; that eats the whole first round.
+- People choose Playground or LocalWP. USB sticks with the LocalWP installer go round, so the wifi doesn't have to carry it. Anyone stuck on LocalWP after a few minutes switches to Playground for now.
 - Late arrivals: a TA gives them the Playground link and the ideas page, and nothing else.
 - Quick show of hands: "Who has used an AI tool to write code before?" It helps you pair people later.
 
 ---
 
-### Phase 1: Introduction and demo (15 min)
+### Phase 1: Introduction and demo (10 min)
 
 **Bloom: Remember + Understand**
 
@@ -114,7 +111,7 @@ The slot moved to 10:35 and 115 minutes (WCNL schedule, checked 11 Nov). Compare
 
 1. **Write your own prompt first (5 min).** Use the template on the preparation page. The "Technical requirements" part mentions hooks and filters: "You don't need to understand those words. They're instructions for the AI, not for you."
 2. **Generate, install, test (10 min).** TAs and you walk around. This is where most people get stuck.
-3. **Share the prompts page at 11:13** (15 minutes in). "Stuck, or want to compare? Here are example prompts." People who are doing fine keep going with their own prompt.
+3. **Share the prompts page at 11:15** (15 minutes in). "Stuck, or want to compare? Here are example prompts." People who are doing fine keep going with their own prompt.
 4. **Keep going and iterate (15 min).** "Doesn't work? Paste the error message back into the AI." Fast people: ask the AI for one improvement.
 
 **Plugin choice card:**
@@ -129,18 +126,18 @@ The slot moved to 10:35 and 115 minutes (WCNL schedule, checked 11 Nov). Compare
 
 Compliment good prompts, not just working code.
 
-#### Checkpoint (8 min)
+#### Sharing at the end of Round 1 (last 5 min, 11:30)
 
-- Two volunteers, about 3 minutes each, including setup. Ask them to open their result before it's their turn, or share a screenshot.
+- One or two volunteers, about 2 minutes each, including setup. Ask them to open their result before it's their turn, or share a screenshot.
 - "Which idea, which prompt, what came out? Did you change your prompt? What did you change?"
 - Name the two or three problems you saw at most tables. If everyone hit the same wall, that is a real lesson, not a failure.
 - Announce: "Ten-minute break. After the break we're going to let a tool look at what you built."
 
-#### Break (8 min)
+#### Break (10 min)
 
 People may keep building. TAs help anyone whose plugin doesn't activate yet, so they have something to check in Round 2.
 
-#### Plugin Check walkthrough (8 min)
+#### Plugin Check walkthrough (about 8 min, start of the 25-minute block)
 
 **Target plugin: `facilitator/plugins/bad-example/`** ("BAD EXAMPLE Login Logo" in the Plugins list). It is a Login Logo plugin of the kind a chatbot could plausibly hand you: it works (the logo shows on the login screen, the settings page saves), and it has the classic mistakes from the "Common pitfalls" lists in `facilitator/prompts/`. It is not real chatbot output; it is written to fail in a known way, so you know in advance what the screen will show. The demo Reading Time plugin is the contrast: zero Security findings in our test run.
 
@@ -177,7 +174,7 @@ On your screen, two runs:
 
 The 8 minutes have no slack. If you're behind, drop the explain-prompt paste in step 2 first (Round 2 shows it anyway). If the live run fails or the AI run takes more than a minute, play the backup recording and move on. Don't debug on stage. TAs: the category choice is remembered per user on that site, so people who change it once don't have to do it again. A fresh Playground starts again with only Plugin Repo ticked.
 
-#### Round 2: Check and fix (20 min)
+#### Round 2: Check and fix (about 17 min, rest of the block, until 12:10)
 
 Show the three tracks on one slide. Default is **Check**.
 
@@ -199,7 +196,7 @@ Questions to ask while you walk around (these feed the reflection):
 
 ---
 
-### Phase 3: Honest reflection (15 min)
+### Phase 3: Honest reflection (about 17 min)
 
 **Bloom: Analyze + Evaluate**
 
@@ -232,7 +229,7 @@ This is the part people can't get from a tutorial. Don't rush it; the questions 
    - You can't explain in one sentence what each part does.
    - Bridge: "A vibe-coded plugin is a very good brief for a developer. Bring it, together with your prompt."
 
-### Closing (3 min)
+### Closing (about 3 min, ends 12:30)
 
 - Tips page: Plugin Check, security basics, the WordPress Plugin Handbook (https://developer.wordpress.org/plugins/), WordPress Agent Skills (https://github.com/WordPress/agent-skills) for people who move on to coding agents.
 - Feedback: pluginvibes@modub.nl.
@@ -266,7 +263,7 @@ This is the part people can't get from a tutorial. Don't rush it; the questions 
 |------|-----------|
 | Wifi slow or down | Playground and AI tools both need the network. Have a phone hotspot for your own laptop, the backup recording of the demo and the AI review, and the reference plugins in `facilitator/plugins/` to install from a zip. |
 | AI tool slow or down | Two tools logged in on your laptop. Participants switch tools; any chatbot works. |
-| Setup eats the first round | Playground-first, ready check in Phase 0, TAs triage. Nobody installs LocalWP during the slot. |
+| Setup eats the first round | 15 minutes for setup, USB sticks with LocalWP, TA triage. Stuck on LocalWP after a few minutes? Playground for now. |
 | Wide range of skill levels | Difficulty-scaled ideas, three Round 2 tracks, TAs pair beginners with someone further along. |
 | Plugin Check or the AI review fails live | Backup recording. The point is which findings went to the AI and which didn't, which you can explain from the table in the walkthrough section. |
 | The AI review folds nothing away on the day | Fine, and say so. The point is that the security findings were the AI's to judge and the paperwork wasn't; that holds either way. |
