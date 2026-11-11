@@ -10,11 +10,11 @@ End-to-end test of the full participant experience. Run this on a machine where 
 
 **Goal:** Can a participant follow the instructions without help?
 
-- [ ] Open https://mdubbelm.github.io/vibe-code-wp-plugin/ in a browser
-- [ ] Page loads correctly, looks good on desktop and mobile
-- [ ] All external links work (LocalWP, WordPress Playground, AI tools, VSCodium)
-- [ ] No mention of HuggingChat left (closed July 2025)
-- [ ] Page says 2 hours, not 45 minutes
+- [x] Open https://mdubbelm.github.io/vibe-code-wp-plugin/ in a browser
+- [x] Page loads correctly, looks good on desktop and mobile
+- [x] All external links work (LocalWP, WordPress Playground, AI tools, VSCodium)
+- [x] No mention of HuggingChat left (closed July 2025)
+- [x] Page says 2 hours, not 45 minutes
 - [ ] The "you're ready when" check is on the page and makes sense
 - [ ] Starter plugin zip downloads successfully
 - [ ] Prompt template is readable and easy to copy
@@ -178,18 +178,15 @@ Run through the workshop as if you were a participant, ideally with one person w
 
 | Block | Planned | Actual |
 |-------|---------|--------|
-| Welcome, check-in, setup triage | 8 min | |
-| Intro & demo | 15 min | |
-| Round 1: build (own prompt first) | 30 min | |
-| Checkpoint | 8 min | |
-| Break | 8 min | |
-| Plugin Check walkthrough | 8 min | |
-| Round 2: check and fix | 20 min | |
-| Reflection | 15 min | |
-| Closing | 3 min | |
+| Welcome, who's here, setup (Playground or LocalWP from USB stick) | 15 min | |
+| Intro & demo | 10 min | |
+| Round 1: build (own prompt first), last 5 min sharing | 35 min | |
+| Break | 10 min | |
+| Plugin Check demo, then check and fix | 25 min | |
+| Reflection and next steps | 20 min | |
 | **Total** | **115 min** | |
 
-- [ ] In Round 2, a beginner can get from "plugin activated" to "one Security finding fixed and re-checked" in 20 minutes, including changing the categories: Yes / No
+- [ ] In Round 2, a beginner can get from "plugin activated" to "one Security finding fixed and re-checked" in about 17 minutes, including changing the categories: Yes / No
 - [ ] The demo prompt still produces a working plugin in under five minutes with the AI tool you'll use on the day
 
 **Was it tight, comfortable, or too much time? Which block would you cut first?**

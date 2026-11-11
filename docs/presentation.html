@@ -291,8 +291,30 @@
       <p class="subtitle">From idea to working plugin in less than 2 hours, without writing any code.</p>
       <p class="muted small" style="margin-top:2em;">Monique Dubbelman · www.modub.nl</p>
       <aside class="notes">
-        Phase 0 (8 min, 10:35). Leave the next slide up while you welcome the room: the TAs walk the rows and do setup triage in the meantime.
+        Welcome and setup, 10:35 to 10:50 (15 min). Next slide: who's here, never on a live site, Playground or LocalWP. Hand out the USB sticks while people choose; the TA walks the rows.
         Ask the room: who has already used an AI tool to generate a piece of code? Show of hands. It helps you pair people later.
+      </aside>
+    </section>
+
+    <!-- 1b. Opening: who's here, where do we build -->
+    <section>
+      <span class="tag">Before we start</span>
+      <h2>Who's here?</h2>
+      <ul>
+        <li>Who has <strong>installed a plugin</strong> before?</li>
+        <li>Who already has an <strong>idea</strong> for a plugin?</li>
+      </ul>
+      <p style="margin-top:1em;"><strong>Never on a live site.</strong> Today we build in a practice WordPress:</p>
+      <ul>
+        <li><strong>Playground</strong>: in your browser, nothing to install</li>
+        <li><strong>LocalWP</strong>: on your laptop. USB sticks with the installer are going round, so the wifi doesn't have to carry it.</li>
+      </ul>
+      <aside class="notes">
+        Ask both questions with a show of hands, and let two or three people say their idea out loud: it helps others pick one.
+        Why never on a live site: what we build today is untested code. A broken plugin can take a site down.
+        Sticks: Windows, Mac (Apple Silicon and Intel) and Linux (.deb and .rpm) installers, Local 10.2.0. Ask people to pass them on and bring them back.
+        Not sure which Mac? Apple menu, About This Mac: "Chip: Apple M..." means Apple Silicon, "Processor: Intel" means Intel.
+        LocalWP taking long, or not working? Playground, and they can try LocalWP at home.
       </aside>
     </section>
 
@@ -308,7 +330,7 @@
       <p class="small"><code>playground.wordpress.net/?plugin=plugin-check&amp;url=/wp-admin/plugins.php</code></p>
       <p class="muted small">Same link on <code>pluginvibes.modub.nl</code></p>
       <aside class="notes">
-        TAs: anyone who isn't ready goes onto the Playground link. Nobody installs LocalWP during the slot; that eats the whole first round.
+        TAs: anyone stuck on LocalWP after a few minutes goes onto the Playground link for now.
         Late arrivals get the Playground link and the ideas page, nothing else.
         Keeping work in Playground (new interface, July 2026): the Playgrounds panel lists saved sites and recent autosaves, and a site's Actions menu can save, rename and reopen it. Before the break, ask everyone on Playground to save their site there. Someone closed the tab? TAs open the Playgrounds panel and look under recent autosaves before starting a fresh one. Don't promise an autosave will be there: how long they're kept isn't documented. Code still in the AI chat can always go into a fresh Playground.
       </aside>
@@ -354,20 +376,17 @@
       <span class="tag">Today</span>
       <h2>The next two hours</h2>
       <table class="timetable">
-        <tr><td>10:35</td><td>8 min</td><td>Welcome, setup check</td></tr>
-        <tr><td>10:43</td><td>15 min</td><td>What vibe coding is, live demo</td></tr>
-        <tr class="hands-on"><td>10:58</td><td>30 min</td><td>Round 1: build your plugin</td></tr>
-        <tr><td>11:28</td><td>8 min</td><td>Checkpoint: two people share</td></tr>
-        <tr><td>11:36</td><td>8 min</td><td>Break</td></tr>
-        <tr><td>11:44</td><td>8 min</td><td>Let a tool look at it: Plugin Check</td></tr>
-        <tr class="hands-on"><td>11:52</td><td>20 min</td><td>Round 2: check and fix</td></tr>
-        <tr><td>12:12</td><td>15 min</td><td>Honest reflection: would you put this on a real site?</td></tr>
-        <tr><td>12:27</td><td>3 min</td><td>Next steps</td></tr>
+        <tr><td>10:35</td><td>15 min</td><td>Welcome, choose Playground or LocalWP, get set up</td></tr>
+        <tr><td>10:50</td><td>10 min</td><td>What vibe coding is, short live demo</td></tr>
+        <tr class="hands-on"><td>11:00</td><td>35 min</td><td>Round 1: build your plugin, then a few people share</td></tr>
+        <tr><td>11:35</td><td>10 min</td><td>Break</td></tr>
+        <tr class="hands-on"><td>11:45</td><td>25 min</td><td>Plugin Check: let a tool look at it, then fix one thing</td></tr>
+        <tr><td>12:10</td><td>20 min</td><td>Honest reflection and next steps</td></tr>
       </table>
-      <p class="muted small" style="margin-top:0.8em;">About 50 minutes of it is you building.</p>
+      <p class="muted small" style="margin-top:0.8em;">About an hour of it is you building.</p>
       <aside class="notes">
-        Show this for 20 seconds, don't read it out. If the room started late, the time comes out of Round 2, never out of the reflection.
-        Cut points if you're behind: checkpoint to one share (5 min), Round 2 to 15 min. Reflection never below 12 min.
+        Show this for 20 seconds, don't read it out. If the room started late, the time comes out of the Plugin Check block, never out of the reflection.
+        Cut points if you're behind: skip the sharing at the end of Round 1, keep your Plugin Check demo to 5 minutes. Reflection never below 12 min.
       </aside>
     </section>
 
@@ -492,7 +511,7 @@
       <p class="muted" style="margin-top:1.5em;">Half an hour. We'll walk around. Raise your hand if you get stuck.</p>
       <p class="big accent" style="margin-top:1em; text-align:center;">Have fun 🎛️</p>
       <aside class="notes">
-        10:58 to 11:28. Only the ideas page now; the prompts page goes up at 11:13 (next slide), not before.
+        11:00 to 11:35, the last 5 minutes for sharing. Only the ideas page now; the prompts page goes up at 11:15 (next slide), not before.
         The template's "Technical requirements" part mentions hooks and filters: "You don't need to understand those words. They're instructions for the AI, not for you."
         TAs push stuck people to Reading Time. Compliment good prompts, not just working code.
       </aside>
@@ -510,22 +529,22 @@
         <li>It works? Ask the AI for one improvement.</li>
       </ul>
       <aside class="notes">
-        Put this up at 11:13, 15 minutes into Round 1. Leave it on screen until the checkpoint.
+        Put this up at 11:15, 15 minutes into Round 1. Leave it on screen until the sharing at 11:30.
       </aside>
     </section>
 
     <!-- 13. Checkpoint -->
     <section>
-      <span class="tag">Checkpoint</span>
+      <span class="tag">End of round 1</span>
       <h2>What came out?</h2>
       <ul>
         <li>Which idea, which prompt, what came out?</li>
         <li>Where did you get stuck, and how did you get unstuck?</li>
         <li>Did you change your prompt? What did you change?</li>
       </ul>
-      <p class="muted small" style="margin-top:1.5em;">2 people share. Then: <strong>Break: 8 minutes.</strong></p>
+      <p class="muted small" style="margin-top:1.5em;">1 or 2 people share. Then: <strong>Break: 10 minutes.</strong></p>
       <aside class="notes">
-        8 minutes. Two volunteers, about 3 minutes each including setup. Ask them to open their result before it's their turn, or share a screenshot.
+        11:30, 5 minutes, the end of Round 1. One or two volunteers, about 2 minutes each. Ask them to open their result before it's their turn, or share a screenshot.
         Then name the two or three problems you saw at most tables. If everyone hit the same wall, that's a real lesson, not a failure.
         Announce: "After the break we're going to let a tool look at what you built."
       </aside>
@@ -534,16 +553,16 @@
     <!-- 14. Break -->
     <section>
       <span class="tag">Break</span>
-      <h2>Break: 8 minutes</h2>
+      <h2>Break: 10 minutes</h2>
       <p>Keep building if you like.</p>
       <p>Plugin doesn't activate yet? Grab a TA now, so you have something to check after the break.</p>
       <p>On Playground? <strong>Save your site</strong> in the Playgrounds panel first.</p>
       <p class="big accent" style="margin-top:1em;">Next: we let a tool look at what you built.</p>
       <aside class="notes">
-        11:36 to 11:44. Start the walkthrough on time; it is short and visual, and it's about their code next.
+        11:35 to 11:45. Start the walkthrough on time; it is short and visual, and it's about their code next. Anyone still installing LocalWP can carry on during the break.
         Remind Playground users to save their site (Playgrounds panel) before they walk off.
         Check on your demo site (LocalWP, AI connector set up under Settings → Connectors): Plugin Check's Categories already set to Security only, the bad example activated, the backup recording of run 2 open in a second window.
-        The backup recording does not exist yet (14 Oct). It comes from your testplan Test 9 dry run. No recording and no dry run by 12 Nov: skip the live AI run, see the notes on the "Run 2" slide.
+        Backup recording of run 2: only if you made one on 11 Nov. No recording? Run it live; on 11 Nov it worked (see the "Run 2" notes).
       </aside>
     </section>
 
@@ -563,7 +582,7 @@
         It says nothing about whether your site is safe.
       </blockquote>
       <aside class="notes">
-        Run 1, about 3 min, on "BAD EXAMPLE Login Logo" (facilitator/plugins/bad-example/). Full script and the result table are in guide.md.
+        11:45 to 12:10 is one block: your demo (run 1 and run 2, about 8 min), then the room checks and fixes (about 17 min). Run 1, about 3 min, on "BAD EXAMPLE Login Logo" (facilitator/plugins/bad-example/). Full script and the result table are in guide.md.
         Contrast first: "I ran my Reading Time demo through this already: zero Security findings. Now a plugin that looks just as harmless."
         Expect "Checks complete. 5 errors and 2 warnings found." (totals from the scripted run, Plugin Check 2.1.0 on WordPress 7.1.3 on 14 Oct, unchanged with 2.2.0 on 7.1.4 on 11 Nov; the sentence is Plugin Check's own template). Confirm it on your LocalWP demo site in the dry run, and time it: ___ s. Leave both Types (Error, Warning) ticked.
         Run the whole walkthrough on that LocalWP site, not Playground: run 2 needs your AI connector, and a connector in Playground is untested (testplan Test 10).
@@ -589,8 +608,7 @@
       <p class="stamp">Deliberately bad Login Logo example. Plugin Check 2.2.0, WordPress 7.1.4.</p>
       <aside class="notes">
         About 3 min, on your LocalWP demo site with the AI connector.
-        BEFORE 12 NOV, testplan Test 9 (needs your API key; nobody else can do it). Write down what you actually saw, then trim these notes to it:
-        Summary line: "Checks complete. ___ errors and ___ warnings found. AI detected ___ possible false positives." / N in "Possible false positives (N)": ___ / Security rows (lines 20, 34, 46, 38) among them: ___ / AI run time: ___ s / Provider and model: ___ / Backup recording file: ___
+        Dry run on 11 Nov (testplan Test 9), on your LocalWP site with Claude connected: "Checks complete. 8 errors and 13 warnings found. Input tokens: 15,327. Output tokens: 3,648. Tokens spent: 18,975. Model: anthropic claude-haiku-5-5." No "AI detected ... possible false positives" line, so nothing was folded away. All four Security errors (lines 20, 34, 46, 38) got "AI: Valid issue", each with a one-line reason; line 38 names SQL injection. The License error (line 0) got no label. So expect: "This time it agreed."
         Still blank on the day? Don't run the AI live. Untick Enable AI Analysis, run with Plugin Repo only, point at the new warnings, and say: "Plugin Check can also send these rows to an AI for a second opinion. I'm not showing that live, because I only show you results I've checked first." Then go to Round 2.
         What the screen does with AI on (read from the Plugin Check 2.1.0 source code, not yet seen on screen): the total in the summary only counts rows the AI did not call a false positive. After it come "AI detected N possible false positives" (only when N is above 0), token counts, and "Model:" with provider and model. No "Model:" at the end of the summary means the AI didn't run: no connector, or the call failed. Plugin Check doesn't warn you; you just get the plain results.
         Sanity check: without AI this run gives 8 errors and 13 warnings, 21 rows (scripted run, 14 Oct). 21 minus the total on screen should equal N. If it doesn't, run it again.
@@ -634,7 +652,7 @@
       </div>
       <p class="muted small" style="margin-top:0.8em;">20 minutes. Prompts: <code>pluginvibes.modub.nl/prompts.html</code></p>
       <aside class="notes">
-        11:52 to 12:12. Default is Check. TAs check the ticked Categories first when someone asks for help.
+        After your demo, until 12:10 (about 17 min). Default is Check. TAs check the ticked Categories first when someone asks for help.
         Zero Security findings is likely for Reading Time and External Link Icon. With Plugin Repo ticked, look for Security, NonceVerification or ValidatedSanitizedInput in the Code column; skip readme, License and prefix lines.
         Third track is on, but only for people who already have an API key and LocalWP (plan decision 3). Nobody gets a key from you: the Plugin Check AI review stays a demo on your screen (decision 2). Brief for that track: an admin-only box on the post edit screen that suggests three titles, using wp_ai_client_prompt(). Three checks for TAs: a current_user_can( 'edit_posts' ) check, a WP_Error handled, no visitor input sent to the AI.
         Questions while you walk around: Which categories did you tick? Did the number go down? Did a new one appear? Did the AI say it fixed something that's still flagged? Do you understand the fix, or are you trusting it?
@@ -675,7 +693,7 @@
       <p class="big accent" style="margin-top:1em;">Zero findings doesn't mean safe.</p>
       <p class="muted small">Plugin Check reads code patterns. It can't see "1 minutes", or a maintenance mode that locks you out.</p>
       <aside class="notes">
-        12:12, 4 min. The reflection is the protected block: never below 12 minutes in total.
+        12:10, 4 min. Reflection and next steps run to 12:30; the reflection is the protected block, never below 12 minutes.
         And zero doesn't mean "works" either: the bad example's Remove logo link says "Logo removed", but the field still shows the old URL until you reload. Optional: show it in ten seconds.
       </aside>
     </section>
@@ -758,7 +776,7 @@
       </ul>
       <p class="big accent" style="margin-top:1.5em;">Thank you!</p>
       <aside class="notes">
-        12:27, 3 min. Mention WordPress Agent Skills (github.com/WordPress/agent-skills) for people who move on to coding agents.
+        About 12:27, 3 min. Mention WordPress Agent Skills (github.com/WordPress/agent-skills) for people who move on to coding agents.
         Thank the room and the TAs. Delete the bad example from your demo site afterwards.
       </aside>
     </section>
