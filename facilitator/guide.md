@@ -112,7 +112,7 @@ The slot is 10:35 to 12:30 (WCNL schedule, checked 11 Nov). On 11 Nov the schedu
 
 1. **Write your own prompt first (5 min).** Use the template on the preparation page. The "Technical requirements" part mentions hooks and filters: "You don't need to understand those words. They're instructions for the AI, not for you."
 2. **Generate, install, test (10 min).** TAs and you walk around. This is where most people get stuck.
-3. **Share the prompts page at 11:15** (15 minutes in). "Stuck, or want to compare? Here are example prompts." People who are doing fine keep going with their own prompt.
+3. **Around 11:15, point to the example prompts** (15 minutes in). Everyone has had the whole site link from the start, prompts page included. "Stuck, or want to compare? The example prompts are on the prompts page." People who are doing fine keep going with their own prompt.
 4. **Keep going and iterate (15 min).** "Doesn't work? Paste the error message back into the AI." Fast people: ask the AI for one improvement.
 
 **Plugin choice card:**
