@@ -172,6 +172,11 @@
       border-bottom: 1px solid var(--color-border);
     }
 
+    td { vertical-align: top; }
+
+    .table-wrap { overflow-x: auto; margin: 1rem 0; }
+    .table-wrap table { margin: 0; min-width: 560px; }
+
     th {
       font-weight: 600;
       background: var(--color-bg);
@@ -374,75 +379,94 @@
 
   <header>
     <h1 data-i18n="index-h1">Vibe Code Your Own WordPress Plugin</h1>
-    <p data-i18n="index-sub">Workshop preparation — get set up before we start</p>
+    <p data-i18n="index-sub">Preparation for the 2-hour workshop at WordCamp Netherlands, Thursday 12 November 2026</p>
   </header>
 
-  <p data-i18n="index-intro">In this workshop you'll create your own WordPress plugin in 45 minutes using AI. No coding experience needed — but a little preparation makes all the difference.</p>
+  <p data-i18n="index-intro">In this workshop you build your own WordPress plugin with AI, and then check whether you would actually trust it. Two hours, no coding experience needed. What you do need is a working WordPress and an AI chat tool on the laptop you bring, and that is what this page is for. Plan about 15 minutes with Playground, or half an hour with LocalWP. Do it at home, a day or more before: there is no time to install things during the workshop.</p>
+
+  <div class="check" data-i18n="index-ready">
+    <strong>You're ready when</strong> you can see the Plugins screen of your own WordPress and you have an AI chat open in another tab.
+  </div>
 
   <div class="tip" data-i18n="index-tip-time">
-    <strong>Short on time?</strong> Jump to <a href="#option-b">Option B: Zero Install</a> — you only need a browser and an AI tool.
+    <strong>Only 5 minutes?</strong> Do two things: open the <a href="#option-playground">workshop Playground link</a> once to see that it loads, and sign in to an <a href="#step-ai">AI tool</a>. That's enough to take part.
   </div>
 
   <!-- STEP 1 -->
   <h2 data-i18n="index-h2-step1">Step 1: Set up WordPress</h2>
-  <p data-i18n="index-step1-intro">You need a working WordPress installation to test plugins on. Choose one of these options:</p>
+  <p data-i18n="index-step1-intro">You need a WordPress site where you can install and break plugins without consequences. Never use your real website for this. Pick one:</p>
 
-  <div class="card recommended">
-    <h3 id="option-a" data-i18n="index-h3-localwp">Option A: LocalWP</h3>
-    <p data-i18n="index-localwp-desc">LocalWP is a free program that runs WordPress locally on your laptop. No server, no hosting, no costs.</p>
+  <div class="card quick">
+    <h3 id="option-playground" data-i18n="index-h3-playground">Option A: WordPress Playground (nothing to install)</h3>
+    <p data-i18n="index-pg-desc">Playground runs a complete WordPress inside your browser. The workshop link below also installs <strong>Plugin Check</strong>, the tool we use after the break to check your plugin.</p>
+    <ol>
+      <li data-i18n="index-pg-li1">Open the workshop link: <a href="https://playground.wordpress.net/?plugin=plugin-check&amp;url=/wp-admin/plugins.php" target="_blank" rel="noopener">playground.wordpress.net/?plugin=plugin-check</a></li>
+      <li data-i18n="index-pg-li2">Wait until you see the <strong>Plugins</strong> screen. You're logged in as admin automatically.</li>
+      <li data-i18n="index-pg-li3">Check that <strong>Plugin Check (PCP)</strong> is in the list. If it says <strong>Activate</strong> under it, click that. Not in the list at all? Go to <strong>Plugins → Add Plugin</strong>, search for "Plugin Check", click <strong>Install Now</strong>, then <strong>Activate</strong>.</li>
+    </ol>
+    <p class="time-estimate" data-i18n="index-pg-time">Usually takes under a minute</p>
+    <div class="note" data-i18n="index-pg-note">
+      <strong>Where does your work go?</strong> Playground saves your site in this browser, on this laptop. It keeps your five most recent sites under <strong>Your Playgrounds</strong> and removes older ones automatically. A private window, clearing your browsing data, or switching to another browser or laptop loses it. So prepare in a normal window on the laptop you're bringing. Want to keep a site for sure? Use <strong>Store permanently</strong>, or download it as a ZIP. And if it's gone on the day: no problem, just open the workshop link again.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 id="option-localwp" data-i18n="index-h3-localwp">Option B: LocalWP (installed on your laptop)</h3>
+    <p data-i18n="index-localwp-desc">LocalWP is a free program that runs WordPress on your own laptop. Choose it if you want to keep your work, want to try the Maintenance Mode idea (it doesn't work reliably in Playground), or already use it. It needs macOS 12 or newer, Windows 10 (64-bit) or 11, or a Debian-based Linux such as Ubuntu, and at least 4 GB of RAM.</p>
     <ol>
       <li data-i18n="index-localwp-li1">Download LocalWP from <a href="https://localwp.com/" target="_blank" rel="noopener">localwp.com</a></li>
       <li data-i18n="index-localwp-li2">Install the program</li>
       <li data-i18n="index-localwp-li3">Click <strong>"Create a new site"</strong></li>
       <li data-i18n="index-localwp-li4">Choose a name (e.g. "workshop") and click through with the default settings</li>
-      <li data-i18n="index-localwp-li5">Wait for the site to be created</li>
+      <li data-i18n="index-localwp-li5">Wait for the site to be created. On Windows, Windows Defender asks for permission a few times the first time: click <strong>Allow access</strong> each time.</li>
       <li data-i18n="index-localwp-li6">Click <strong>"WP Admin"</strong> to verify your WordPress dashboard opens</li>
+      <li data-i18n="index-localwp-li7">Install Plugin Check: in WP Admin go to <strong>Plugins → Add Plugin</strong>, search for "Plugin Check", click <strong>Install Now</strong>, then <strong>Activate</strong>. You'll need it after the break.</li>
     </ol>
     <p class="time-estimate" data-i18n="index-localwp-time">Takes about 10 minutes (including download)</p>
-    <div class="check" data-i18n="index-localwp-check">
-      <strong>Check:</strong> Can you log in to your WordPress dashboard? Then you're ready.
-    </div>
-  </div>
-
-  <div class="card quick">
-    <h3 id="option-b" data-i18n="index-h3-playground">Option B: WordPress Playground</h3>
-    <p data-i18n="index-pg-desc">No time or no desire to install anything? WordPress Playground runs entirely in your browser.</p>
-    <ol>
-      <li data-i18n="index-pg-li1">Go to <a href="https://playground.wordpress.net/" target="_blank" rel="noopener">playground.wordpress.net</a></li>
-      <li data-i18n="index-pg-li2">Wait for WordPress to load (takes a few seconds)</li>
-      <li data-i18n="index-pg-li3">You now have a fully working WordPress installation in your browser</li>
-    </ol>
-    <p class="time-estimate" data-i18n="index-pg-time">Takes about 30 seconds</p>
-    <div class="note" data-i18n="index-pg-note">
-      <strong>Note:</strong> Everything you create disappears when you close the tab (unless you export). Works best in Chrome or Edge.
+    <div class="note" data-i18n="index-localwp-check">
+      <strong>Do this at home.</strong> Nobody installs LocalWP during the workshop: it would eat your whole first build round. If it won't work, use Playground. That's completely fine.
     </div>
   </div>
 
   <!-- STEP 2 -->
-  <h2 data-i18n="index-h2-step2">Step 2: Set up an AI tool</h2>
-  <p data-i18n="index-step2-intro">You need an AI chatbot that can generate code. Pick one — any will do:</p>
+  <h2 id="step-ai" data-i18n="index-h2-step2">Step 2: Sign in to an AI tool (and pick a backup)</h2>
+  <p data-i18n="index-step2-intro">Any AI chatbot that can write code will do. Two things matter more than which one you pick:</p>
+  <ul>
+    <li data-i18n="index-step2-li1"><strong>Sign in before the workshop,</strong> even if the tool lets you chat without an account. Chats without an account are often gone when you close the tab, and after the break you need the code from your first round.</li>
+    <li data-i18n="index-step2-li2"><strong>Have a second tool ready.</strong> Free plans have usage limits that most makers don't publish, and they can run out in the middle of the workshop. In round 2 you can also give the same prompt to both tools and compare.</li>
+  </ul>
 
+  <div class="table-wrap">
   <table>
     <thead>
-      <tr><th data-i18n="index-table-tool">Tool</th><th data-i18n="index-table-account">Account needed?</th><th data-i18n="index-table-free">Free?</th></tr>
+      <tr><th data-i18n="index-table-tool">Tool</th><th data-i18n="index-table-from">Made by</th><th data-i18n="index-table-account">Account</th><th data-i18n="index-table-free">Free plan</th></tr>
     </thead>
     <tbody>
-      <tr><td><a href="https://chat.mistral.ai/" target="_blank" rel="noopener">Le Chat</a> <small>(Mistral, France)</small></td><td>Yes</td><td>Free tier available</td></tr>
-      <tr><td><a href="https://huggingface.co/chat/" target="_blank" rel="noopener">HuggingChat</a> <small>(Hugging Face, France)</small></td><td>Yes</td><td>Free, open source</td></tr>
-      <tr><td><a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a></td><td>Yes</td><td>Free tier available</td></tr>
-      <tr><td><a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a></td><td>Yes</td><td>Free tier available</td></tr>
-      <tr><td><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a></td><td>No (Microsoft account)</td><td>Free</td></tr>
-      <tr><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></td><td>Yes (Google account)</td><td>Free</td></tr>
-      <tr><td><a href="https://confer.to/" target="_blank" rel="noopener">Confer</a> <small>(privacy-first, by Signal founder)</small></td><td>No</td><td>Free (20 msg/day)</td></tr>
+      <tr><td><a href="https://chat.mistral.ai/" target="_blank" rel="noopener">Vibe</a></td><td data-i18n="index-ai-vibe-from">Mistral, France. Called Le Chat until May 2026.</td><td data-i18n="index-ai-vibe-account">Free Mistral account</td><td data-i18n="index-ai-vibe-free">Yes, limits not published. Your chats are used to train Mistral's models unless you switch that off.</td></tr>
+      <tr><td><a href="https://lumo.proton.me/" target="_blank" rel="noopener">Lumo</a></td><td data-i18n="index-ai-lumo-from">Proton, Switzerland</td><td data-i18n="index-ai-lumo-account">Optional. Without one your chats aren't saved; a free Proton account keeps them for 7 days.</td><td data-i18n="index-ai-lumo-free">Yes, limited. Proton says it never trains on your chats. Not tested with this workshop yet.</td></tr>
+      <tr><td><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></td><td data-i18n="index-ai-chatgpt-from">OpenAI, US</td><td data-i18n="index-ai-chatgpt-account">Free OpenAI account. Using it without one isn't available in the EU.</td><td data-i18n="index-ai-chatgpt-free">Yes, limits not published</td></tr>
+      <tr><td><a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a></td><td data-i18n="index-ai-claude-from">Anthropic, US</td><td data-i18n="index-ai-claude-account">Free Anthropic account (email or Google)</td><td data-i18n="index-ai-claude-free">Yes. The usage limit resets every five hours.</td></tr>
+      <tr><td><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a></td><td data-i18n="index-ai-copilot-from">Microsoft, US</td><td data-i18n="index-ai-copilot-account">Optional. Signing in with a Microsoft account gives you chat history and longer conversations.</td><td data-i18n="index-ai-copilot-free">Yes, limits not published</td></tr>
+      <tr><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a></td><td data-i18n="index-ai-gemini-from">Google, US</td><td data-i18n="index-ai-gemini-account">Google account</td><td data-i18n="index-ai-gemini-free">Yes, limits not published</td></tr>
+      <tr><td><a href="https://confer.to/" target="_blank" rel="noopener">Confer</a></td><td data-i18n="index-ai-confer-from">Privacy-first, started by Signal co-founder Moxie Marlinspike</td><td data-i18n="index-ai-confer-account">Passkey. On Windows or Linux you may need a password manager for that.</td><td data-i18n="index-ai-confer-free">20 messages a day. Too few as your only tool for this workshop; fine as a backup.</td></tr>
     </tbody>
   </table>
+  </div>
+
+  <div class="note" data-i18n="index-ai-privacy">
+    <strong>Use demo content only.</strong> Don't paste client code, passwords or real customer data into any AI tool. Some free plans use your chats to train their models: Mistral does by default, and ChatGPT has a setting called "Improve the model for everyone" that you can switch off.
+  </div>
+
+  <h3 data-i18n="index-ai-test-h">Test it: does it give you code?</h3>
+  <p data-i18n="index-ai-test-p">Paste this into the chat (English is fine, whatever language you usually use):</p>
+<pre><code>Write only the plugin header for a WordPress plugin called "WCNL Test". Reply with just the code, nothing else.</code></pre>
 
   <div class="check" data-i18n="index-ai-check">
-    <strong>Check:</strong> Can you send a message and get a response? Then you're ready.
+    <strong>Expected:</strong> a short block of code with <code>Plugin Name: WCNL Test</code> in it, usually starting with <code>&lt;?php</code>. Got an explanation around it? Fine, as long as the code is there. Got an error, a refusal or a "limit reached" message? Try your backup tool.
   </div>
 
   <div class="tip" data-i18n="index-claudecode">
-    <strong>Want to skip the copy-pasting?</strong> If you get serious about this, consider <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a> — a version of Claude that runs directly in your terminal. No more copying code blocks back and forth; it reads and edits your files directly and keeps full context of everything you've done. <a href="https://modub.nl/blog/vier-uur-met-claude-op-de-server/" target="_blank" rel="noopener">Read about it on modub.nl (in Dutch)</a>.
+    <strong>Later: skip the copy-pasting.</strong> Coding tools such as <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a> work directly on the files on your computer, so you don't copy code back and forth. You don't need one for this workshop, and Claude Code isn't part of Claude's free plan. <a href="https://modub.nl/blog/vier-uur-met-claude-op-de-server/" target="_blank" rel="noopener">Read about it on modub.nl (in Dutch)</a>.
   </div>
 
   <!-- STEP 3 -->
@@ -454,7 +478,24 @@
   </ul>
 
   <!-- STEP 4 -->
-  <h2 data-i18n="index-h2-step4">Step 4: Know the basics</h2>
+  <h2 id="test" data-i18n="index-h2-test">Step 4: Test that it worked (5 minutes)</h2>
+  <p data-i18n="index-test-intro">This is exactly what you'll do with your own plugin in the workshop. If it works now, the hardest part of the setup is behind you. It works the same in Playground and LocalWP.</p>
+  <ol>
+    <li data-i18n="index-test-li1">Download the starter plugin: <a href="my-first-plugin.zip" download>my-first-plugin.zip</a>. Using Safari? It may unzip the file by itself. If you end up with a folder instead of a .zip, right-click the link and choose <strong>Download Linked File As</strong>, or use another browser.</li>
+    <li data-i18n="index-test-li2">In WP Admin go to <strong>Plugins → Add Plugin</strong> and click <strong>Upload Plugin</strong> at the top. Choose the .zip, click <strong>Install Now</strong>, then <strong>Activate Plugin</strong>.</li>
+    <li data-i18n="index-test-li3">Open the post <strong>Hello world!</strong> on your site: click your site name at the top left of WP Admin, choose <strong>Visit Site</strong>, then click the title "Hello world!".</li>
+  </ol>
+
+  <div class="check" data-i18n="index-test-check">
+    <strong>Expected:</strong> a grey box saying "🎉 This plugin works! Replace this code with your own creation." above the post text. It only shows on a single post, not on the homepage or the blog overview.
+  </div>
+
+  <div class="note" data-i18n="index-test-trouble">
+    <strong>Not seeing it?</strong> Check on the Plugins screen that "My First Plugin" is activated. Make sure you're looking at the post itself (its own page, with only that post on it), not the homepage. Can't select the file, or get an error when uploading? Make sure you upload the .zip file itself, not a folder. Still stuck? Leave it and come anyway: the helpers sort this out in the first minutes of the workshop.
+  </div>
+
+  <!-- STEP 5 -->
+  <h2 data-i18n="index-h2-step4">Step 5: Know the basics (optional reading)</h2>
   <p data-i18n="index-step4-intro">You don't need to know how to code, but it helps to understand this:</p>
 
   <h3 data-i18n="index-h3-what">What is a WordPress plugin?</h3>
@@ -482,8 +523,8 @@
   </ol>
   <p data-i18n="index-install-pg"><strong>With WordPress Playground:</strong></p>
   <ol>
-    <li data-i18n="index-install-pg-li1">Copy your code</li>
-    <li data-i18n="index-install-pg-li2">Go to WP Admin → Plugins → Plugin Editor (or create a zip and upload it)</li>
+    <li data-i18n="index-install-pg-li1">Copy the code from your AI chat</li>
+    <li data-i18n="index-install-pg-li2">Go to <strong>Tools → Plugin File Editor</strong> (with a classic theme it's under Plugins instead). In the dropdown at the top right, pick <strong>Hello Dolly</strong>. Not in the list? Some setups remove it; use <strong>My First Plugin</strong> from step 4 instead, but deactivate it on the Plugins screen first (WordPress may refuse to save changes to an active plugin). Replace all the code with yours and click <strong>Update File</strong>. Or save your code as a .zip and upload it as in step 4. The <a href="guide.html">Guide</a> walks you through both.</li>
   </ol>
 
   <!-- PROMPT TEMPLATE -->
@@ -510,28 +551,29 @@ Technical requirements:
 
   <!-- DOWNLOAD -->
   <h2 data-i18n="index-h2-starter">Starter plugin</h2>
-  <p data-i18n="index-starter-desc">Download this minimal starter plugin as a reference. You can install it in WordPress to see how a plugin works:</p>
+  <p data-i18n="index-starter-desc">This is the starter plugin from step 4. It shows a message above every single post, and it's a tidy example of what a minimal plugin looks like: open the .php file inside the zip to read it.</p>
   <p><a href="my-first-plugin.zip" class="download-btn" download data-i18n="index-download-btn">Download starter plugin (.zip)</a></p>
 
   <!-- CHECKLIST -->
   <h2 data-i18n="index-h2-checklist">Checklist</h2>
   <ul class="checklist">
-    <li data-i18n="index-cl-li1">I have a working WordPress environment (LocalWP or Playground)</li>
-    <li data-i18n="index-cl-li2">I have an AI tool I can use</li>
-    <li data-i18n="index-cl-li3">I optionally have a code editor installed</li>
-    <li data-i18n="index-cl-li4">I roughly understand what a WordPress plugin is</li>
-    <li data-i18n="index-cl-li5">I've looked at the prompt template</li>
+    <li data-i18n="index-cl-li1">WordPress runs on the laptop I'm bringing (workshop Playground link or LocalWP), and Plugin Check is in the Plugins list</li>
+    <li data-i18n="index-cl-li2">I'm signed in to an AI tool, and I know which one is my backup</li>
+    <li data-i18n="index-cl-li3">The AI test prompt gave me code back</li>
+    <li data-i18n="index-cl-li4">The starter plugin test worked: I saw "This plugin works!" on the Hello world! post</li>
+    <li data-i18n="index-cl-li5">I've had a look at the prompt template</li>
+    <li data-i18n="index-cl-li6">Laptop charger packed: the workshop takes two hours</li>
   </ul>
 
   <div class="check" style="text-align: center; margin-top: 1.5rem;" data-i18n="index-cl-done">
-    <strong>Everything checked? You're ready for the workshop!</strong>
+    <strong>All checked? See you on 12 November.</strong> Something didn't work? Come anyway and bring your laptop. The Playground link works on the spot, and the helpers will get you going in the first few minutes.
   </div>
 
 
 
   <footer>
     <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: November 2026</p>
     <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
     <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
     <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>

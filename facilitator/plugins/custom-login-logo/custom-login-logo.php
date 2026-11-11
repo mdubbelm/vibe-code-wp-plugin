@@ -3,6 +3,8 @@
  * Plugin Name: Custom Login Logo
  * Description: Customize the logo on the WordPress login screen via Settings.
  * Version: 1.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Workshop Participant
  * Text Domain: custom-login-logo
  * License: GPL-2.0-or-later
@@ -58,7 +60,7 @@ function cll_render_settings_page() {
 							<?php esc_html_e( 'Choose image', 'custom-login-logo' ); ?>
 						</button>
 						<?php if ( $logo_url ) : ?>
-							<p><img src="<?php echo esc_url( $logo_url ); ?>" style="max-width: 200px; margin-top: 10px;" /></p>
+							<p><img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php esc_attr_e( 'Current login logo', 'custom-login-logo' ); ?>" style="max-width: 200px; margin-top: 10px;" /></p>
 						<?php endif; ?>
 						<p class="description">
 							<?php esc_html_e( 'Recommended size: 320x80 pixels (PNG or SVG).', 'custom-login-logo' ); ?>

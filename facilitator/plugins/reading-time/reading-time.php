@@ -3,6 +3,8 @@
  * Plugin Name: Reading Time
  * Description: Displays the estimated reading time above each post.
  * Version: 1.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Workshop Participant
  * Text Domain: reading-time
  * License: GPL-2.0-or-later
@@ -22,8 +24,10 @@ function rt_add_reading_time( $content ) {
 	$word_count = str_word_count( wp_strip_all_tags( $content ) );
 	$minutes    = max( 1, (int) ceil( $word_count / 250 ) );
 
+	// _n() picks "1 minute" or "2 minutes"; escaping happens once, below.
 	$label = sprintf(
-		esc_html__( 'Estimated reading time: %d minutes', 'reading-time' ),
+		/* translators: %d: number of minutes */
+		_n( 'Estimated reading time: %d minute', 'Estimated reading time: %d minutes', $minutes, 'reading-time' ),
 		$minutes
 	);
 

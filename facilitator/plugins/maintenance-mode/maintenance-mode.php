@@ -3,6 +3,8 @@
  * Plugin Name: Simple Maintenance Mode
  * Description: Shows an "under maintenance" page to visitors. Logged-in admins see the site normally.
  * Version: 1.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Workshop Participant
  * Text Domain: maintenance-mode
  * License: GPL-2.0-or-later
@@ -38,7 +40,7 @@ function mm_register_settings() {
 	register_setting( 'mm_settings', 'mm_message', array(
 		'type'              => 'string',
 		'sanitize_callback' => 'sanitize_textarea_field',
-		'default'           => 'We are currently performing maintenance. We will be back shortly!',
+		'default'           => __( 'We are currently performing maintenance. We will be back shortly!', 'maintenance-mode' ),
 	) );
 }
 
@@ -67,7 +69,7 @@ function mm_render_settings_page() {
 					</th>
 					<td>
 						<textarea id="mm_message" name="mm_message" rows="4" cols="60"
-							class="large-text"><?php echo esc_textarea( get_option( 'mm_message', 'We are currently performing maintenance. We will be back shortly!' ) ); ?></textarea>
+							class="large-text"><?php echo esc_textarea( get_option( 'mm_message', __( 'We are currently performing maintenance. We will be back shortly!', 'maintenance-mode' ) ) ); ?></textarea>
 					</td>
 				</tr>
 			</table>
@@ -96,7 +98,7 @@ function mm_maybe_show_maintenance() {
 		return;
 	}
 
-	$message = get_option( 'mm_message', 'We are currently performing maintenance. We will be back shortly!' );
+	$message = get_option( 'mm_message', __( 'We are currently performing maintenance. We will be back shortly!', 'maintenance-mode' ) );
 
 	wp_die(
 		esc_html( $message ),

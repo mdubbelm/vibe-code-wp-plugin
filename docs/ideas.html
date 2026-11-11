@@ -131,6 +131,22 @@
       color: #c62828;
     }
 
+    .round2 {
+      background: #fff8e1;
+      border-left: 4px solid #f0b849;
+      padding: 1rem 1.1rem;
+      margin: 2.5rem 0 1rem;
+      border-radius: 0 4px 4px 0;
+      scroll-margin-top: 3.5rem;
+    }
+
+    .round2 h2 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .round2 ul { margin: 0.5rem 0 0 1.2rem; }
+    .round2 li { margin-bottom: 0.5rem; }
+    .round2 a, .idea-desc a { color: var(--color-accent); }
+
+    .category-intro { color: var(--color-text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
     footer {
       text-align: center;
       margin-top: 3rem;
@@ -238,6 +254,34 @@
     Use the <a href="index.html">prompt template from the preparation page</a> to describe your chosen idea. Fill in the name, what it should do, where it should appear, and how it should behave — then paste it into your AI tool.
   </div>
 
+  <!-- THE FOUR WORKSHOP IDEAS -->
+  <div class="category">
+    <h2 data-i18n="ideas-cat-workshop">The four workshop ideas</h2>
+    <p class="category-intro" data-i18n="ideas-w-intro">Start here if you want a tried path. Try writing your own prompt first: the example prompts follow later in Round 1.</p>
+  </div>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-name" data-i18n="ideas-w1-name">Reading Time</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-w1-desc">Shows "Estimated reading time: X minutes" above each blog post.</span>
+    </li>
+    <li>
+      <span class="idea-name" data-i18n="ideas-w2-name">External Link Icon</span>
+      <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
+      <span class="idea-desc" data-i18n="ideas-w2-desc">Adds ↗ to links that point to other websites and opens them in a new tab.</span>
+    </li>
+    <li>
+      <span class="idea-name" data-i18n="ideas-w3-name">Maintenance Mode</span>
+      <span class="badge badge-medium" data-i18n="ideas-badge-medium">Medium</span>
+      <span class="idea-desc" data-i18n="ideas-w3-desc">Shows an "under maintenance" page to visitors while you keep working. LocalWP only: it doesn't work reliably in Playground.</span>
+    </li>
+    <li>
+      <span class="idea-name" data-i18n="ideas-w4-name">Custom Login Logo</span>
+      <span class="badge badge-medium" data-i18n="ideas-badge-medium">Medium</span>
+      <span class="idea-desc" data-i18n="ideas-w4-desc">Puts your own image on the WordPress login screen. It usually takes a second round with the AI before the image picker works.</span>
+    </li>
+  </ul>
+
   <!-- FRONTEND -->
   <div class="category">
     <h2 data-i18n="ideas-cat-frontend">Frontend — visible to visitors</h2>
@@ -261,7 +305,7 @@
     <li>
       <span class="idea-name" data-i18n="ideas-f4-name">Simple Cookie Notice</span>
       <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
-      <span class="idea-desc" data-i18n="ideas-f4-desc">Shows a "This site uses cookies" banner at the bottom of the page with a dismiss button.</span>
+      <span class="idea-desc" data-i18n="ideas-f4-desc">Shows a "This site uses cookies" banner at the bottom of the page with a dismiss button. It informs visitors, it doesn't ask for consent: not enough if your site sets tracking cookies.</span>
     </li>
     <li>
       <span class="idea-name" data-i18n="ideas-f5-name">Custom 404 Message</span>
@@ -320,13 +364,36 @@
     <li>
       <span class="idea-name" data-i18n="ideas-s2-name">Remove Generator Tag</span>
       <span class="badge badge-easy" data-i18n="ideas-badge-easy">Easy</span>
-      <span class="idea-desc" data-i18n="ideas-s2-desc">Removes the WordPress version number from your page source code. Small privacy and security improvement.</span>
+      <span class="idea-desc" data-i18n="ideas-s2-desc">Removes the WordPress version number from your page source. A small privacy gain; it doesn't make an outdated site safer. Updating does.</span>
     </li>
   </ul>
 
+  <!-- DEEPER: AI INSIDE WORDPRESS (optional Round 2 track) -->
+  <div class="category">
+    <h2 data-i18n="ideas-cat-deeper">Deeper (optional): AI inside WordPress</h2>
+  </div>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-name" data-i18n="ideas-d1-name">AI Title Ideas</span>
+      <span class="badge badge-hard" data-i18n="ideas-badge-hard">Hard</span>
+      <span class="idea-desc" data-i18n="ideas-d1-desc">An admin-only box on the post edit screen that asks the AI provider connected to your WordPress for three title suggestions. Needs WordPress 7.0 or newer, LocalWP and your own API key from an AI provider. The prompt is in the optional section of the <a href="prompts.html#ai-in-wp">prompts page</a>.</span>
+    </li>
+  </ul>
+
+  <!-- ROUND 2 TRACKS -->
+  <div class="round2" id="round-2">
+    <h2 data-i18n="ideas-r2-h2">Round 2: check and fix (20 minutes)</h2>
+    <p data-i18n="ideas-r2-intro">After the break, pick one track. Not sure? Take Check.</p>
+    <ul>
+      <li data-i18n="ideas-r2-check"><strong>Check</strong> (default, for everyone whose plugin activates). Go to Tools → Plugin Check, choose your plugin, leave the Categories as they are (Plugin Repo ticked) and click Check it! Then pick one row whose Code contains Security, SettingSanitization, PreparedSQL or direct_file_access. Skip the rest, even Errors: readme, License and the like are paperwork for the WordPress.org directory. Use the explain prompt and then the fix prompt from the <a href="prompts.html#round-2">prompts page</a>, re-install and run it again. Nothing to pick? The prompts page tells you what to do next.</li>
+      <li data-i18n="ideas-r2-wider"><strong>Wider</strong> (your plugin didn't work, or you're done). Paste the same prompt into a second AI tool and compare the two results side by side, or pick a second idea from this page.</li>
+      <li data-i18n="ideas-r2-ai"><strong>AI inside WordPress</strong> (optional). Only if you already have an API key from an AI provider and a LocalWP site on WordPress 7.0 or newer: build AI Title Ideas from the list above.</li>
+    </ul>
+  </div>
+
   <footer>
     <p data-i18n="footer-workshop">Workshop: Vibe Code Your Own WordPress Plugin</p>
-    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: February 2026</p>
+    <p style="margin-top:0.3rem;color:var(--color-text-secondary);font-size:0.85rem;" data-i18n="footer-date">Version: November 2026</p>
     <p style="margin-top:0.4rem;" data-i18n="footer-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> — free to use, share and adapt with attribution.</p>
     <p style="margin-top:0.4rem;" data-i18n="footer-feedback">Feedback? <a href="mailto:pluginvibes@modub.nl">Send an email</a></p>
     <p style="margin-top:0.5rem;font-size:0.8rem;" data-i18n="footer-disclaimer">The code and instructions on this site are provided for educational purposes only. The author accepts no responsibility for any issues, data loss, or damage to websites or installations resulting from following this workshop. Always test plugins in a safe environment before using them on a live site.</p>
