@@ -440,7 +440,7 @@
     </table>
 
     <div class="warning" data-i18n="tips-security-warn">
-      <strong>Settings page, form, or does it store data?</strong> Run Plugin Check twice: first Security only, then with Plugin Repo ticked, and look for <code>NonceVerification</code> and <code>ValidatedSanitizedInput</code> in the Code column. Capability checks are up to you.
+      <strong>Settings page, form, or does it store data?</strong> Run Plugin Check with Plugin Repo ticked and look for <code>NonceVerification</code> and <code>ValidatedSanitizedInput</code> in the Code column. Capability checks are up to you.
     </div>
 
     <p data-i18n="tips-security-p">For a second opinion, ask your AI tool. This prompt makes it quote the lines and tells it not to invent problems:</p>
@@ -460,7 +460,7 @@
     <ol>
       <li data-i18n="tips-pcp-li1">Install <a href="https://wordpress.org/plugins/plugin-check/" target="_blank" rel="noopener">Plugin Check</a>: <strong>Plugins → Add Plugin</strong>, search "Plugin Check", install, activate.</li>
       <li data-i18n="tips-pcp-li2">Go to <strong>Tools → Plugin Check</strong> and choose your plugin.</li>
-      <li data-i18n="tips-pcp-li3"><strong>Categories:</strong> by default only <strong>Plugin Repo</strong> is ticked. Untick it and tick <strong>Security</strong> only. Leave both types (Error, Warning) ticked.</li>
+      <li data-i18n="tips-pcp-li3"><strong>Categories:</strong> leave <strong>Plugin Repo</strong> ticked (the default). It runs the security checks too, plus forms without a nonce and input that isn't cleaned. Leave both types (Error, Warning) ticked. Lines about readme, License or prefixes are paperwork for the WordPress.org directory, not risks.</li>
       <li data-i18n="tips-pcp-li4">Click <strong>Check it!</strong> The <strong>Code</strong> column holds the technical name of each finding. That's what you paste into your AI tool.</li>
       <li data-i18n="tips-pcp-li5">Does your plugin have a form or a settings page? Run it once more with <strong>Plugin Repo</strong> ticked and look for <code>NonceVerification</code>, <code>ValidatedSanitizedInput</code> and <code>PreparedSQL</code>. Lines about readme.txt, the License header or prefixes are paperwork for the WordPress.org directory: skip them unless you're going to publish.</li>
     </ol>
@@ -680,7 +680,7 @@
     <p data-i18n="tips-further-li5">Keep a copy: zip your plugin folder and save the prompt you used and your "you're done when" checks (from the <a href="prompts.html">prompts page</a>) next to it. After every change, run all of those checks again, not only the one for that change. You can install the zip on any WordPress site via <strong>Plugins → Add Plugin → Upload Plugin</strong>.</p>
     <ul class="improve-list">
       <li class="workshop" data-i18n="tips-further-li7"><span class="imp-badge">Do this one in the workshop</span>
-        <span class="imp-line"><strong>Problem:</strong> Your plugin has a form or settings page, and the Security-only run found nothing. Run Plugin Check again with <strong>Plugin Repo</strong> ticked: only then does it look for forms without a nonce and input that isn't cleaned.</span>
+        <span class="imp-line"><strong>Problem:</strong> Your plugin has a form or settings page. With <strong>Plugin Repo</strong> ticked (the default), Plugin Check also looks for forms without a nonce and input that isn't cleaned.</span>
         <span class="imp-line"><strong>Prompt:</strong> Copy one line that mentions a nonce or sanitizing. Paste it into "Explain the finding", then "Fix that one thing" (<a href="prompts.html#round-2">Round 2 on the prompts page</a>).</span>
         <span class="imp-line"><strong>Check:</strong> Re-install, run it the same way, press Ctrl+F (Cmd+F on a Mac) and search for <em>nonce</em>, then <em>sanitiz</em>. Fewer hits than before?</span>
         <span class="imp-line"><strong>If the check fails:</strong> Use "Still flagged?". Gone, but the new code says <code>phpcs:ignore</code>? Then it's hidden, not fixed. After two tries, stop: that one is for a developer.</span>

@@ -291,28 +291,59 @@
       <p class="subtitle">From idea to working plugin in less than 2 hours, without writing any code.</p>
       <p class="muted small" style="margin-top:2em;">Monique Dubbelman · www.modub.nl</p>
       <aside class="notes">
-        Welcome and setup, 10:35 to 10:50 (15 min). Next slide: who's here, never on a live site, Playground or LocalWP. Hand out the USB sticks while people choose; the TA walks the rows.
+        Welcome and setup, 10:35 to 10:50 (15 min). Next three slides: who's here (show of hands), the ideas round, then Playground or LocalWP. Hand out the USB sticks while people choose; the TA walks the rows.
         Ask the room: who has already used an AI tool to generate a piece of code? Show of hands. It helps you pair people later.
       </aside>
     </section>
 
-    <!-- 1b. Opening: who's here, where do we build -->
+    <!-- 1b. Opening: knowledge check -->
     <section>
       <span class="tag">Before we start</span>
       <h2>Who's here?</h2>
+      <p>Hands up if you...</p>
       <ul>
-        <li>Who has <strong>installed a plugin</strong> before?</li>
-        <li>Who already has an <strong>idea</strong> for a plugin?</li>
+        <li>have a <strong>WordPress site</strong> of your own</li>
+        <li>have <strong>installed a plugin</strong> yourself</li>
+        <li>have ever <strong>opened a PHP file</strong>, even just to look</li>
+        <li>have asked an <strong>AI tool to write code</strong></li>
       </ul>
-      <p style="margin-top:1em;"><strong>Never on a live site.</strong> Today we build in a practice WordPress:</p>
+      <aside class="notes">
+        Show of hands per line, keep it quick. Note who is at the "never installed a plugin" end and who has opened PHP: pair them up later, and point the TA at the first group.
+        Mostly hands down on the first two? Then explain in one sentence what a plugin is before the ideas round: a piece of code that adds something WordPress doesn't do by itself, and keeps working when you change your theme.
+      </aside>
+    </section>
+
+    <!-- 1c. Opening: ideas round -->
+    <section>
+      <span class="tag">Before we start</span>
+      <h2>Your idea: is it a plugin?</h2>
+      <p><strong>Good plugin idea:</strong> it adds something WordPress doesn't do yet, and it should keep working when you switch themes.</p>
+      <p style="margin-top:0.8em;"><strong>Probably not a plugin:</strong></p>
+      <ul>
+        <li>How your site <strong>looks</strong> (colours, fonts, layout): that's your theme or the Site Editor</li>
+        <li><strong>Content</strong> (a page, a text, a menu): just add it</li>
+        <li>Something WordPress or a well-known plugin <strong>already does</strong> (forms, SEO, backups): use that</li>
+      </ul>
+      <p class="muted small" style="margin-top:1em;">One feature only. Inspiration: pluginvibes.modub.nl/ideas.html</p>
+      <aside class="notes">
+        Ideas round: ask four to six people for their idea and let the room decide together: plugin or not? Not a plugin: help them find the plugin-sized part, or steer them to the ideas page.
+        Too big ("a webshop", "a membership site")? Ask: what is the one thing it should do first? That's today's plugin.
+        Keep it to about five minutes. People without an idea pick one from the ideas page during setup.
+      </aside>
+    </section>
+
+    <!-- 1d. Opening: where we build -->
+    <section>
+      <span class="tag">Before we start</span>
+      <h2>Where we build</h2>
+      <p><strong>Never on a live site.</strong> Today we build in a practice WordPress:</p>
       <ul>
         <li><strong>Playground</strong>: in your browser, nothing to install</li>
         <li><strong>LocalWP</strong>: on your laptop. USB sticks with the installer are going round, so the wifi doesn't have to carry it.</li>
       </ul>
       <aside class="notes">
-        Ask both questions with a show of hands, and let two or three people say their idea out loud: it helps others pick one.
         Why never on a live site: what we build today is untested code. A broken plugin can take a site down.
-        Sticks: Windows, Mac (Apple Silicon and Intel) and Linux (.deb and .rpm) installers, Local 10.2.0. Ask people to pass them on and bring them back.
+        Sticks: Local 10.2.0. Most have all installers (Windows, Mac Apple Silicon and Intel, Linux .deb and .rpm); the small KINGSTON stick has only Windows, and the 1 GB stick only Mac. Ask people to pass them on and bring them back.
         Not sure which Mac? Apple menu, About This Mac: "Chip: Apple M..." means Apple Silicon, "Processor: Intel" means Intel.
         LocalWP taking long, or not working? Playground, and they can try LocalWP at home.
       </aside>
@@ -573,16 +604,16 @@
       <ol>
         <li><strong>Tools → Plugin Check</strong>, choose your plugin.<br>
           <span class="muted small">Not under Tools? Plugins → Add Plugin → search "Plugin Check" → install, activate.</span></li>
-        <li>Categories: <strong>untick Plugin Repo</strong>, tick <strong>Security</strong> only.</li>
+        <li>Categories: leave <strong>Plugin Repo</strong> ticked (the default).</li>
         <li>Click <strong>Check it!</strong></li>
-        <li>Pick <strong>one Error</strong>. The technical name is in the <strong>Code</strong> column.</li>
+        <li>Pick <strong>one row</strong> whose <strong>Code</strong> contains <strong>Security</strong>, <strong>SettingSanitization</strong>, <strong>PreparedSQL</strong> or <strong>direct_file_access</strong></strong>. An Error first.</li>
       </ol>
       <blockquote style="margin-top:1em;">
-        <strong>Plugin Repo = directory paperwork</strong> (readme.txt, License line, prefixes).<br>
-        It says nothing about whether your site is safe.
+        <strong>Skip the rest:</strong> readme, License, prefix lines are paperwork for the WordPress.org directory.<br>
+        They say nothing about whether your site is safe.
       </blockquote>
       <aside class="notes">
-        11:45 to 12:10 is one block: your demo (run 1 and run 2, about 8 min), then the room checks and fixes (about 17 min). Run 1, about 3 min, on "BAD EXAMPLE Login Logo" (facilitator/plugins/bad-example/). Full script and the result table are in guide.md.
+        This slide is the instruction for the room. Your own demo differs on purpose: run 1 with only Security ticked (short list), run 2 with Plugin Repo and AI on (next slide). 11:45 to 12:10 is one block: your demo (run 1 and run 2, about 8 min), then the room checks and fixes (about 17 min). Run 1, about 3 min, on "BAD EXAMPLE Login Logo" (facilitator/plugins/bad-example/). Full script and the result table are in guide.md.
         Contrast first: "I ran my Reading Time demo through this already: zero Security findings. Now a plugin that looks just as harmless."
         Expect "Checks complete. 5 errors and 2 warnings found." (totals from the scripted run, Plugin Check 2.1.0 on WordPress 7.1.3 on 14 Oct, unchanged with 2.2.0 on 7.1.4 on 11 Nov; the sentence is Plugin Check's own template). Confirm it on your LocalWP demo site in the dry run, and time it: ___ s. Leave both Types (Error, Warning) ticked.
         Run the whole walkthrough on that LocalWP site, not Playground: run 2 needs your AI connector, and a connector in Playground is untested (testplan Test 10).
@@ -624,14 +655,14 @@
     <section>
       <span class="tag">Round 2</span>
       <h2>Check and fix</h2>
-      <div class="three-col">
+      <div class="three-col" style="grid-template-columns: 1.3fr 1fr;">
         <div class="col-card default">
           <h3>Check (default)</h3>
           <ul>
             <li><strong>Run Plugin Check and fix what it flags</strong></li>
-            <li>Untick Plugin Repo, tick only Security. Pick one Error.</li>
+            <li>Leave Plugin Repo ticked. Pick one row from the list on the prompts page.</li>
             <li>Explain prompt, then fix prompt. Re-install, re-run.</li>
-            <li>Zero findings? Form or settings page: run again with Plugin Repo ticked. No form: self-review prompt.</li>
+            <li>Nothing to pick? Self-review prompt, or add a settings page with "Change one thing" and check again.</li>
           </ul>
         </div>
         <div class="col-card">
@@ -642,19 +673,12 @@
             <li>Or try a second idea.</li>
           </ul>
         </div>
-        <div class="col-card optional">
-          <h3>AI inside WordPress</h3>
-          <ul>
-            <li>Optional. Only with your own API key and LocalWP.</li>
-            <li>Connect it in Settings → Connectors. Build a tiny admin-only plugin on the WordPress 7.0 AI Client.</li>
-          </ul>
-        </div>
       </div>
-      <p class="muted small" style="margin-top:0.8em;">20 minutes. Prompts: <code>pluginvibes.modub.nl/prompts.html</code></p>
+      <p class="muted small" style="margin-top:0.8em;">Until 12:10. Prompts: <code>pluginvibes.modub.nl/prompts.html</code></p>
       <aside class="notes">
         After your demo, until 12:10 (about 17 min). Default is Check. TAs check the ticked Categories first when someone asks for help.
-        Zero Security findings is likely for Reading Time and External Link Icon. With Plugin Repo ticked, look for Security, NonceVerification or ValidatedSanitizedInput in the Code column; skip readme, License and prefix lines.
-        Third track is on, but only for people who already have an API key and LocalWP (plan decision 3). Nobody gets a key from you: the Plugin Check AI review stays a demo on your screen (decision 2). Brief for that track: an admin-only box on the post edit screen that suggests three titles, using wp_ai_client_prompt(). Three checks for TAs: a current_user_can( 'edit_posts' ) check, a WP_Error handled, no visitor input sent to the AI.
+        Nothing to pick is likely for Reading Time and External Link Icon. The pick list (Security, SettingSanitization, PreparedSQL, direct_file_access) is on the prompts page; readme, License and prefix lines are skipped.
+        The Plugin Check AI review stays a demo on your screen: nobody in the room needs an API key today.
         Questions while you walk around: Which categories did you tick? Did the number go down? Did a new one appear? Did the AI say it fixed something that's still flagged? Do you understand the fix, or are you trusting it?
       </aside>
     </section>
@@ -686,7 +710,7 @@
       <span class="tag">Reflection 1 / 4</span>
       <h2>What did Plugin Check find?</h2>
       <ul>
-        <li>Security only: zero? 1 to 5? More?</li>
+        <li>Rows from the pick list: zero? 1 to 5? More?</li>
         <li>Who fixed a Security finding? Who ended up fixing paperwork?</li>
         <li>Did fixing one error create another?</li>
       </ul>
