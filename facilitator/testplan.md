@@ -283,7 +283,7 @@ What this tells us: all five reference plugins have **zero** Security findings, 
 
 ---
 
-## Test 11: "AI inside WordPress" track (only if Monique keeps it)
+## Test 11: "AI inside WordPress" track (dropped on 11 Nov 2026: not for this audience, skip this test)
 
 **Goal:** Can someone without coding experience build a tiny plugin that uses the WordPress 7.0 AI Client, in 20 minutes, on LocalWP?
 

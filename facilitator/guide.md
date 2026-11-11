@@ -40,7 +40,7 @@ The site also runs on https://mdubbelm.github.io/vibe-code-wp-plugin/ (same cont
 - [ ] Backup screen recording of a successful Plugin Check AI review run, in case the network or the provider fails on the day
 - [ ] Playground link above tested on the venue wifi or a phone hotspot
 - [ ] Two AI tools logged in on your laptop (if one is slow or down, switch)
-- [ ] TAs briefed: setup triage in the first 8 minutes, the common problems list below, the three Round 2 tracks
+- [ ] TAs briefed: setup triage in the first 8 minutes, the common problems list below, the two Round 2 tracks
 - [ ] Ask the WCNL organisers whether the room is free before 10:35 (for an optional setup desk)
 
 ### Before the slot (optional setup desk)
@@ -69,13 +69,14 @@ The slot is 10:35 to 12:30 (WCNL schedule, checked 11 Nov). On 11 Nov the schedu
 
 ### Phase 0: Welcome, who's here, setup (15 min)
 
-**Goal:** everyone has a working WordPress and an AI chat open.
+**Goal:** you know who's in the room, everyone has a plugin-sized idea, and everyone has a working WordPress and an AI chat open.
 
+- **Who's here?** Show of hands: own WordPress site, installed a plugin yourself, ever opened a PHP file, asked an AI to write code. Pair the "never installed a plugin" people with someone who has opened PHP, and point the TA at them.
+- **Ideas round (about 5 min): is it a plugin?** At the previous workshop people built plugins for things that aren't plugins. Ask four to six people for their idea and let the room decide. A good plugin idea adds something WordPress doesn't do yet and keeps working when you switch themes. Not a plugin: how the site looks (theme or Site Editor), content (a page, a text, a menu), or something WordPress or a well-known plugin already does (forms, SEO, backups). Too big? "What's the one thing it should do first?"
 - While you welcome the room and say who you are, the TAs walk the rows.
 - The ready check, on screen: **"You're ready when you can see the Plugins screen of your own WordPress and you have an AI chat open in another tab."**
 - People choose Playground or LocalWP. USB sticks with the LocalWP installer go round, so the wifi doesn't have to carry it. Anyone stuck on LocalWP after a few minutes switches to Playground for now.
 - Late arrivals: a TA gives them the Playground link and the ideas page, and nothing else.
-- Quick show of hands: "Who has used an AI tool to write code before?" It helps you pair people later.
 
 ---
 
@@ -176,13 +177,12 @@ The 8 minutes have no slack. If you're behind, drop the explain-prompt paste in 
 
 #### Round 2: Check and fix (about 17 min, rest of the block, until 12:10)
 
-Show the three tracks on one slide. Default is **Check**.
+Show the two tracks on one slide. Default is **Check**. (The "AI inside WordPress" track was dropped on 11 Nov: not for this audience.)
 
 | Track | For | What they do |
 |---|---|---|
-| **Check** (default) | Everyone with a plugin that activates | Run Plugin Check with only **Security** ticked (Plugin Repo unticked). Write down the number of errors and warnings. Pick **one Error**, use the "explain" prompt and then the "fix" prompt from the prompts page, re-install, re-run. **Zero Security findings?** That is likely for Reading Time and External Link Icon (see below). Then: (1) if the plugin has a form or settings page, run once with Plugin Repo ticked and look for `Security`, `NonceVerification` or `ValidatedSanitizedInput` in the Code column; fix one of those instead and ignore the readme/License/prefix lines; (2) otherwise run the self-review prompt and compare what the AI claims with what Plugin Check found. |
+| **Check** (default) | Everyone with a plugin that activates | Run Plugin Check with **Plugin Repo** ticked (the default, as on the prompts page). Write down the number of errors and warnings. Pick **one row** whose Code contains Security, SettingSanitization, PreparedSQL or direct_file_access (an Error first); skip readme, License, prefix and other paperwork lines. Use the "explain" prompt and then the "fix" prompt, re-install, re-run. **Nothing to pick?** Likely for Reading Time and External Link Icon: self-review prompt, or add a settings page with "Change one thing" and check again. |
 | **Wider** | People whose plugin didn't work, or who are done | Same prompt in a second AI tool and compare, or a second idea, or the self-review prompt. |
-| **AI inside WordPress** (optional) | Only people who already have an AI provider API key and LocalWP | A tiny admin-only plugin that uses the WordPress 7.0 AI Client. Details are in the facilitator's own notes (not in this repo). |
 
 What to expect: in our test run, all five reference plugins in `facilitator/plugins/` had **zero** Security findings. Their only errors were directory paperwork (missing readme.txt) plus a few "prefix your function names" warnings. Those are reviewed reference versions, so a fresh chatbot answer may have more; the dry run (Test 9) has to tell. Plugins with a settings page or a form (Maintenance Mode, Custom Login Logo, many own ideas) are the most likely to get findings, because that is where escaping, nonces and sanitising come in. So expect a split room: some people with real findings, many with none. Both are useful for the reflection.
 
@@ -203,7 +203,7 @@ Questions to ask while you walk around (these feed the reflection):
 This is the part people can't get from a tutorial. Don't rush it; the questions matter more than the answers.
 
 1. **What did Plugin Check find? (4 min)**
-   - Hands up, Security only: zero findings? One to five? More?
+   - Hands up, rows from the pick list: zero? One to five? More?
    - "Who fixed a Security finding? Who ended up fixing paperwork?" "Did fixing one error create another?"
    - **Zero doesn't mean safe.** Plugin Check reads the code; it doesn't run your plugin the way a visitor would. It won't notice that Reading Time says "1 minutes", or that a maintenance mode plugin can lock you out of your own site. Zero findings means "none of the patterns it looks for", nothing more.
    - **And it doesn't mean "works" either.** The bad example has one bug Plugin Check can't see: click **Remove logo** and it says "Logo removed", but the field still shows the old URL until you reload the page (the value is deleted from the database, but the page reads WordPress's cached copy). Optional: show it in ten seconds on your demo site.
@@ -248,8 +248,8 @@ This is the part people can't get from a tutorial. Don't rush it; the questions 
 | **Custom Login Logo: upload button does nothing** | The media uploader needs extra JavaScript the AI usually leaves out. Coach them: "Tell the AI the button doesn't work and ask it to add the JavaScript for the media uploader." Steer less experienced people to Reading Time or External Link Icon. |
 | **Maintenance Mode on Playground** | Doesn't work reliably there. Switch to LocalWP or another idea. |
 | **Plugin Check won't install** | Check networking is on in Playground (it is by default). Otherwise, pair them with a neighbour who has it, or work from your on-screen results. |
-| **Plugin Check shows dozens of results, mostly readme/License/prefix** | Plugin Repo is still ticked (it's the default). Untick it, tick only Security, run again. The readme.txt, License header, text domain and "prefix" lines are WordPress.org directory paperwork, not risks. In the Security-only run, any Error is a fair pick. |
-| **Plugin Check finds nothing (Security only)** | Normal for simple plugins like Reading Time. If the plugin has a form or settings page, run once with Plugin Repo ticked and look for `NonceVerification` or `ValidatedSanitizedInput`. Otherwise: self-review prompt, then compare. And remember: zero findings isn't the same as safe. |
+| **Plugin Check shows dozens of results, mostly readme/License/prefix** | Normal with Plugin Repo ticked. Point at the pick list on the prompts page: only rows with Security, SettingSanitization, PreparedSQL or direct_file_access in the Code column. The readme.txt, License header, text domain and "prefix" lines are WordPress.org directory paperwork, not risks. In the Security-only run, any Error is a fair pick. |
+| **Nothing to pick from the list** | Normal for simple plugins like Reading Time. Self-review prompt, then compare with Plugin Check, or add a settings page with "Change one thing" and check again. And remember: zero findings isn't the same as safe. |
 | **AI review labels a Security error "potential false positive"** | Open the collapsed **Possible false positives** section and read the AI's reasoning out loud with them. Ask the explain prompt in their chat tool as a second opinion. Don't let either AI decide alone. |
 | **The AI "fixed" it but Plugin Check still flags it** | Great reflection material. Paste the new result back and ask again; after two tries, note it and move on. |
 | **AI chat refuses, is slow, or hits a free limit** | Switch to another tool. Free tiers have daily limits that change without notice. |
@@ -264,11 +264,11 @@ This is the part people can't get from a tutorial. Don't rush it; the questions 
 | Wifi slow or down | Playground and AI tools both need the network. Have a phone hotspot for your own laptop, the backup recording of the demo and the AI review, and the reference plugins in `facilitator/plugins/` to install from a zip. |
 | AI tool slow or down | Two tools logged in on your laptop. Participants switch tools; any chatbot works. |
 | Setup eats the first round | 15 minutes for setup, USB sticks with LocalWP, TA triage. Stuck on LocalWP after a few minutes? Playground for now. |
-| Wide range of skill levels | Difficulty-scaled ideas, three Round 2 tracks, TAs pair beginners with someone further along. |
+| Wide range of skill levels | Difficulty-scaled ideas, two Round 2 tracks, TAs pair beginners with someone further along. |
 | Plugin Check or the AI review fails live | Backup recording. The point is which findings went to the AI and which didn't, which you can explain from the table in the walkthrough section. |
 | The AI review folds nothing away on the day | Fine, and say so. The point is that the security findings were the AI's to judge and the paperwork wasn't; that holds either way. |
 | The bad example ends up on a real site | It is in `facilitator/`, which is not on the participant site but is in the public GitHub repo once committed, so anyone could download it. Its plugin name and header say "never use". Install it only on your demo site or a Playground, and delete it after the workshop. Whether it goes into the public repo at all is your call (see the plan, decision 12). |
-| Round 2 turns into readme-fixing | Categories instruction on the slide and on the ideas/prompts pages: Security on, Plugin Repo off. TAs check the ticked boxes first when someone asks for help. |
+| Round 2 turns into readme-fixing | The pick list on the slide and the prompts page: only Security, SettingSanitization, PreparedSQL or direct_file_access rows. TAs point at the list first when someone asks for help. |
 | Most people get zero Security findings | Expected for the easy ideas. The zero-findings branch (form check with Plugin Repo, or self-review prompt) gives them something to do, and "zero isn't safe" is a reflection point. |
 | Reflection gets squeezed | Protected block. Cut the checkpoint and Round 2 first. |
 | People paste client code or real data into a free AI tool | Say it in Phase 1: use demo content only. Some free tiers use what you send to improve their products. |
