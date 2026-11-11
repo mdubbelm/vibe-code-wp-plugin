@@ -2,7 +2,7 @@
 
 Workshop materials for a hands-on workshop where participants create their own WordPress plugin using AI tools, then check it with Plugin Check and talk honestly about whether it belongs on a real site. No coding experience required.
 
-Current version: 120 minutes, WordCamp Netherlands, 12 November 2026. First given as a 45-minute workshop at WordPress Meetup Amsterdam in May 2026.
+Current version: 115 minutes, WordCamp Netherlands, 12 November 2026, 10:35. First given as a 45-minute workshop at WordPress Meetup Amsterdam in May 2026.
 
 ## For participants
 
@@ -48,7 +48,7 @@ facilitator/                 → Facilitator materials (not public-facing)
 
 | | |
 |---|---|
-| **Duration** | 120 min, including a 10-minute break |
+| **Duration** | 115 min, including an 8-minute break |
 | **Audience** | WordPress users, no coding experience needed. 15–30 people, 1–2 teaching assistants |
 | **What they'll do** | Write a prompt, let AI generate a plugin, install and test it, run Plugin Check's Security checks, fix one finding (or find out why "zero findings" isn't the same as safe), reflect |
 | **Tools needed** | Laptop, WordPress (Playground in the browser, or LocalWP), any AI chatbot |
@@ -59,9 +59,8 @@ facilitator/                 → Facilitator materials (not public-facing)
 |---|---|---|
 | 0. Welcome and setup triage | 8 min | |
 | 1. Intro and live demo | 15 min | Remember + Understand |
-| 2. Hands-on: Round 1 build (30), checkpoint (8), break (10), Plugin Check walkthrough (8), Round 2 check and fix (20) | 76 min | Apply + Create, then Analyze |
+| 2. Hands-on: Round 1 build (30), checkpoint (8), break (8), Plugin Check walkthrough (8), Round 2 check and fix (20) | 74 min | Apply + Create, then Analyze |
 | 3. Honest reflection and closing | 18 min | Analyze + Evaluate |
-| Buffer | 3 min | |
 
 Details: [`facilitator/guide.md`](facilitator/guide.md).
 

@@ -1,12 +1,12 @@
 # Facilitator's Guide: "Vibe Code Your Own WordPress Plugin"
 
-This is the 120-minute version, as given at WordCamp Netherlands on 12 November 2026. The original 45-minute version (WordPress Meetup Amsterdam, May 2026) is in the git history.
+This is the 115-minute version, as given at WordCamp Netherlands on 12 November 2026. The original 45-minute version (WordPress Meetup Amsterdam, May 2026) is in the git history.
 
 ## Workshop at a glance
 
 | | |
 |---|---|
-| **Duration** | 120 minutes, including a 10-minute break |
+| **Duration** | 115 minutes (10:35 to 12:30), including an 8-minute break |
 | **Audience** | WordPress users, no coding experience required. 15–30 participants. |
 | **Team** | Facilitator plus 1–2 teaching assistants (TAs) |
 | **Learning outcomes** | Participants can have an AI tool generate a simple WP plugin, install and test it, run it through Plugin Check, get one finding fixed, and explain when this approach is fine and when they need a developer |
@@ -41,29 +41,30 @@ The site also runs on https://mdubbelm.github.io/vibe-code-wp-plugin/ (same cont
 - [ ] Playground link above tested on the venue wifi or a phone hotspot
 - [ ] Two AI tools logged in on your laptop (if one is slow or down, switch)
 - [ ] TAs briefed: setup triage in the first 8 minutes, the common problems list below, the three Round 2 tracks
-- [ ] Ask the WCNL organisers whether the room is free before 10:45 (for an optional setup desk)
+- [ ] Ask the WCNL organisers whether the room is free before 10:35 (for an optional setup desk)
 
 ### Before the slot (optional setup desk)
 
-Only if the room is free before 10:45. Communicate it in the WCNL attendee information:
+Only if the room is free before 10:35. Communicate it in the WCNL attendee information:
 > "Haven't had time to prepare? Come 15 minutes early and we'll help you get set up. Or just use the Playground link on the preparation page: it needs no installation."
 
 ---
 
-## Timeline (120 minutes)
+## Timeline (115 minutes)
+
+The slot moved to 10:35 and 115 minutes (WCNL schedule, checked 11 Nov). Compared to the 120-minute plan: the break is 8 minutes instead of 10, and there is no buffer.
 
 | Clock | Min | Block |
 |---|---|---|
-| 10:45 | 8 | Phase 0: welcome, check-in, setup triage |
-| 10:53 | 15 | Phase 1: intro and live demo |
-| 11:08 | 30 | Phase 2: Round 1, build |
-| 11:38 | 8 | Checkpoint |
-| 11:46 | 10 | Break |
-| 11:56 | 8 | Plugin Check walkthrough |
-| 12:04 | 20 | Round 2: check and fix |
-| 12:24 | 15 | Phase 3: honest reflection |
-| 12:39 | 3 | Closing |
-| 12:42 | 3 | Buffer |
+| 10:35 | 8 | Phase 0: welcome, check-in, setup triage |
+| 10:43 | 15 | Phase 1: intro and live demo |
+| 10:58 | 30 | Phase 2: Round 1, build |
+| 11:28 | 8 | Checkpoint |
+| 11:36 | 8 | Break |
+| 11:44 | 8 | Plugin Check walkthrough |
+| 11:52 | 20 | Round 2: check and fix |
+| 12:12 | 15 | Phase 3: honest reflection |
+| 12:27 | 3 | Closing (ends 12:30) |
 
 **If you're running behind:** shrink the checkpoint to one share (5 min) and Round 2 to 15 minutes. Never cut the reflection below 12 minutes.
 
@@ -113,7 +114,7 @@ Only if the room is free before 10:45. Communicate it in the WCNL attendee infor
 
 1. **Write your own prompt first (5 min).** Use the template on the preparation page. The "Technical requirements" part mentions hooks and filters: "You don't need to understand those words. They're instructions for the AI, not for you."
 2. **Generate, install, test (10 min).** TAs and you walk around. This is where most people get stuck.
-3. **Share the prompts page at 11:23** (15 minutes in). "Stuck, or want to compare? Here are example prompts." People who are doing fine keep going with their own prompt.
+3. **Share the prompts page at 11:13** (15 minutes in). "Stuck, or want to compare? Here are example prompts." People who are doing fine keep going with their own prompt.
 4. **Keep going and iterate (15 min).** "Doesn't work? Paste the error message back into the AI." Fast people: ask the AI for one improvement.
 
 **Plugin choice card:**
@@ -135,7 +136,7 @@ Compliment good prompts, not just working code.
 - Name the two or three problems you saw at most tables. If everyone hit the same wall, that is a real lesson, not a failure.
 - Announce: "Ten-minute break. After the break we're going to let a tool look at what you built."
 
-#### Break (10 min)
+#### Break (8 min)
 
 People may keep building. TAs help anyone whose plugin doesn't activate yet, so they have something to check in Round 2.
 
@@ -143,7 +144,7 @@ People may keep building. TAs help anyone whose plugin doesn't activate yet, so 
 
 **Target plugin: `facilitator/plugins/bad-example/`** ("BAD EXAMPLE Login Logo" in the Plugins list). It is a Login Logo plugin of the kind a chatbot could plausibly hand you: it works (the logo shows on the login screen, the settings page saves), and it has the classic mistakes from the "Common pitfalls" lists in `facilitator/prompts/`. It is not real chatbot output; it is written to fail in a known way, so you know in advance what the screen will show. The demo Reading Time plugin is the contrast: zero Security findings in our test run.
 
-**What you will see** (measured 14 Oct 2026 with Plugin Check 2.1.0 on WordPress 7.1.3, through Plugin Check's own check runner from a script, not yet in the admin screen; see testplan Test 9):
+**What you will see** (measured 14 Oct 2026 with Plugin Check 2.1.0 on WordPress 7.1.3, same totals with Plugin Check 2.2.0 on WordPress 7.1.4 on 11 Nov, through Plugin Check's own check runner from a script, not yet in the admin screen; see testplan Test 9):
 
 | Line | Code column (short) | In plain words | Sev. | Security only? | Goes to the AI? |
 |---|---|---|---|---|---|

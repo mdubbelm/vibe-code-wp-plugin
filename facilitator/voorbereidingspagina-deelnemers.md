@@ -1,6 +1,6 @@
 # Preparation: "Vibe Code Your Own WordPress Plugin"
 
-Source text for the participant preparation page (`docs/index.html`, EN + NL in `docs/js/i18n.js`, `index-*` keys). Version for WordCamp Netherlands, Thursday 12 November 2026, 10:45, 2 hours. Facts checked 14 October 2026; sources in `claims-ledger.md`.
+Source text for the participant preparation page (`docs/index.html`, EN + NL in `docs/js/i18n.js`, `index-*` keys). Version for WordCamp Netherlands, Thursday 12 November 2026, 10:35, about 2 hours. Facts checked 14 October 2026; sources in `claims-ledger.md`.
 
 ---
 
@@ -239,7 +239,7 @@ The plugin works. Now improve it:
 
 ## Notes for the facilitator (not on the site)
 
-- **Setup desk before 10:45** (plan decision 1): only promise "come 15 minutes early" on this page once the WCNL organisers confirm the room is free. Until then the page says the helpers sort it out in the first minutes, which matches Phase 0.
+- **Setup desk before 10:35** (plan decision 1): only promise "come 15 minutes early" on this page once the WCNL organisers confirm the room is free. Until then the page says the helpers sort it out in the first minutes, which matches Phase 0.
 - **Playground first?** (plan decision 4): Playground is listed first because its link brings Plugin Check along, but both options are presented as equal (Playground has the "Quick option" badge, LocalWP none). If you go Playground-first, give the Playground card the `recommended` class in `docs/index.html`.
 - **"AI inside WordPress" track** (plan decision 3): not on this page. If it goes ahead, add one line: "Already have an API key from Anthropic, Google or OpenAI and LocalWP? Bring them; there's an optional track. Don't get one specially."
 - **The workshop link** must pass testplan Test 3 (must-test) before this page is shared. If `?plugin=plugin-check` fails in the new Playground interface, fall back to `https://playground.wordpress.net/` and keep the manual Plugin Check install line.

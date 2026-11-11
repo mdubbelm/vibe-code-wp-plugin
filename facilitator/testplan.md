@@ -2,7 +2,7 @@
 
 End-to-end test of the full participant experience. Run this on a machine where you haven't set anything up yet (e.g. the Linux laptop) to catch gaps in the documentation.
 
-**WCNL 2026 version (120 minutes, 12 November 2026).** Run it before the end of October so there's time to fix pages, and give it to the TAs too. Use the current WordPress (7.1.3 on 14 Oct 2026, per api.wordpress.org) and the current Playground interface (the July 2026 one with the Dock at the bottom). Tests 9–11 are new for the 2-hour version. Anything marked **must-test** decides what we can promise on the day; see `wcnl-2026-plan.md`.
+**WCNL 2026 version (115 minutes, 12 November 2026, 10:35).** Run it before the end of October so there's time to fix pages, and give it to the TAs too. Use the current WordPress (7.1.3 on 14 Oct 2026, per api.wordpress.org) and the current Playground interface (the July 2026 one with the Dock at the bottom). Tests 9–11 are new for the 2-hour version. Anything marked **must-test** decides what we can promise on the day; see `wcnl-2026-plan.md`.
 
 ---
 
@@ -172,7 +172,7 @@ For each plugin, use the prompt from the preparation page template. Fill in the 
 
 ## Test 7: Timing dry run
 
-**Goal:** Is the 120-minute timeline realistic?
+**Goal:** Is the 115-minute timeline realistic?
 
 Run through the workshop as if you were a participant, ideally with one person who has never done it. Time each block.
 
@@ -182,13 +182,12 @@ Run through the workshop as if you were a participant, ideally with one person w
 | Intro & demo | 15 min | |
 | Round 1: build (own prompt first) | 30 min | |
 | Checkpoint | 8 min | |
-| Break | 10 min | |
+| Break | 8 min | |
 | Plugin Check walkthrough | 8 min | |
 | Round 2: check and fix | 20 min | |
 | Reflection | 15 min | |
 | Closing | 3 min | |
-| Buffer | 3 min | |
-| **Total** | **120 min** | |
+| **Total** | **115 min** | |
 
 - [ ] In Round 2, a beginner can get from "plugin activated" to "one Security finding fixed and re-checked" in 20 minutes, including changing the categories: Yes / No
 - [ ] The demo prompt still produces a working plugin in under five minutes with the AI tool you'll use on the day
